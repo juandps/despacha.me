@@ -158,7 +158,7 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
-                    {/* Topheader End */}
+                    {/* Topheader End   */}
                     {/* Middle Header Start */}
                     <div className="andro_header-middle">
                         <div className="container">
