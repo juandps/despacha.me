@@ -86,22 +86,22 @@ class Categorysidebar extends Component {
                 {/* Product Categories Start */}
                 <div className="sidebar-widget">
                     <div className="section-title">
-                        <h4 className="title">Popular Categories</h4>
+                        <h4 className="title">Categorías</h4>
                     </div>
                     <ul className="sidebar-widget-list">
                         <li>
-                            <Link to="/product-single"> Food <span>(32)</span> </Link>
+                            <Link to="/product-single"> Frutas <span>(32)</span> </Link>
                             <ul>
                                 <li> <Link to="/product-single">Vegetables &amp; Fruits <span>(14)</span> </Link> </li>
                                 <li> <Link to="/product-single">Dairy <span>(39)</span></Link> </li>
                                 <li> <Link to="/product-single">Vegan <span>(54)</span> </Link> </li>
                             </ul>
                         </li>
-                        <li> <Link to="/product-single"> Keto <span>(24)</span> </Link> </li>
-                        <li> <Link to="/product-single"> Baskets <span>(44)</span> </Link> </li>
+                        <li> <Link to="/product-single"> Abarrotes <span>(24)</span> </Link> </li>
+                        <li> <Link to="/product-single"> Lácteos y Huevos <span>(44)</span> </Link> </li>
                         <li> <Link to="/product-single"> Baby &amp; Kids Care <span>(15)</span> </Link> </li>
-                        <li> <Link to="/product-single"> Home Care <span>(43)</span> </Link> </li>
-                        <li> <Link to="/product-single"> Supplements <span>(75)</span> </Link> </li>
+                        <li> <Link to="/product-single"> Verduras <span>(43)</span> </Link> </li>
+                        <li> <Link to="/product-single"> Farmacia <span>(75)</span> </Link> </li>
                     </ul>
                 </div>
                 {/* Product Categories End */}

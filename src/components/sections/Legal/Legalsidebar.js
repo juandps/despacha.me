@@ -40,15 +40,15 @@ class Legalsidebar extends Component {
                     <h5 className="widget-title"> Post Categories </h5>
                     <ul className="sidebar-widget-list">
                         <li>
-                            <Link to="#"> Food <span>(32)</span> </Link>
+                            <Link to="#"> Frutas <span>(32)</span> </Link>
                             <ul>
                                 <li> <Link to="#">Vegetables &amp; Fruits <span>(14)</span> </Link> </li>
                                 <li> <Link to="#">Dairy <span>(39)</span></Link> </li>
                                 <li> <Link to="#">Vegan <span>(54)</span> </Link> </li>
                             </ul>
                         </li>
-                        <li> <Link to="#"> Keto <span>(24)</span> </Link> </li>
-                        <li> <Link to="#"> Baskets <span>(44)</span> </Link> </li>
+                        <li> <Link to="#"> Abarrotes <span>(24)</span> </Link> </li>
+                        <li> <Link to="#"> Lácteos y Huevos <span>(44)</span> </Link> </li>
                         <li> <Link to="#"> Baby &amp; Kids Care <span>(15)</span> </Link> </li>
                     </ul>
                 </div>

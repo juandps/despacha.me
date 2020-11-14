@@ -13,8 +13,8 @@ import fdimg3 from '../../../assets/img/products/6.png';
 import fdimg4 from '../../../assets/img/products/7.png';
 import fdimg5 from '../../../assets/img/products/8.png';
 
-// Food tab loop
-const foodpost = [
+// Frutas tab loop
+const Frutaspost = [
   {
     photo: fdimg1,
     url: "/product-single",
@@ -236,12 +236,12 @@ class Topcategory extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <Tab.Container defaultActiveKey="food">
+              <Tab.Container defaultActiveKey="Frutas">
                 <div className="section-title flex-title">
                   <h4 className="title">Top Picks</h4>
                   <Nav variant="tab">
                     <Nav.Item>
-                      <Nav.Link eventKey="food">Food</Nav.Link>
+                      <Nav.Link eventKey="Frutas">Frutas</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey="keta">Keta</Nav.Link>
@@ -253,9 +253,9 @@ class Topcategory extends Component {
                 </div>
                 {/* Tabs Start */}
                 <Tab.Content>
-                  <Tab.Pane eventKey="food">
+                  <Tab.Pane eventKey="Frutas">
                     <Slider className="andro_grid-slider" {...settings}>
-                      {foodpost.map((item, i) => (
+                      {Frutaspost.map((item, i) => (
                         <div key={i} className="andro_product andro_product-minimal andro_product-has-controls andro_product-has-buttons">
                           {item.badge}
                           <div className="andro_product-thumb">

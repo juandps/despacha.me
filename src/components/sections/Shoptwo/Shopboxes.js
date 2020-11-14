@@ -154,7 +154,7 @@ class Shopboxes extends Component {
                 <div className="andro_section-fw">
                     <div className="row">
                         <div className="col-lg-9">
-                            {/* Product Count & Orderby Start */}
+                            {/* Product Count & Orderby Start 
                             <div className="andro_shop-global">
                                 <p>Showing <b>20</b> of <b>320</b> products </p>
                                 <form method="post">
@@ -167,6 +167,7 @@ class Shopboxes extends Component {
                                     </select>
                                 </form>
                             </div>
+                            */}                 
                             {/* Product Count & Orderby End */}
                             <div className="row masonry">
                                 {shopfullbox.map((item, i) => (

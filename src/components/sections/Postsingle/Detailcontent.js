@@ -98,7 +98,7 @@ class Detailcontent extends Component {
                                     <h6>Tags</h6>
                                     <div className="tagcloud">
                                         <Link to="#">#Health</Link>
-                                        <Link to="#">#Food</Link>
+                                        <Link to="#">#Frutas</Link>
                                         <Link to="#">#Fiber</Link>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ class Detailcontent extends Component {
                                     <h6>Categories</h6>
                                     <div className="tagcloud">
                                         <Link to="#">Organic</Link>
-                                        <Link to="#">Food</Link>
+                                        <Link to="#">Frutas</Link>
                                     </div>
                                 </div>
                             </div>

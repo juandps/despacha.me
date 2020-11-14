@@ -63,15 +63,15 @@ class Banner extends Component {
                                     <ul>
                                         {/* Level 1 */}
                                         <li className="andro_category-mm-item andro_category-mm-item-has-children">
-                                            <Link to="#"> Food </Link>
+                                            <Link to="#"> Frutas </Link>
                                             <ul className="andro_category-mm-2-cols">
                                                 {/* Level 2 */}
                                                 <li>
                                                     <div className="andro_category-mm-banner">
                                                         <img src="assets/img/megamenu/1.jpg" alt="megamenu img" />
                                                         <div className="andro_category-mm-banner-desc">
-                                                            <h6>Food</h6>
-                                                            <p>Experience organic food like never before</p>
+                                                            <h6>Frutas</h6>
+                                                            <p>Experience organic Frutas like never before</p>
                                                         </div>
                                                     </div>
                                                     <ul>
@@ -87,7 +87,7 @@ class Banner extends Component {
                                                     </ul>
                                                     <ul>
                                                         <li> <Link to="#">Beans</Link> </li>
-                                                        <li> <Link to="#">Vegan Food</Link> </li>
+                                                        <li> <Link to="#">Vegan Frutas</Link> </li>
                                                         <li> <Link to="#">Distillates</Link> </li>
                                                         <li> <Link to="#">Eggs</Link> </li>
                                                         <li> <Link to="#">Snacks</Link> </li>
@@ -98,17 +98,17 @@ class Banner extends Component {
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li className="andro_category-mm-item"> <Link to="#"> Keto</Link> </li>
+                                        <li className="andro_category-mm-item"> <Link to="#"> Abarrotes</Link> </li>
                                         <li className="andro_category-mm-item andro_category-mm-item-has-children">
-                                            <Link to="#"> Baskets </Link>
+                                            <Link to="#"> Lácteos y Huevos </Link>
                                             <ul className="andro_category-mm-2-cols">
                                                 {/* Level 2 */}
                                                 <li>
                                                     <div className="andro_category-mm-banner">
                                                         <img src="assets/img/megamenu/2.jpg" alt="megamenu img" />
                                                         <div className="andro_category-mm-banner-desc">
-                                                            <h6>Baskets</h6>
-                                                            <p>Hand made baskets for your organic goods</p>
+                                                            <h6>Lácteos y Huevos</h6>
+                                                            <p>Hand made Lácteos y Huevos for your organic goods</p>
                                                         </div>
                                                     </div>
                                                     <ul>
@@ -128,7 +128,7 @@ class Banner extends Component {
                                             </ul>
                                         </li>
                                         <li className="andro_category-mm-item"> <Link to="#"> Baby &amp; Kids Care</Link> </li>
-                                        <li className="andro_category-mm-item"> <Link to="#"> Home Care</Link> </li>
+                                        <li className="andro_category-mm-item"> <Link to="#"> Verduras</Link> </li>
                                         <li className="andro_category-mm-item"> <Link to="#"> Supplements</Link> </li>
                                         <li className="andro_category-mm-item"> <Link to="#"> Beauty Care</Link> </li>
                                         <li className="andro_category-mm-item andro_category-mm-item-has-children andro_category-mm-item-expand">
@@ -172,9 +172,9 @@ class Banner extends Component {
                                     <li className="menu-item menu-item-has-children">
                                         <Link to="#">Top Sellers</Link>
                                         <ul className="sub-menu">
-                                            <li className="menu-item"> <Link to="#">Food</Link> </li>
-                                            <li className="menu-item"> <Link to="#">Baskets</Link> </li>
-                                            <li className="menu-item"> <Link to="#">Keto</Link> </li>
+                                            <li className="menu-item"> <Link to="#">Frutas</Link> </li>
+                                            <li className="menu-item"> <Link to="#">Lácteos y Huevos</Link> </li>
+                                            <li className="menu-item"> <Link to="#">Abarrotes</Link> </li>
                                         </ul>
                                     </li>
                                     <li className="menu-item"> <Link to="/shop-v3">Fresh Arrivals</Link> </li>

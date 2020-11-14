@@ -104,7 +104,7 @@ class Gridpost extends Component {
                                     </div>
                                     <div className="andro_post-body">
                                         <div className="andro_post-categories">
-                                            <Link to="#">Food</Link>
+                                            <Link to="#">Frutas</Link>
                                             <Link to="#">Veg</Link>
                                         </div>
                                         <div className="andro_post-desc">
