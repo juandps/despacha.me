@@ -31,7 +31,7 @@ function App() {
       <Preloader/>
       <Newsletter/>
       <Switch>
-        <Route exact path="/" component={Homethree} />
+        <Route path="/" component={Homethree} />
         <Route path="/home-v2" component={Hometwo}/>
         <Route path="/home-v3" component={Homethree}/>
         <Route path="/about" component={About}/>
