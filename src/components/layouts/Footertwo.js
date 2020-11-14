@@ -21,10 +21,7 @@ class Footertwo extends Component {
                         <div className="andro_footer-logo">
                             <img src={logo} alt="logo" />
                         </div>
-                        <div className="andro_footer-buttons">
-                            <Link to="#"> <img src={android} alt="download it on the app store" /></Link>
-                            <Link to="#"> <img src={iosicon} alt="download it on the app store" /></Link>
-                        </div>
+                        
                     </div>
                 </div>
                 {/* Middle Footer */}
@@ -32,37 +29,37 @@ class Footertwo extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
-                                <h5 className="widget-title">Information</h5>
+                                <h5 className="widget-title">Información</h5>
                                 <ul>
-                                    <li> <Link to="/">Home</Link> </li>
+                                    <li> <Link to="/">Inicio</Link> </li>
                                     <li> <Link to="/blog-grid">Blog</Link> </li>
-                                    <li> <Link to="/about">About Us</Link> </li>
-                                    <li> <Link to="/shop-v1">Shop</Link> </li>
-                                    <li> <Link to="/contact">Contact Us</Link> </li>
+                                    <li> <Link to="/about">Nosotros</Link> </li>
+                                    <li> <Link to="/shop-v1">Tienda</Link> </li>
+                                    <li> <Link to="/contact">Contacto</Link> </li>
                                 </ul>
                             </div>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
-                                <h5 className="widget-title">Top Categories</h5>
+                                <h5 className="widget-title">Categorías</h5>
                                 <ul>
-                                    <li> <Link to="#">Food</Link> </li>
-                                    <li> <Link to="#">Baskets</Link> </li>
-                                    <li> <Link to="#">Supplements</Link> </li>
-                                    <li> <Link to="#">Keto</Link> </li>
-                                    <li> <Link to="#">Home Care</Link> </li>
+                                    <li> <Link to="#">Frutas</Link> </li>
+                                    <li> <Link to="#">Verduras</Link> </li>
+                                    <li> <Link to="#">Medicina</Link> </li>
+                                    <li> <Link to="#">Flores</Link> </li>
+                                    <li> <Link to="#">Casa</Link> </li>
                                 </ul>
                             </div>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
-                                <h5 className="widget-title">Others</h5>
+                                <h5 className="widget-title">Otros</h5>
                                 <ul>
                                     <li> <Link to="/checkout">Checkout</Link> </li>
-                                    <li> <Link to="/cart">Cart</Link> </li>
-                                    <li> <Link to="/product-single">Product</Link> </li>
-                                    <li> <Link to="/shop-v1">Shop</Link> </li>
+                                    <li> <Link to="/cart">Carrito</Link> </li>
+                                    <li> <Link to="/product-single">Producto</Link> </li>
+                                    <li> <Link to="/shop-v1">Tienda</Link> </li>
                                     <li> <Link to="/legal">Legal</Link> </li>
                                 </ul>
                             </div>
                             <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12 footer-widget">
-                                <h5 className="widget-title">Social Media</h5>
+                                <h5 className="widget-title">Redes Sociales</h5>
                                 <ul className="social-media">
                                     <li> <Link to="#" className="facebook"> <i className="fab fa-facebook-f" /> </Link> </li>
                                     <li> <Link to="#" className="pinterest"> <i className="fab fa-pinterest-p" /> </Link> </li>
@@ -70,8 +67,8 @@ class Footertwo extends Component {
                                     <li> <Link to="#" className="twitter"> <i className="fab fa-twitter" /> </Link> </li>
                                 </ul>
                                 <div className="andro_footer-offer">
-                                    <p>Signup and get exclusive offers and coupon codes</p>
-                                    <Link to="/register" className="andro_btn-custom btn-sm shadow-none">Sign Up</Link>
+                                    <p>¿Quieres recibir promos?</p>
+                                    <Link to="/register" className="andro_btn-custom btn-sm shadow-none">Si quiero</Link>
                                 </div>
                             </div>
                         </div>
@@ -81,14 +78,14 @@ class Footertwo extends Component {
                 <div className="andro_footer-bottom">
                     <div className="container">
                         <ul>
-                            <li> <Link to="#">Privacy Policy</Link> </li>
-                            <li> <Link to="#">Refund Policy</Link> </li>
-                            <li> <Link to="#">Cookie Policy</Link> </li>
-                            <li> <Link to="#">Terms &amp; Conditions</Link> </li>
+                            <li> <Link to="#">Política de Privacidad</Link> </li>
+                            <li> <Link to="#">Devoluciones</Link> </li>
+                            <li> <Link to="#">Datos</Link> </li>
+                            <li> <Link to="#">Términos &amp; Condiciones</Link> </li>
                         </ul>
                         <div className="andro_footer-copyright">
-                            <p> Copyright © 2020 <Link to="#">AndroThemes</Link> All Rights Reserved. </p>
-                            <Link to="#" className="andro_back-to-top" onClick={() => this.scrollToTop()}>Back to top <i className="fas fa-chevron-up" /> </Link>
+                            <p> <Link to="#">Distriduidora Despachame S.A.S.</Link> Todos los derechos reservados. </p>
+                            <Link to="#" className="andro_back-to-top" onClick={() => this.scrollToTop()}>Regresar arriba <i className="fas fa-chevron-up" /> </Link>
                         </div>
                     </div>
                 </div>

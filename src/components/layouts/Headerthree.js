@@ -140,15 +140,8 @@ class Headerthree extends Component {
                                     <li> <Link to="#"> <i className="fab fa-youtube" /> </Link> </li>
                                 </ul>
                                 <ul className="andro_header-top-links">
-                                    <li className="menu-item"><Link to="/login"> My Account </Link></li>
-                                    <li className="menu-item menu-item-has-children">
-                                        <Link to="#"> <span className="andro_current-currency-text">Currency</span> (USD) </Link>
-                                        <ul className="sub-menu sub-menu-left">
-                                            <li> <Link to="#">United States Dollar (USD)</Link> </li>
-                                            <li> <Link to="#">Kuwait Dinar (KWD)</Link> </li>
-                                            <li> <Link to="#">Pound Sterling (GBP)</Link> </li>
-                                        </ul>
-                                    </li>
+                                    <li className="menu-item"><Link to="/login"> Mi cuenta </Link></li>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -194,7 +187,7 @@ class Headerthree extends Component {
                                 <div className="andro_search-adv">
                                     <form method="post">
                                         <div className="andro_search-adv-cats">
-                                            <span>All Categories</span>
+                                            <span>Categorías</span>
                                             <div className="sub-menu">
                                                 <div className="andro_dropdown-scroll">
                                                     <label>
@@ -236,7 +229,7 @@ class Headerthree extends Component {
                                             </div>
                                         </div>
                                         <div className="andro_search-adv-input">
-                                            <input type="text" className="form-control" placeholder="Look for Fruits, Vegetables" name="search" />
+                                            <input type="text" className="form-control" placeholder="Busca frutas, verduras, medicina... ¡Lo que sea!" name="search" />
                                             <button type="submit" name="button"><i className="fa fa-search" /></button>
                                         </div>
                                     </form>

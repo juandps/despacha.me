@@ -11,7 +11,7 @@ const closeIcon = (
 
 class Newsletter extends Component {
     state = {
-        open: true,
+        open: false,
     };
     onOpenModal = () => {
         this.setState({ open: true });

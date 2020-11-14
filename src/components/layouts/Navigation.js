@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const navigationmenu = [{
     id: 1,
-    linkText: 'Home Pages',
+    linkText: 'Inicio',
     child: true,
     submenu: [{
         id: 11,
@@ -22,97 +22,12 @@ const navigationmenu = [{
     },
     ]
 },
-{
-    id: 2,
-    linkText: 'Blog',
-    child: true,
-    submenu: [
-        {
-            id: 21,
-            linkText: 'Blog Archive',
-            child: true,
-            submenu: [
-                {
-                    id: 211,
-                    link: '/blog-grid',
-                    linkText: 'Grid View',
-                },
-                {
-                    id: 212,
-                    link: '/blog-list',
-                    linkText: 'List View',
-                },
-                {
-                    id: 213,
-                    link: '/blog-masonry',
-                    linkText: 'Masonary View',
-                },
-            ]
-        },
-        {
-            id: 22,
-            link: '/blog-single',
-            linkText: 'Blog Single'
-        },
-    ]
-},
-{
-    id: 3,
-    linkText: 'Pages',
-    child: true,
-    submenu: [
-        {
-            id: 31,
-            link: '/about',
-            linkText: 'About Us'
-        },
-        {
-            id: 32,
-            link: '/login',
-            linkText: 'Login'
-        },
-        {
-            id: 33,
-            link: '/register',
-            linkText: 'Sign Up'
-        },
-        {
-            id: 34,
-            link: '/checkout',
-            linkText: 'Checkout'
-        },
-        {
-            id: 35,
-            link: '/cart',
-            linkText: 'Cart'
-        },
-        {
-            id: 36,
-            link: '/wishlist',
-            linkText: 'Wishlist'
-        },
-        {
-            id: 37,
-            link: '/legal',
-            linkText: 'Legal'
-        },
-        {
-            id: 38,
-            link: '/error',
-            linkText: 'Error 404'
-        },
-    ]
-},
-    // {
-    //     id: 5,
-    //     linkText: 'Contact Us',
-    //     link: '/contact',
-    // },
+  
 ]
 const navigationmenus = [
     {
         id: 1,
-        linkText: 'Contact Us',
+        linkText: 'Contacto',
         link: '/contact',
     },  
 ]
@@ -145,7 +60,7 @@ class Navigation extends Component {
                     </li>
                 )) : null}
                 <li className="menu-item menu-item-has-children mega-menu-wrapper">
-                    <Link to="#">Shop</Link>
+                    <Link to="#">Tienda</Link>
                     <ul className="sub-menu">
                         <li>
                             <div className="container">

@@ -29,7 +29,7 @@ const categories = [
     },
     {
         icon: "flaticon-olive-oil",
-        title: "Aceites",
+        title: "Oils",
         link: "#",
     }
 ]

@@ -164,7 +164,7 @@ class Headertwo extends Component {
                                 <div className="andro_search-adv">
                                     <form method="post">
                                         <div className="andro_search-adv-cats">
-                                            <span>All Categories</span>
+                                            <span>Categorías</span>
                                             <div className="sub-menu">
                                                 <div className="andro_dropdown-scroll">
                                                     <label>
@@ -206,7 +206,7 @@ class Headertwo extends Component {
                                             </div>
                                         </div>
                                         <div className="andro_search-adv-input">
-                                            <input type="text" className="form-control" placeholder="Look for Fruits, Vegetables" name="search" />
+                                            <input type="text" className="form-control" placeholder="Busca frutas, verduras, medicina... ¡Lo que sea!" name="search" />
                                             <button type="submit" name="button"><i className="fa fa-search" /></button>
                                         </div>
                                     </form>
