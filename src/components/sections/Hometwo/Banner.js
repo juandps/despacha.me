@@ -194,7 +194,7 @@ class Banner extends Component {
                                         <div key={i} className="container-fluid">
                                             <div className="row align-items-center">
                                                 <div className="col-lg-6">
-                                                    <p>Use code <strong className="custom-primary">{item.couponcode}</strong> during checkout</p>
+                                                    <p>Usa el cupón <strong className="custom-primary">{item.couponcode}</strong> al pagar</p>
                                                     <h1> {item.title} <span className="fw-400">{item.titlespan}</span> </h1>
                                                     <p>{item.para}</p>
                                                     <Link to={item.url} className="andro_btn-custom">{item.urltext}</Link>

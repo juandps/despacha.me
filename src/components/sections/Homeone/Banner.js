@@ -115,7 +115,7 @@ class Banner extends Component {
                     </div>
                   </div>
                   <div className="col-lg-6 offset-lg-1">
-                    <p>Use code <strong className="custom-primary">ORGANIC991</strong> during checkout</p>
+                    <p>Usa el cupón <strong className="custom-primary">ORGANIC991</strong> al pagar</p>
                     <h1>{item.title} <span className="fw-400">{item.titlespan}</span> </h1>
                     <p>{item.para}</p>
                     <Link to={item.link} className="andro_btn-custom">{item.linktext}</Link>

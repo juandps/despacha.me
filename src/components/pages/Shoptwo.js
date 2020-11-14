@@ -9,11 +9,11 @@ class Shoptwo extends Component {
     render() {
         return (
             <div>
-                <Headertwo/>
-                <Breadcrumb/>
+                {/*<Headertwo/>*/}
+                {/*<Breadcrumb/>*/}
                 <Shopboxes/>
-                <Instatwo/>
-                <Footer/>
+                {/*<Instatwo/>*/}
+               {/* <Footer/>*/}
             </div>
         );
     }

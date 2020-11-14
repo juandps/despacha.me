@@ -5,7 +5,7 @@ import logo from '../../assets/img/logo.png';
 
 const navigationmenu = [{
     id: 1,
-    linkText: 'Home Pages',
+    linkText: 'Inicio',
     child: true,
     submenu: [{
         id: 11,
@@ -60,7 +60,7 @@ const navigationmenu = [{
 },
 {
     id: 3,
-    linkText: 'Pages',
+    linkText: 'Páginas',
     child: true,
     submenu: [
         {

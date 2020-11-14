@@ -14,6 +14,7 @@ import Testimonials from '../sections/Homethree/Testimonials';
 import Faqcontact from '../sections/Homethree/Faqcontact';
 import Instatwo from '../layouts/Instatwo';
 import Footertwo from '../layouts/Footertwo';
+import Shopboxes from '../sections/Shoptwo/Shopboxes';
 
 class Homethree extends Component {
     render() {
@@ -22,17 +23,18 @@ class Homethree extends Component {
                 <Headerthree/>
                 <Banner/>
                 <Categories/>
-                <Shopcta/>
-                <Icons/>
-                <Products/>
+                {/*<Shopcta/>
+                <Icons/>*/}
+                <Shopboxes/>
+                {/*<Products/>
                 <Featureproducts/>
                 <Cta/>
                 <Toppicks/>
-                <Ctamasonary/>
+                <Ctamasonary/> 
                 <Blogpost/>
-                <Testimonials/>
-                <Faqcontact/>
-                <Instatwo/>
+                <Testimonials/>*/}
+                {/*<Faqcontact/>
+                <Instatwo/>*/}
                 <Footertwo/>
             </div>
         );

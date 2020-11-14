@@ -25,10 +25,10 @@ a, .andro_list li::before,
 .andro_flex-menu > ul > li > a:hover,
 .andro_icon-block.icon-block-2 i,
 .andro_auth-mini a:hover{
-  color: #50BD4D;
+  color: #2E2D52;
 }
 blockquote{
-  border-left-color: #50BD4D;
+  border-left-color: #2E2D52;
 }
 .dot1, .dot2,
 .andro_btn-custom,
@@ -47,10 +47,10 @@ blockquote{
 .slick-next:hover,
 .slick-next:focus,
 .section-title::after{
-  background-color: #50BD4D;
+  background-color: #2E2D52;
 }
 .andro_icon-block .andro_svg-stroke-shape-anim{
-  stroke: #50BD4D;
+  stroke: #2E2D52;
 }
 
 /* PRIMARY HOVER COLOR */
@@ -60,7 +60,7 @@ a:focus,
 .andro_post .andro_post-body h5 a:hover,
 .andro_post .andro_post-body .andro_post-desc > span a:hover,
 .andro_product .andro_product-body .andro_product-title a:hover{
-  color: #40A13D;
+  color: #2E2D52;
 }
 .andro_btn-custom:hover,
 .andro_btn-custom:focus,
@@ -69,7 +69,7 @@ a:focus,
 .navbar-nav .mega-menu-item .andro_btn-custom:hover,
 .aside-toggler.desktop-toggler:hover,
 .andro_header.header-3 .andro_category-mm .andro_category-mm-header:hover{
-  background-color: #40A13D;
+  background-color: #2E2D52;
 }
 
 /* PRIMARY RGBA */
@@ -81,7 +81,7 @@ a:focus,
 @media(max-width:991px){
 
   .banner-3.andro_banner .andro_arrows .slick-arrow:hover{
-    background-color: #50BD4D;
+    background-color: #2E2D52;
   }
 
 }
