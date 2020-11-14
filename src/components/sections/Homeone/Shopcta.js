@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 // images
-import img1 from '../../../assets/img/cta/1.jpg';
-import img2 from '../../../assets/img/cta/2.jpg';
+import img1 from '../../../assets/img/cta/1.1.jpg';
+import img2 from '../../../assets/img/cta/1.2.jpg';
 
 const shopcta = [
   {

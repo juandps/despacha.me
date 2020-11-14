@@ -28,7 +28,7 @@ class Homethree extends Component {
                 <Featureproducts/>
                 <Cta/>
                 <Toppicks/>
-                <Ctamasonary/>
+                <Ctamasonary/> 
                 <Blogpost/>
                 <Testimonials/>
                 <Faqcontact/>

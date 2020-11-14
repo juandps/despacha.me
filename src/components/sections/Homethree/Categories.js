@@ -4,32 +4,32 @@ import { Link } from 'react-router-dom'
 const categories = [
     {
         icon: "flaticon-diet",
-        title: "Food",
+        title: "Frutas",
         link: "#",
     },
     {
         icon: "flaticon-supplements",
-        title: "Supplements",
+        title: "Farmacia",
         link: "#",
     },
     {
         icon: "flaticon-groceries",
-        title: "Baskets",
+        title: "Combos",
         link: "#",
     },
     {
         icon: "flaticon-cleaning-spray",
-        title: "Home Care",
+        title: "Aseo",
         link: "#",
     },
     {
         icon: "flaticon-baby",
-        title: "Kids Care",
+        title: "Cuidado baby",
         link: "#",
     },
     {
         icon: "flaticon-olive-oil",
-        title: "Oils",
+        title: "Aceites",
         link: "#",
     }
 ]
