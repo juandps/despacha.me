@@ -1419,6 +1419,19 @@ table img{
   position: relative;
   width: 400px;
 }
+.andro_search-adv-input .banner2{
+  text-align: center;
+
+  width: 400px;
+}
+.banner2{
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 3px 24px rgba(0,0,0,.04);
+}
 .andro_search-adv-input button{
   position: absolute;
   top: 50%;

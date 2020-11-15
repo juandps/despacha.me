@@ -47,15 +47,14 @@ class Banner extends Component {
                     {bannerslides.map((item, i) => (
                         <div key={i}>
                         <div className="andro_banner-slider-inner" style={{backgroundImage: "url("+ item.photo +")"}}>
+                            
                             <div className="container">
-                                <div className="andro_banner-slider-text">
-                                    <img src={item.proimg} className="img-1" alt="product" />
-                                    <p>Usa el cupón <strong className="custom-primary">{item.couponcode}</strong> al pagar</p>
-                                    <h1 style={{backgroundImage: "url("+ item.ctaimg +")"}}> {item.title} </h1>
-                                    <p>{item.para}</p>
-                                    <Link to={item.url} className="andro_btn-custom">{item.urltext}</Link>
-                                </div>
+                                        <div className="andro_search-adv-input banner2">
+                                            <input type="text" className="form-control" placeholder="Busca cualquier producto" name="search" />
+                                            <button type="submit" name="button"><i className="fa fa-search" /></button>
+                                        </div>
                             </div>
+                            
                         </div>
                         </div>
                     ))}
