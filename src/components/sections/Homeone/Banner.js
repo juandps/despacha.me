@@ -25,7 +25,7 @@ const bannerslides = [
   },
   {
     photo: bannerimg2,
-    bagde: "Featured",
+    bagde: "Destacado",
     url: "/product-single",
     producttitle: "Grapes",
     stars: "4 Stars",
@@ -40,7 +40,7 @@ const bannerslides = [
   },
   {
     photo: bannerimg3,
-    bagde: "Feature",
+    bagde: "Destacado",
     url: "/product-single",
     producttitle: "Oranges",
     stars: "4 Stars",
@@ -94,16 +94,7 @@ class Banner extends Component {
                       </div>
                       <div className="andro_product-body">
                         <h5 className="andro_product-title"> <Link to={item.url}> {item.producttitle} </Link> </h5>
-                        <div className="andro_rating-wrapper">
-                          <div className="andro_rating">
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star" />
-                          </div>
-                          <span>{item.stars}</span>
-                        </div>
+                        
                       </div>
                       <div className="andro_product-footer">
                         <div className="andro_product-price">

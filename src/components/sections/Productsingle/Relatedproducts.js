@@ -17,12 +17,12 @@ const relatedpost = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -31,12 +31,12 @@ const relatedpost = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "5 Stars",
         price1: "11$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -46,8 +46,8 @@ const relatedpost = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off </div>
@@ -59,12 +59,12 @@ const relatedpost = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -73,12 +73,12 @@ const relatedpost = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "5 Stars",
         price1: "11$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -88,8 +88,8 @@ const relatedpost = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off </div>
@@ -160,16 +160,7 @@ class Relatedproducts extends Component {
                                         <span>{item.price2}</span>
                                     </div>
                                     <p>{item.para}</p>
-                                    <div className="andro_rating-wrapper">
-                                        <div className="andro_rating">
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star" />
-                                        </div>
-                                        <span>{item.stars}</span>
-                                    </div>
+                                    
                                 </div>
                                 <div className="andro_product-footer">
                                     <div className="andro_product-buttons">

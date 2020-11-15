@@ -19,8 +19,8 @@ const otherpost = [
     title: "Corn",
     price1: "19$",
     price2: "26$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-sale">
       20% Off
     </div>
@@ -30,27 +30,27 @@ const otherpost = [
     url: "/product-single",
     title: "Grapes",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
   },
   {
     photo: img3,
     url: "/product-single",
     title: "Brocoli",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
   },
   {
     photo: img4,
     url: "/product-single",
     title: "Oranges",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-featured">
       <i className="fa fa-star" />
-      <span>Featured</span>
+      <span>Destacado</span>
     </div>
   },
   {
@@ -59,8 +59,8 @@ const otherpost = [
     title: "Watermelon",
     price1: "19$",
     price2: "22$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-sale">
       15% Off
     </div>
@@ -70,8 +70,8 @@ const otherpost = [
     url: "/product-single",
     title: "Ginger",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
   },
 ]
 const closeIcon = (
@@ -139,15 +139,7 @@ class Otherproduct extends Component {
               {item.badge}
               <div className="andro_product-body">
                 <h6 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h6>
-                <div className="andro_rating-wrapper">
-                  <div className="andro_rating">
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star" />
-                  </div>
-                </div>
+                
               </div>
               <div className="andro_product-footer">
                 <div className="andro_product-price">

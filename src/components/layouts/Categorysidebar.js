@@ -121,16 +121,7 @@ class Categorysidebar extends Component {
                                 <div className="andro_product-body">
                                     <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
                                     <p>{item.para}</p>
-                                    <div className="andro_rating-wrapper">
-                                        <div className="andro_rating">
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star" />
-                                        </div>
-                                        <span>{item.stars}</span>
-                                    </div>
+                                    
                                 </div>
                                 <div className="andro_product-footer">
                                     <div className="andro_product-price">

@@ -42,15 +42,7 @@ class Testimonials extends Component {
                                 <div className="andro_testimonial">
                                     <div className="andro_testimonial-body">
                                         <h5>{item.title}</h5>
-                                        <div className="andro_rating-wrapper">
-                                            <div className="andro_rating">
-                                                <i className="fas fa-star active" />
-                                                <i className="fas fa-star active" />
-                                                <i className="fas fa-star active" />
-                                                <i className="fas fa-star active" />
-                                                <i className="fas fa-star active" />
-                                            </div>
-                                        </div>
+                                        
                                         <p>{item.para}</p>
                                     </div>
                                     <div className="andro_testimonial-author">

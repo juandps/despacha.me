@@ -65,7 +65,7 @@ class Testimonials extends Component {
                                             <p>{item.para}</p>
                                         </div>
                                         <ul className="andro_sm">
-                                            <li> <Link to="https://www.facebook.com/despacha.me"> <i className="fab fa-facebook-f" /> </Link> </li>
+                                            <li> <a href="https://www.facebook.com/despacha.me"> <i className="fab fa-facebook-f"/> </a>  </li>
                                             <li> <Link to="https://twitter.com/despacha_me"> <i className="fab fa-twitter" /> </Link> </li>
                                             <li> <Link to="https://wa.link/advqv4"> <i className="fab fa-whatsapp" /> </Link> </li>
                                             <li> <Link to="https://www.instagram.com/despacha.me/"> <i className="fab fa-instagram" /> </Link> </li>

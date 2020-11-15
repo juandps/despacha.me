@@ -118,16 +118,7 @@ class Shoplist extends Component {
                                         <Link to={item.url}><img src={item.photo} alt="product" /></Link>
                                     </div>
                                     <div className="andro_product-body">
-                                        <div className="andro_rating-wrapper">
-                                            <div className="andro_rating">
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star" />
-                                            </div>
-                                            <span>{item.stars}</span>
-                                        </div>
+                                        
                                         <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
                                         <p>{item.para}</p>
                                         <div className="andro_product-footer">

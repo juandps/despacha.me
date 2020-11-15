@@ -111,16 +111,8 @@ class Productcontent extends Component {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="andro_rating-wrapper">
-                                    <div className="andro_rating">
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star" />
-                                    </div>
-                                    <span>4 Stars</span>
-                                </div>
+                                
+                                
                                 <h3> Tomatoes </h3>
                                 <div className="andro_product-price">
                                     <span>8$</span>

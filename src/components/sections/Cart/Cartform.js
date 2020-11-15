@@ -15,8 +15,8 @@ const upsellslist = [
         stars: "5 Stars",
         price1: "11$",
         price2: "24$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
@@ -25,8 +25,8 @@ const upsellslist = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "5 Stars",
         price1: "11$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
@@ -35,8 +35,8 @@ const upsellslist = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "5 Stars",
         price1: "11$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
@@ -45,8 +45,8 @@ const upsellslist = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "5 Stars",
         price1: "11$",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
 ]
@@ -80,16 +80,7 @@ class Cartform extends Component {
                                             <Link to={item.url}><img src={item.photo} alt="product" /></Link>
                                         </div>
                                         <div className="andro_product-body">
-                                            <div className="andro_rating-wrapper">
-                                                <div className="andro_rating">
-                                                    <i className="fa fa-star active" />
-                                                    <i className="fa fa-star active" />
-                                                    <i className="fa fa-star active" />
-                                                    <i className="fa fa-star active" />
-                                                    <i className="fa fa-star active" />
-                                                </div>
-                                                <span>{item.stars}</span>
-                                            </div>
+                                            
                                             <h5 className="andro_product-title"> <Link to={item.url}> {item.name} </Link> </h5>
                                             <div className="andro_product-price">
                                                 <span>{item.price1}</span>

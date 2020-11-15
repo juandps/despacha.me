@@ -187,16 +187,7 @@ class Productcontent extends Component {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="andro_rating-wrapper">
-                                    <div className="andro_rating">
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star" />
-                                    </div>
-                                    <span>4 Stars</span>
-                                </div>
+                                
                                 <h3> Apricots </h3>
                                 <div className="andro_product-price">
                                     <span>8$</span>
@@ -270,16 +261,7 @@ class Productcontent extends Component {
                                                 </div>
                                                 <div className="andro_product-body">
                                                     <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
-                                                    <div className="andro_rating-wrapper">
-                                                        <div className="andro_rating">
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star" />
-                                                        </div>
-                                                        <span>{item.stars}</span>
-                                                    </div>
+                                                   
                                                 </div>
                                                 <div className="andro_product-footer">
                                                     <div className="andro_product-price">

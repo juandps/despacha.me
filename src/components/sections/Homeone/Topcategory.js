@@ -20,11 +20,11 @@ const Frutaspost = [
     url: "/product-single",
     title: "Cucumber",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-featured">
       <i className="fa fa-star" />
-      <span>Featured</span>
+      <span>Destacado</span>
     </div>
   },
   {
@@ -33,8 +33,8 @@ const Frutaspost = [
     title: "Watermelon",
     price1: "22$",
     price2: "29$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-sale">
       20% Off
   </div>
@@ -44,8 +44,8 @@ const Frutaspost = [
     url: "/product-single",
     title: "Oranges",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
   {
@@ -53,8 +53,8 @@ const Frutaspost = [
     url: "/product-single",
     title: "Ginger",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
   {
@@ -62,8 +62,8 @@ const Frutaspost = [
     url: "/product-single",
     title: "Lettuce",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
 ]
@@ -74,11 +74,11 @@ const ketapost = [
     url: "/product-single",
     title: "Cucumber",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-featured">
       <i className="fa fa-star" />
-      <span>Featured</span>
+      <span>Destacado</span>
     </div>
   },
 
@@ -87,8 +87,8 @@ const ketapost = [
     url: "/product-single",
     title: "Lettuce",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
   {
@@ -96,8 +96,8 @@ const ketapost = [
     url: "/product-single",
     title: "Oranges",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
   {
@@ -105,8 +105,8 @@ const ketapost = [
     url: "/product-single",
     title: "Ginger",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
 
@@ -116,8 +116,8 @@ const ketapost = [
     title: "Watermelon",
     price1: "22$",
     price2: "29$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-sale">
       20% Off
   </div>
@@ -130,11 +130,11 @@ const oilspost = [
     url: "/product-single",
     title: "Cucumber",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-featured">
       <i className="fa fa-star" />
-      <span>Featured</span>
+      <span>Destacado</span>
     </div>
   },
 
@@ -143,8 +143,8 @@ const oilspost = [
     url: "/product-single",
     title: "Ginger",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
 
@@ -153,8 +153,8 @@ const oilspost = [
     url: "/product-single",
     title: "Oranges",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
   {
@@ -163,8 +163,8 @@ const oilspost = [
     title: "Watermelon",
     price1: "22$",
     price2: "29$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-sale">
       20% Off
   </div>
@@ -175,8 +175,8 @@ const oilspost = [
     url: "/product-single",
     title: "Lettuce",
     price1: "19$",
-    btn1text: "Add To Cart",
-    btn2text: "Quick View",
+    btn1text: "Agregar al Carrito",
+    btn2text: "Ver producto",
     badge: "",
   },
 
@@ -267,15 +267,7 @@ class Topcategory extends Component {
                               <span>{item.price1}</span>
                               <span>{item.price2}</span>
                             </div>
-                            <div className="andro_rating-wrapper">
-                              <div className="andro_rating">
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                              </div>
-                            </div>
+                           
                           </div>
                           <div className="andro_product-footer">
                             <div className="andro_product-buttons">
@@ -301,15 +293,7 @@ class Topcategory extends Component {
                               <span>{item.price1}</span>
                               <span>{item.price2}</span>
                             </div>
-                            <div className="andro_rating-wrapper">
-                              <div className="andro_rating">
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                              </div>
-                            </div>
+                            
                           </div>
                           <div className="andro_product-footer">
                             <div className="andro_product-buttons">
@@ -335,15 +319,7 @@ class Topcategory extends Component {
                               <span>{item.price1}</span>
                               <span>{item.price2}</span>
                             </div>
-                            <div className="andro_rating-wrapper">
-                              <div className="andro_rating">
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                                <i className="fa fa-star active" />
-                              </div>
-                            </div>
+                           
                           </div>
                           <div className="andro_product-footer">
                             <div className="andro_product-buttons">

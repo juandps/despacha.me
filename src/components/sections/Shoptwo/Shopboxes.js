@@ -25,36 +25,36 @@ const shopfullbox = [
         title: "Ginger",
         price1: "19$",
         price2: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
         photo: img2,
         title: "Lettuce",
         price1: "8$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img3,
         title: "Tomatoes",
         price1: "6$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img4,
         title: "Corn",
         price1: "19$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off  </div>
@@ -63,12 +63,12 @@ const shopfullbox = [
         photo: img5,
         title: "Onions",
         price1: "13$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -76,8 +76,8 @@ const shopfullbox = [
         title: "Brocolis",
         price1: "19$",
         price2: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
@@ -85,48 +85,48 @@ const shopfullbox = [
         title: "Kiwi & Strawberry",
         price1: "19$",
         price2: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img8,
         title: "Cucumber",
         price1: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img6,
         title: "Watermelons",
         price1: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img10,
         title: "Oranges",
         price1: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img11,
         title: "Grapes",
         price1: "29$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
     {
         photo: img6,
         title: "Apricots",
         price1: "13$",
-        btn1text: "Add To Text",
-        btn2text: "Quick View",
+        btn1text: "Agregar al carrito",
+        btn2text: "Ver producto",
         url: "/product-single",
     },
 ]
@@ -179,15 +179,7 @@ class Shopboxes extends Component {
                                             </div>
                                             <div className="andro_product-body">
                                                 <h6 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h6>
-                                                <div className="andro_rating-wrapper">
-                                                    <div className="andro_rating">
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star" />
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                             <div className="andro_product-footer">
                                                 <div className="andro_product-price">

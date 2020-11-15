@@ -54,16 +54,7 @@ class Addinfo extends Component {
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="reviews">
                                         <h4>Deja una reseña</h4>
-                                            <div className="andro_rating-wrapper">
-                                                <div className="andro_rating">
-                                                    <i className="fa fa-star" />
-                                                    <i className="fa fa-star" />
-                                                    <i className="fa fa-star" />
-                                                    <i className="fa fa-star" />
-                                                    <i className="fa fa-star" />
-                                                </div>
-                                                <span>Your Review</span>
-                                            </div>
+                                            
                                             {/* Review Form start */}
                                             <div className="comment-form">
                                                 <form method="post">
