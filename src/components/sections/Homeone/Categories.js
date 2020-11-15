@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const categories = [
   {
     icon:"flaticon-diet",
-    title:"Food",
+    title:"Frutas",
     link:"#",
   },
   {
@@ -14,12 +14,12 @@ const categories = [
   },
   {
     icon:"flaticon-groceries",
-    title:"Baskets",
+    title:"Lácteos y Huevos",
     link:"#",
   },
   {
     icon:"flaticon-cleaning-spray",
-    title:"Home Care",
+    title:"Verduras",
     link:"#",
   },
   {

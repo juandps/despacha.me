@@ -1536,6 +1536,11 @@ table img{
   flex-direction: column;
   cursor: pointer;
 }
+.aside-toggler.aside-trigger-right.desktop-toggler{
+  margin-left: 11px !important;
+}
+
+
 .aside-toggler.desktop-toggler{
   display: flex;
   height: 65px;
@@ -1544,6 +1549,7 @@ table img{
   justify-content: center;
   background-color: #3DC9B3;
   transition: .3s;
+  border-radius: 10px;
 }
 .aside-toggler.desktop-toggler span{
   background-color: #fff;

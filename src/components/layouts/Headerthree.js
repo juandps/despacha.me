@@ -46,15 +46,15 @@ class Headerthree extends Component {
             <div>
                 <aside className="andro_aside andro_aside-right" ref="sidebarbtn">
                     <div className="sidebar d-block">
-                        {/* Popular Categories Start */}
+                        {/* Categorías Start */}
                         <div className="sidebar-widget widget-categories-icons">
-                            <h5 className="widget-title">Popular Categories</h5>
+                            <h5 className="widget-title">Categorías</h5>
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
                                         <Link to="/product-single">
                                             <i className="flaticon-diet" />
-                                            <h5>Food</h5>
+                                            <h5>Frutas</h5>
                                         </Link>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ class Headerthree extends Component {
                                     <div className="andro_icon-block text-center has-link">
                                         <Link to="/product-single">
                                             <i className="flaticon-groceries" />
-                                            <h5>Baskets</h5>
+                                            <h5>Lácteos y Huevos</h5>
                                         </Link>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@ class Headerthree extends Component {
                                     <div className="andro_icon-block text-center has-link">
                                         <Link to="/product-single">
                                             <i className="flaticon-supplements" />
-                                            <h5>Supplements</h5>
+                                            <h5>Farmacia</h5>
                                         </Link>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@ class Headerthree extends Component {
                                     <div className="andro_icon-block text-center has-link">
                                         <Link to="/product-single">
                                             <i className="flaticon-cleaning-spray" />
-                                            <h5>Home Care</h5>
+                                            <h5>Verduras</h5>
                                         </Link>
                                     </div>
                                 </div>
@@ -100,25 +100,25 @@ class Headerthree extends Component {
                                 </div>
                             </div>
                         </div>
-                        {/* Popular Categories End */}
-                        {/* Popular Tags Start */}
+                        {/* Categorías End */}
+                        {/* Populares Start */}
                         <div className="sidebar-widget">
-                            <h5 className="widget-title">Popular Tags</h5>
+                            <h5 className="widget-title">Populares</h5>
                             <div className="tagcloud">
                                 <Link to="/product-single">Health</Link>
-                                <Link to="/product-single">Food</Link>
+                                <Link to="/product-single">Frutas</Link>
                                 <Link to="/product-single">Ingredients</Link>
                                 <Link to="/product-single">Organic</Link>
                                 <Link to="/product-single">Farms</Link>
                                 <Link to="/product-single">Green</Link>
                                 <Link to="/product-single">Fiber</Link>
-                                <Link to="/product-single">Supplements</Link>
+                                <Link to="/product-single">Farmacia</Link>
                                 <Link to="/product-single">Gain</Link>
                                 <Link to="/product-single">Live Stock</Link>
                                 <Link to="/product-single">Harvest</Link>
                             </div>
                         </div>
-                        {/* Popular Tags End */}
+                        {/* Populares End */}
                     </div>
                 </aside>
                 <div className="andro_aside-overlay aside-trigger-right" onClick={this.removesidebarbtn} />
@@ -168,12 +168,7 @@ class Headerthree extends Component {
                                             </Link>
                                         </li>
                                     </ul>
-                                    {/* Toggler */}
-                                    <div className="aside-toggler aside-trigger-left" onClick={this.mobilemenubtn}>
-                                        <span />
-                                        <span />
-                                        <span />
-                                    </div>
+                                    
                                 </div>
                             </nav>
                         </div>
@@ -191,28 +186,28 @@ class Headerthree extends Component {
                                             <div className="sub-menu">
                                                 <div className="andro_dropdown-scroll">
                                                     <label>
-                                                        <input type="checkbox" name="category1" defaultValue="food" />
-                      Food
+                                                        <input type="checkbox" name="category1" defaultValue="Frutas" />
+                      Frutas
                       <i className="fas fa-check" />
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" name="category2" defaultValue="home-care" />
-                      Home Care
+                      Verduras
                       <i className="fas fa-check" />
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox" name="category3" defaultValue="keto" />
-                      Keto
+                                                        <input type="checkbox" name="category3" defaultValue="Abarrotes" />
+                      Abarrotes
                       <i className="fas fa-check" />
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox" name="category4" defaultValue="baskets" />
-                      Baskets
+                                                        <input type="checkbox" name="category4" defaultValue="Lácteos y Huevos" />
+                      Lácteos y Huevos
                       <i className="fas fa-check" />
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" name="category5" defaultValue="supplements" />
-                      Supplements
+                      Farmacia
                       <i className="fas fa-check" />
                                                     </label>
                                                     <label>
@@ -229,7 +224,7 @@ class Headerthree extends Component {
                                             </div>
                                         </div>
                                         <div className="andro_search-adv-input">
-                                            <input type="text" className="form-control" placeholder="Busca frutas, verduras, medicina... ¡Lo que sea!" name="search" />
+                                            <input type="text" className="form-control" placeholder="Busca cualquier producto" name="search" />
                                             <button type="submit" name="button"><i className="fa fa-search" /></button>
                                         </div>
                                     </form>

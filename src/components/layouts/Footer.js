@@ -44,11 +44,11 @@ class Footer extends Component {
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">
                                 <h5 className="widget-title">Top Categories</h5>
                                 <ul>
-                                    <li> <Link to="#">Food</Link> </li>
-                                    <li> <Link to="#">Baskets</Link> </li>
-                                    <li> <Link to="#">Supplements</Link> </li>
-                                    <li> <Link to="#">Keto</Link> </li>
-                                    <li> <Link to="#">Home Care</Link> </li>
+                                    <li> <Link to="#">Frutas</Link> </li>
+                                    <li> <Link to="#">Lácteos y Huevos</Link> </li>
+                                    <li> <Link to="#">Farmacia</Link> </li>
+                                    <li> <Link to="#">Abarrotes</Link> </li>
+                                    <li> <Link to="#">Verduras</Link> </li>
                                 </ul>
                             </div>
                             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-12 footer-widget">

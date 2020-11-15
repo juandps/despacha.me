@@ -84,7 +84,7 @@ class Blogpost extends Component {
                       </div>
                       <div className="andro_post-body">
                         <div className="andro_post-categories">
-                          <Link to={item.url}>Food</Link>
+                          <Link to={item.url}>Frutas</Link>
                           <Link to={item.url}>Veg</Link>
                         </div>
                         <div className="andro_post-desc">

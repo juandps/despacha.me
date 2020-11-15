@@ -9,7 +9,7 @@ const categories = [
     },
     {
         icon: "flaticon-supplements",
-        title: "Farmacia",
+        title: ">Farmacia",
         link: "#",
     },
     {

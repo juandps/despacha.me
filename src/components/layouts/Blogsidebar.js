@@ -65,37 +65,37 @@ class Blogsidebar extends Component {
                     <h5 className="widget-title"> Post Categories </h5>
                     <ul className="sidebar-widget-list">
                         <li>
-                            <Link to="/blog-single"> Food <span>(32)</span> </Link>
+                            <Link to="/blog-single"> Frutas <span>(32)</span> </Link>
                             <ul>
                                 <li> <Link to="/blog-single">Vegetables &amp; Fruits <span>(14)</span> </Link> </li>
                                 <li> <Link to="/blog-single">Dairy <span>(39)</span></Link> </li>
                                 <li> <Link to="/blog-single">Vegan <span>(54)</span> </Link> </li>
                             </ul>
                         </li>
-                        <li> <Link to="/blog-single"> Keto <span>(24)</span> </Link> </li>
-                        <li> <Link to="/blog-single"> Baskets <span>(44)</span> </Link> </li>
+                        <li> <Link to="/blog-single"> Abarrotes <span>(24)</span> </Link> </li>
+                        <li> <Link to="/blog-single"> Lácteos y Huevos <span>(44)</span> </Link> </li>
                         <li> <Link to="/blog-single"> Baby &amp; Kids Care <span>(15)</span> </Link> </li>
                     </ul>
                 </div>
                 {/* Categories End */}
-                {/* Popular Tags Start */}
+                {/* Populares Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title">Popular Tags</h5>
+                    <h5 className="widget-title">Populares</h5>
                     <div className="tagcloud">
                         <Link to="/blog-single">Health</Link>
-                        <Link to="/blog-single">Food</Link>
+                        <Link to="/blog-single">Frutas</Link>
                         <Link to="/blog-single">Ingredients</Link>
                         <Link to="/blog-single">Organic</Link>
                         <Link to="/blog-single">Farms</Link>
                         <Link to="/blog-single">Green</Link>
                         <Link to="/blog-single">Fiber</Link>
-                        <Link to="/blog-single">Supplements</Link>
+                        <Link to="/blog-single">Farmacia</Link>
                         <Link to="/blog-single">Gain</Link>
                         <Link to="/blog-single">Live Stock</Link>
                         <Link to="/blog-single">Harvest</Link>
                     </div>
                 </div>
-                {/* Popular Tags End */}
+                {/* Populares End */}
                 {/* Newsletter Start */}
                 <div className="sidebar-widget">
                     <div className="andro_newsletter-form primary-bg pattern-bg">

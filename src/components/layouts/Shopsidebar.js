@@ -41,36 +41,36 @@ class Shopsidebar extends Component {
     render() {
         return (
             <div className="sidebar">
-                {/* Search Start */}
+                {/* Search Start
                 <div className="sidebar-widget widget-search">
                     <form method="post">
                         <div className="andro_search-adv-input">
-                            <input type="text" className="form-control" placeholder="Busca frutas, verduras, medicina... ¡Lo que sea!" name="search" />
+                            <input type="text" className="form-control" placeholder="Busca cualquier producto" name="search" />
                             <button type="submit" name="button"><i className="fa fa-search" /></button>
                         </div>
                     </form>
                 </div>
-                {/* Search End */}
+                Search End */}
                 {/* Filter: Categories Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title"> Category </h5>
+                    <h5 className="widget-title"> Categoría </h5>
                     <ul className="sidebar-widget-list">
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                                <label className="custom-control-label" htmlFor="customCheck1">Food</label>
+                                <label className="custom-control-label" htmlFor="customCheck1">Frutas</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck2" />
-                                <label className="custom-control-label" htmlFor="customCheck2">Keto</label>
+                                <label className="custom-control-label" htmlFor="customCheck2">Abarrotes</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck3" />
-                                <label className="custom-control-label" htmlFor="customCheck3">Baskets</label>
+                                <label className="custom-control-label" htmlFor="customCheck3">Lácteos y Huevos</label>
                             </div>
                         </li>
                         <li>
@@ -82,13 +82,13 @@ class Shopsidebar extends Component {
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck5" />
-                                <label className="custom-control-label" htmlFor="customCheck5">Home Care</label>
+                                <label className="custom-control-label" htmlFor="customCheck5">Verduras</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck6" />
-                                <label className="custom-control-label" htmlFor="customCheck6">Supplements</label>
+                                <label className="custom-control-label" htmlFor="customCheck6">Farmacia</label>
                             </div>
                         </li>
                     </ul>
@@ -96,7 +96,7 @@ class Shopsidebar extends Component {
                 {/* Filter: Categories End */}
                 {/* Filter: Condition Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title"> Condition </h5>
+                    <h5 className="widget-title"> Condición </h5>
                     <ul className="sidebar-widget-list">
                         <li>
                             <div className="custom-control custom-checkbox">
@@ -115,36 +115,36 @@ class Shopsidebar extends Component {
                 {/* Filter: Condition End */}
                 {/* Filter: State Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title"> Brand </h5>
+                    <h5 className="widget-title"> Marca </h5>
                     <ul className="sidebar-widget-list">
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck9" />
-                                <label className="custom-control-label" htmlFor="customCheck9">Green Life</label>
+                                <label className="custom-control-label" htmlFor="customCheck9">Maggi</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck10" />
-                                <label className="custom-control-label" htmlFor="customCheck10">Whole Foods</label>
+                                <label className="custom-control-label" htmlFor="customCheck10">Alpes</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck11" />
-                                <label className="custom-control-label" htmlFor="customCheck11">Shrubbery co.</label>
+                                <label className="custom-control-label" htmlFor="customCheck11">Inapesa</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck12" />
-                                <label className="custom-control-label" htmlFor="customCheck12">Better Life</label>
+                                <label className="custom-control-label" htmlFor="customCheck12">Cafrilosa</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
                                 <input type="checkbox" className="custom-control-input" id="customCheck13" />
-                                <label className="custom-control-label" htmlFor="customCheck13">Organica</label>
+                                <label className="custom-control-label" htmlFor="customCheck13">El Ordeño</label>
                             </div>
                         </li>
                     </ul>
@@ -152,41 +152,41 @@ class Shopsidebar extends Component {
                 {/* Filter: State End */}
                 {/* Filter: Freshness Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title"> Freshness </h5>
+                    <h5 className="widget-title"> Frescura </h5>
                     <Range min={0} max={10} marks={marks} defaultValue={[5, 6]} tipFormatter={value => `${value} days`} />
                 </div>
                 {/* Filter: Freshness End */}
                 {/* Filter: Price Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title"> Price </h5>
+                    <h5 className="widget-title"> Precio </h5>
                     <Range min={0} max={500} marks={pricemarks} defaultValue={[10, 100]} tipFormatter={value => `${value} $`} />
                 </div>
                 {/* Filter: Price End */}
                 {/* Tags Start */}
                 <div className="sidebar-widget">
-                    <h5 className="widget-title"> Popular Tags </h5>
+                    <h5 className="widget-title"> Populares </h5>
                     <div className="tagcloud">
-                        <Link to="/product-single">Health</Link>
-                        <Link to="/product-single">Food</Link>
-                        <Link to="/product-single">Ingredients</Link>
+                        <Link to="/product-single">Natural</Link>
+                        <Link to="/product-single">Frutas</Link>
+                        <Link to="/product-single">Verduras</Link>
                         <Link to="/product-single">Organic</Link>
-                        <Link to="/product-single">Farms</Link>
-                        <Link to="/product-single">Green</Link>
-                        <Link to="/product-single">Fiber</Link>
-                        <Link to="/product-single">Supplements</Link>
-                        <Link to="/product-single">Gain</Link>
-                        <Link to="/product-single">Live Stock</Link>
-                        <Link to="/product-single">Harvest</Link>
-                        <Link to="/product-single">Better Life</Link>
-                        <Link to="/product-single">Life style</Link>
+                        <Link to="/product-single">Cosecha</Link>
+                        <Link to="/product-single">Verde</Link>
+                        <Link to="/product-single">Fribra</Link>
+                        <Link to="/product-single">Farmacia</Link>
+                        <Link to="/product-single">Vitamina</Link>
+                        <Link to="/product-single">Alcohol</Link>
+                        <Link to="/product-single">Cocina</Link>
+                        <Link to="/product-single">Hogar</Link>
+                        <Link to="/product-single">Mercado</Link>
                     </div>
                 </div>
                 {/* Tags End */}
                 {/* Newsletter Start */}
                 <div className="sidebar-widget">
                     <div className="andro_newsletter-form">
-                        <h5>Join our newsletter</h5>
-                        <p>Get exclusive weekly deals with our newsletter subscription</p>
+                        <h5>Únete a nuestro newsletter</h5>
+                        <p>Obtén 10% de descuento</p>
                         <form method="post">
                             <div className="form-group">
                                 <input type="email" className="form-control" name="newsletter_email" placeholder="Email Address" />

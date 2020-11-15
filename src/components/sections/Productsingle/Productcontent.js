@@ -159,7 +159,7 @@ class Productcontent extends Component {
                                     <li>
                                         <span>Categories: </span>
                                         <div className="andro_product-meta-item">
-                                            <Link to="#">Food</Link>
+                                            <Link to="#">Frutas</Link>
                                         </div>
                                     </li>
                                     <li>
