@@ -52,7 +52,7 @@ const productsslide = [
         btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
     {
         photo: img1,
@@ -94,7 +94,7 @@ const productsslide = [
         btn2text: "Ver producto",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
 ]
 const closeIcon = (

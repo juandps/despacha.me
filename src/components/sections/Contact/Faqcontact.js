@@ -15,78 +15,78 @@ class Faqcontact extends Component {
                                 <Card>
                                     <Accordion.Collapse className="collapseparent" eventKey="0">
                                         <Card.Body>
-                                            Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                                            Distribuciones Online Despachame S.A.S es una empresa lojana que conecta el agro con clientes finales mediante tecnología. Nuestra misión es que todos nuestros clientes puedan hacer su mercado mediante nuesta web app o whatsapp.
                                         </Card.Body>
                                     </Accordion.Collapse>
                                     <Accordion.Toggle as={Card.Header} eventKey="0">
-                                        What is Organista?
+                                        ¿Qué es Despacha.me?
                                     </Accordion.Toggle>
                                 </Card>
                                 <Card>
                                     <Accordion.Collapse className="collapseparent" eventKey="1">
                                         <Card.Body>
-                                            Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                                            Somos un grupo de emprendedores y empresarios con trayectoria en el área de distribución de alimentos y farmacéutica.
                                         </Card.Body>
                                     </Accordion.Collapse>
                                     <Accordion.Toggle as={Card.Header} eventKey="1">
-                                        Getting Started with Organista
+                                        ¿Quiénes son?
                                     </Accordion.Toggle>
                                 </Card>
                                 <Card>
                                     <Accordion.Collapse className="collapseparent" eventKey="2">
                                         <Card.Body>
-                                            Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                                            Si eres dueño de un restaurante y deseas recibir semanalmente el mercado directamente en tu local. Contáctanos hoy mismo, menciona el cupón FAQ2020 para obtener un 20% de descuento en tu primer pedido.
                                         </Card.Body>
                                     </Accordion.Collapse>
                                     <Accordion.Toggle as={Card.Header} eventKey="2">
-                                        Do i have the latest version?
+                                        ¿Puedo comprar al por mayor?
                                     </Accordion.Toggle>
                                 </Card>
                                 <Card>
                                     <Accordion.Collapse className="collapseparent" eventKey="3">
                                         <Card.Body>
-                                            Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                                            Motivamos a nuestros clientes a que hagan sus pedidos online para mayor facilidad, y que programen pedidos rutinarios, sin embargo si es un pedido urgente se puede enviar la lista a Whatsapp.
                                         </Card.Body>
                                     </Accordion.Collapse>
                                     <Accordion.Toggle as={Card.Header} eventKey="3">
-                                        How many times can I use Organista?
+                                        ¿Cómo hago un pedido?
                                     </Accordion.Toggle>
                                 </Card>
                                 <Card>
                                     <Accordion.Collapse className="collapseparent" eventKey="4">
                                         <Card.Body>
-                                            Nulla porttitor accumsan tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
+                                            En Despachame decimos si nuestra abuelita puede utilizar despachame, entonces es un servicio de calidad. Por ello no debes descargar nada para hacer un pedido. Simplemente abrir www.despacha.me o escribirnos al Whatsapp
                                         </Card.Body>
                                     </Accordion.Collapse>
                                     <Accordion.Toggle as={Card.Header} eventKey="4">
-                                        How to migrate my website?
+                                        ¿Son una app?
                                     </Accordion.Toggle>
                                 </Card>
                             </Accordion>
                         </div>
                         <div className="col-lg-7">
                             <div className="section-title">
-                                <h4 className="title">Contact Us</h4>
+                                <h4 className="title">Contacto</h4>
                             </div>
                             <form method="post">
                                 <div className="row">
                                     <div className="form-group col-lg-6">
-                                        <input type="text" placeholder="First Name" className="form-control" name="fname" />
+                                        <input type="text" placeholder="Nombre" className="form-control" name="fname" />
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <input type="text" placeholder="Last Name" className="form-control" name="lname" />
+                                        <input type="text" placeholder="Apellido" className="form-control" name="lname" />
                                     </div>
                                     <div className="form-group col-lg-12">
-                                        <input type="email" placeholder="Email Address" className="form-control" name="email" />
+                                        <input type="email" placeholder="Correo" className="form-control" name="email" />
                                     </div>
                                     <div className="form-group col-lg-12">
-                                        <input type="text" placeholder="Subject" className="form-control" name="subject" />
+                                        <input type="text" placeholder="Mensaje" className="form-control" name="subject" />
                                     </div>
                                     <div className="form-group col-lg-12">
-                                        <textarea name="message" className="form-control" placeholder="Type your message" rows={8} />
+                                        <textarea name="message" className="form-control" placeholder="Escriba su mensaje" rows={8} />
                                     </div>
                                 </div>
-                                <button type="submit" className="andro_btn-custom primary">Send Message</button>
+                                <button type="submit" className="andro_btn-custom primary">Enviar mensaje</button>
                             </form>
                         </div>
                     </div>

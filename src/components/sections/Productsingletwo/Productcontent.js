@@ -21,7 +21,7 @@ const dealpost = [
         btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
     {
         photo: img2,
@@ -43,7 +43,7 @@ const dealpost = [
         btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
 ]
 // Random component
@@ -67,7 +67,7 @@ const wishlisttip = (
 );
 const facebooktip = (
     <Tooltip>
-        Compartir en Facebook
+        Compartir en facebook
     </Tooltip>
 );
 const twittertip = (
@@ -205,13 +205,7 @@ class Productcontent extends Component {
                                                 <option value={4}>4 Kilos</option>
                                             </select>
                                         </div>
-                                        <div className="form-group">
-                                            <select className="form-control" name="breed">
-                                                <option value>Select a Breed</option>
-                                                <option value="italian">Italian</option>
-                                                <option value="egyptian">Egyptian</option>
-                                            </select>
-                                        </div>
+                                        
                                     </div>
                                     <div className="qty-outter">
                                         <Link to="/product-single" className="andro_btn-custom">Comprar</Link>

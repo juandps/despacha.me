@@ -18,7 +18,7 @@ const sidedeals = [
         price2: "14$",
         btntext: "Comprar",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
     {
         photo: img2,
@@ -42,7 +42,7 @@ const sidedeals = [
         price2: "14$",
         btntext: "Comprar",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
 ]
 // Random component
@@ -142,7 +142,7 @@ class Categorysidebar extends Component {
                         <p>Get exclusive weekly deals with our newsletter subscription</p>
                         <form method="post">
                             <div className="form-group">
-                                <input type="email" className="form-control" name="newsletter_email" placeholder="Email Address" />
+                                <input type="email" className="form-control" name="newsletter_email" placeholder="Correo" />
                             </div>
                             <button type="submit" className="andro_btn-custom secondary btn-block shadow-none" name="button">Join Newsletter</button>
                         </form>

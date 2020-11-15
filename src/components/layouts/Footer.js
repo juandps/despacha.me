@@ -71,7 +71,7 @@ class Footer extends Component {
                                 </ul>
                                 <div className="andro_footer-offer">
                                     <p>Signup and get exclusive offers and coupon codes</p>
-                                    <Link to="/register" className="andro_btn-custom btn-sm shadow-none">Sign Up</Link>
+                                    <Link to="/register" className="andro_btn-custom btn-sm shadow-none">Crear Cuenta</Link>
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Slider from 'react-slick';
 
 import banner1 from '../../../assets/img/banner/1.1.jpg';
-import banner2 from '../../../assets/img/banner/1.1.jpg';
+import banner2 from '../../../assets/img/banner/1.3.jpg';
 import product1 from '../../../assets/img/products/8.1.png';
 import product2 from '../../../assets/img/products/14.png';
 import cta1 from '../../../assets/img/cta/1.1.jpg';
@@ -47,13 +47,15 @@ class Banner extends Component {
                     {bannerslides.map((item, i) => (
                         <div key={i}>
                         <div className="andro_banner-slider-inner" style={{backgroundImage: "url("+ item.photo +")"}}>
-                            
+
+                            {/*Barra de busqueda dentro del banner */}
+                            {/* 
                             <div className="container">
                                         <div className="andro_search-adv-input banner2">
                                             <input type="text" className="form-control" placeholder="Busca cualquier producto" name="search" />
                                             <button type="submit" name="button"><i className="fa fa-search" /></button>
                                         </div>
-                            </div>
+                            </div>*/}
                             
                         </div>
                         </div>

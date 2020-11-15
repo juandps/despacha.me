@@ -22,7 +22,7 @@ const otherpost = [
     btn1text: "Agregar al Carrito",
     btn2text: "Ver producto",
     badge: <div className="andro_product-badge andro_badge-sale">
-      20% Off
+      20% Descuento
     </div>
   },
   {

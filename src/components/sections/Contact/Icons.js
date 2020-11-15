@@ -5,17 +5,17 @@ const contactinfo = [
     {
         icon: "flaticon-call",
         title: "Call Center",
-        para: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        para: "Escríbenos o llámanos atendemos 24/7 por medio de nuestro bot",
     },
     {
         icon: "flaticon-email",
-        title: "Mail Us",
-        para: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        title: "Correo",
+        para: "Aunque el correo es algo Old School, también puedes escribirnos a info@despacha.me",
     },
     {
         icon: "flaticon-location",
-        title: "Nearest Branch",
-        para: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        title: "Oficinas",
+        para: "Si deseas hablar con nuestro gerente visítanos en nuestras instalaciones",
     },
 ]
 

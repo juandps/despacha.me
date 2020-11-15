@@ -60,7 +60,7 @@ class Legalsidebar extends Component {
                         <p>Get exclusive weekly deals with our newsletter subscription</p>
                         <form method="post">
                             <div className="form-group">
-                                <input type="email" className="form-control" name="newsletter_email" placeholder="Email Address" />
+                                <input type="email" className="form-control" name="newsletter_email" placeholder="Correo" />
                             </div>
                             <button type="submit" className="andro_btn-custom btn-block" name="button">Join Newsletter</button>
                         </form>

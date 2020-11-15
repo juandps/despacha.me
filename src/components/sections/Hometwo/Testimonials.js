@@ -83,21 +83,21 @@ class Testimonials extends Component {
                         <p>Get crazy benefits today by joining our community</p>
                         <form method="post">
                             <div className="form-group">
-                                <input type="text" className="form-control" placeholder="Username" name="username" />
+                                <input type="text" className="form-control" placeholder="Usuario" name="Usuario" />
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-control" placeholder="Password" name="password" />
+                                <input type="Contraseña" className="form-control" placeholder="Contraseña" name="Contraseña" />
                             </div>
                             <div className="form-group text-center">
-                                <Link to="#">Forgot Password?</Link>
+                                <Link to="#">Forgot Contraseña?</Link>
                             </div>
                             <button type="submit" className="andro_btn-custom primary btn-block">Login</button>
                             <div className="andro_auth-seperator">
                                 <span>OR</span>
                             </div>
                             <div className="andro_social-login">
-                                <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continue with Facebook </button>
-                                <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continue with Google</button>
+                                <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook </button>
+                                <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
                             </div>
                             <p className="mb-0 text-center">Don't have an account? <Link to="/register">Create One</Link> </p>
                         </form>

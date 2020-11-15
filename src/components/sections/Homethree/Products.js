@@ -45,7 +45,7 @@ const productsslides = [
         price2: "14$",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
-            20% Off </div>
+            20% Descuento </div>
     },
     {
         photo: img4,

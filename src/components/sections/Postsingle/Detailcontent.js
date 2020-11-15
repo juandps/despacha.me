@@ -12,7 +12,7 @@ import authorimg1 from '../../../assets/img/people/4.jpg';
 
 const facebooktip = (
     <Tooltip>
-        Compartir en Facebook
+        Compartir en facebook
     </Tooltip>
 );
 const twittertip = (

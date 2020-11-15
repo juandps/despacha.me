@@ -37,7 +37,7 @@ const wishlisttable = [
 ]
 const facebooktip = (
     <Tooltip>
-        Compartir en Facebook
+        Compartir en facebook
     </Tooltip>
 );
 const twittertip = (

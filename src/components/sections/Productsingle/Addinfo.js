@@ -60,10 +60,10 @@ class Addinfo extends Component {
                                                 <form method="post">
                                                     <div className="row">
                                                         <div className="col-md-6 form-group">
-                                                            <input type="text" className="form-control" placeholder="Full Name" name="fname" defaultValue />
+                                                            <input type="text" className="form-control" placeholder="Nombre en tarjeta" name="fname" defaultValue />
                                                         </div>
                                                         <div className="col-md-6 form-group">
-                                                            <input type="email" className="form-control" placeholder="Email Address" name="email" defaultValue />
+                                                            <input type="email" className="form-control" placeholder="Correo" name="email" defaultValue />
                                                         </div>
                                                         <div className="col-md-12 form-group">
                                                             <textarea className="form-control" placeholder="Type your comment..." name="comment" rows={7} defaultValue={""} />

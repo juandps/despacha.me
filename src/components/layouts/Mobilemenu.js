@@ -76,7 +76,7 @@ const navigationmenu = [{
         {
             id: 33,
             link: '/register',
-            linkText: 'Sign Up'
+            linkText: 'Crear Cuenta'
         },
         {
             id: 34,

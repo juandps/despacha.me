@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-import location1 from '../../../assets/img/locations/1.jpg';
-import location2 from '../../../assets/img/locations/2.jpg';
+import location1 from '../../../assets/img/locations/1.jpeg';
+import location2 from '../../../assets/img/locations/1.jpeg';
 
 const locationbox = [
     {
         photo: location1,
-        title: "Find Us In",
-        titlespan: "Greece",
-        para: "Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.",
+        title: "Encuéntranos en",
+        titlespan: "Loja",
+        para: "Marcelino Champagnat y Paris.",
     },
     {
         photo: location2,
-        title: "Find Us In",
-        titlespan: "New York",
-        para: "Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.",
+        title: "Bodega en",
+        titlespan: "Loja",
+        para: "Av. Universitaria",
     },
 ]
 class Locations extends Component {

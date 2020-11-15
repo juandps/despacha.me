@@ -46,7 +46,7 @@ const dailydealpost = [
     price2: "14$",
     linktext: "Comprar",
     badge: <div className="andro_product-badge andro_badge-sale">
-      20% Off
+      20% Descuento
   </div>
   },
   {

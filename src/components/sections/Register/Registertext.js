@@ -18,31 +18,31 @@ class Registertext extends Component {
                         <div className="andro_auth-description bg-cover bg-center dark-overlay dark-overlay-2" style={{backgroundImage: "url("+ loginimg +")"}}>
                             <div className="andro_auth-description-inner">
                                 <i className="flaticon-diet" />
-                                <h2>Hello World!</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <h2>¡Bienvenido!</h2>
+                                <p>Somos Distribuidora Despchame S.A.S Con nosotros tendrás calidad, precio y rapidez.</p>
                             </div>
                         </div>
                         <div className="andro_auth-form">
-                            <h2>Sign Up</h2>
+                            <h2>Crear Cuenta</h2>
                             <form method="post">
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Username" name="username" />
+                                    <input type="text" className="form-control" placeholder="Usuario" name="Usuario" />
                                 </div>
                                 <div className="form-group">
-                                    <input type="email" className="form-control form-control-light" placeholder="Email Address" name="email" />
+                                    <input type="email" className="form-control form-control-light" placeholder="Correo" name="email" />
                                 </div>
                                 <div className="form-group">
-                                    <input type="password" className="form-control" placeholder="Password" name="password" />
+                                    <input type="Contraseña" className="form-control" placeholder="Contraseña" name="Contraseña" />
                                 </div>
-                                <button type="submit" className="andro_btn-custom primary">Sign Up</button>
+                                <button type="submit" className="andro_btn-custom primary">Crear Cuenta</button>
                                 <div className="andro_auth-seperator">
                                     <span>OR</span>
                                 </div>
                                 <div className="andro_social-login">
-                                    <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continue with Facebook </button>
-                                    <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continue with Google</button>
+                                    <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook </button>
+                                    <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
                                 </div>
-                                <p>Already have an account? <Link to="/login">Login</Link></p>
+                                <p>¿Ya tienes cuenta? <Link to="/login">Ingresa aquí</Link></p>
                             </form>
                         </div>
                     </div>

@@ -37,7 +37,7 @@ class Newsletter extends Component {
                         </div>
                         <form method="post" className="text-center">
                             <div className="form-group">
-                                <input type="email" placeholder="Email Address" className="form-control" name="newsletter-email" />
+                                <input type="email" placeholder="Correo" className="form-control" name="newsletter-email" />
                             </div>
                             <button type="submit" className="andro_btn-custom" name="button">Subscribe</button>
                             <span className="newsletter-popup-trigger" data-dismiss="modal" onClick={this.onCloseModal}>No Thanks</span>

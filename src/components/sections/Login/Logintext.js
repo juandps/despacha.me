@@ -27,10 +27,10 @@ class Logintext extends Component {
                             <h2>Ingresar</h2>
                             <form method="post">
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Correo" name="username" />
+                                    <input type="text" className="form-control" placeholder="Correo" name="Usuario" />
                                 </div>
                                 <div className="form-group">
-                                    <input type="password" className="form-control" placeholder="Contraseña" name="password" />
+                                    <input type="Contraseña" className="form-control" placeholder="Contraseña" name="Contraseña" />
                                 </div>
                                 <Link to="#">¿Te olvidaste la contraseña?</Link>
                                 <button type="submit" className="andro_btn-custom primary">Ingresar</button>
@@ -38,7 +38,7 @@ class Logintext extends Component {
                                     <span>o</span>
                                 </div>
                                 <div className="andro_social-login">
-                                    <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con Facebook</button>
+                                    <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook</button>
                                     <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
                                 </div>
                                 <p>¿No tienes cuenta aún? <Link to="/register">Crear cuenta</Link> </p>

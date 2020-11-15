@@ -189,7 +189,7 @@ class Shopsidebar extends Component {
                         <p>Obtén 10% de descuento</p>
                         <form method="post">
                             <div className="form-group">
-                                <input type="email" className="form-control" name="newsletter_email" placeholder="Email Address" />
+                                <input type="email" className="form-control" name="newsletter_email" placeholder="Correo" />
                             </div>
                             <button type="submit" className="andro_btn-custom secondary btn-block shadow-none" name="button">Join Newsletter</button>
                         </form>

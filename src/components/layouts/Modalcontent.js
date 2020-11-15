@@ -57,13 +57,7 @@ class Modalcontent extends Component {
                                                     <option value={4}>4 Kilos</option>
                                                 </select>
                                             </div>
-                                            <div className="form-group">
-                                                <select className="form-control" name="breed">
-                                                    <option value>Select a Breed</option>
-                                                    <option value="italian">Italian</option>
-                                                    <option value="egyptian">Egyptian</option>
-                                                </select>
-                                            </div>
+                                           
                                         </div>
                                         <div className="qty-outter">
                                             <Link to="/product-single" className="andro_btn-custom">Comprar</Link>
