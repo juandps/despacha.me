@@ -11,7 +11,7 @@ const shopcta = [
     title: "Freshly Picked",
     titlespan: "Vegetables",
     para: "Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.",
-    linktext: "Shop Now",
+    linktext: "Comprar Ahora",
     link: "/shop-v1",
   },
   {
@@ -19,7 +19,7 @@ const shopcta = [
     title: "Freshly Picked",
     titlespan: "Fruits",
     para: "Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.",
-    linktext: "Shop Now",
+    linktext: "Comprar Ahora",
     link: "/shop-v1",
   }
 ]

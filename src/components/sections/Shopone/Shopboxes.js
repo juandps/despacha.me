@@ -22,11 +22,11 @@ const shopgrid = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -35,11 +35,11 @@ const shopgrid = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "5 Stars",
         price1: "11$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -48,7 +48,7 @@ const shopgrid = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "3 Stars",
         price1: "8$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -58,7 +58,7 @@ const shopgrid = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off
@@ -71,7 +71,7 @@ const shopgrid = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -81,7 +81,7 @@ const shopgrid = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off
@@ -138,16 +138,7 @@ class Shopboxes extends Component {
                                             <div className="andro_product-body">
                                                 <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
                                                 <p>{item.para}</p>
-                                                <div className="andro_rating-wrapper">
-                                                    <div className="andro_rating">
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star active" />
-                                                        <i className="fa fa-star" />
-                                                    </div>
-                                                    <span>{item.stars}</span>
-                                                </div>
+                                                
                                             </div>
                                             <div className="andro_product-footer">
                                                 <div className="andro_product-price">
@@ -162,7 +153,7 @@ class Shopboxes extends Component {
                                                     <Dropdown.Menu>
                                                         <Dropdown.Item href="#" onClick={this.onOpenModal}><i className="fa fa-eye" /> Quick View</Dropdown.Item>
                                                         <Dropdown.Item href="#"><i className="fa fa-sync" /> Compare</Dropdown.Item>
-                                                        <Dropdown.Item href="#"><i className="fa fa-heart" /> Add To Wishlist</Dropdown.Item>
+                                                        <Dropdown.Item href="#"><i className="fa fa-heart" /> Agregar a favoritos</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>

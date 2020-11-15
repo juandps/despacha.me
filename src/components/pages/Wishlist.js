@@ -3,7 +3,7 @@ import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Wishlist/Breadcrumb';
 import Wishlisttext from '../sections/Wishlist/Wishlisttext';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Wishlist extends Component {
     render() {
@@ -12,8 +12,8 @@ class Wishlist extends Component {
                 <Headertwo/>
                 <Breadcrumb/>
                 <Wishlisttext/>
-                <Instatwo/>
-                <Footer/>
+                
+                <Footertwo/>
             </div>
         );
     }

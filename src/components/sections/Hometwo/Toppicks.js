@@ -18,8 +18,8 @@ const toppicks = [
         price2: "29$",
         stars: "5 Stars",
         url: "/product-single",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
     },
     {
         photo: img2,
@@ -28,8 +28,8 @@ const toppicks = [
         price1: "11$",
         stars: "5 Stars",
         url: "/product-single",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
     },
     {
         photo: img3,
@@ -38,8 +38,8 @@ const toppicks = [
         price1: "17$",
         stars: "5 Stars",
         url: "/product-single",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
     },
     {
         photo: img4,
@@ -48,11 +48,11 @@ const toppicks = [
         price1: "23$",
         stars: "5 Stars",
         url: "/product-single",
-        btn1text: "Add To Cart",
-        btn2text: "Quick View",
+        btn1text: "Agregar al Carrito",
+        btn2text: "Ver producto",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
 ]
@@ -90,16 +90,7 @@ class Toppicks extends Component {
                                         <Link to={item.url}><img src={item.photo} alt="product" /></Link>
                                     </div>
                                     <div className="andro_product-body">
-                                        <div className="andro_rating-wrapper">
-                                            <div className="andro_rating">
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                            </div>
-                                            <span>{item.stars}</span>
-                                        </div>
+                                        
                                         <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
                                         <div className="andro_product-price">
                                             <span>{item.price1}</span>

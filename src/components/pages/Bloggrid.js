@@ -3,7 +3,7 @@ import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Bloggrid/Breadcrumb';
 import Gridpost from '../sections/Bloggrid/Gridpost';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Bloggrid extends Component {
     render() {
@@ -12,8 +12,8 @@ class Bloggrid extends Component {
                 <Headertwo/>
                 <Breadcrumb/>
                 <Gridpost/>
-                <Instatwo/>
-                <Footer/>
+               
+                <Footertwo/>
             </div>
         );
     }

@@ -3,7 +3,7 @@ import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Shopone/Breadcrumb';
 import Shopboxes from '../sections/Shopone/Shopboxes';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Shopone extends Component {
     render() {
@@ -11,9 +11,8 @@ class Shopone extends Component {
             <div>
                 <Headertwo/>
                 <Breadcrumb/>
-                <Shopboxes/>
-                <Instatwo/>
-                <Footer/>
+                <Shopboxes/>               
+                <Footertwo/>
             </div>
         );
     }

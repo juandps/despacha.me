@@ -21,7 +21,7 @@ const shoplists = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -30,7 +30,7 @@ const shoplists = [
         para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
         stars: "3 Stars",
         price1: "19$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -40,7 +40,7 @@ const shoplists = [
         stars: "5 Stars",
         price1: "8$",
         price2: "15$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -50,7 +50,7 @@ const shoplists = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -60,7 +60,7 @@ const shoplists = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
     {
@@ -70,7 +70,7 @@ const shoplists = [
         stars: "4 Stars",
         price1: "19$",
         price2: "29$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
     },
 ]
@@ -118,16 +118,7 @@ class Shoplist extends Component {
                                         <Link to={item.url}><img src={item.photo} alt="product" /></Link>
                                     </div>
                                     <div className="andro_product-body">
-                                        <div className="andro_rating-wrapper">
-                                            <div className="andro_rating">
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star" />
-                                            </div>
-                                            <span>{item.stars}</span>
-                                        </div>
+                                        
                                         <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
                                         <p>{item.para}</p>
                                         <div className="andro_product-footer">
@@ -143,7 +134,7 @@ class Shoplist extends Component {
                                                 <Dropdown.Menu>
                                                     <Dropdown.Item href="#" onClick={this.onOpenModal}><i className="fa fa-eye" /> Quick View</Dropdown.Item>
                                                     <Dropdown.Item href="#"><i className="fa fa-sync" /> Compare</Dropdown.Item>
-                                                    <Dropdown.Item href="#"><i className="fa fa-heart" /> Add To Wishlist</Dropdown.Item>
+                                                    <Dropdown.Item href="#"><i className="fa fa-heart" /> Agregar a favoritos</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
 

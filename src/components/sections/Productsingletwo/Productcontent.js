@@ -18,7 +18,7 @@ const dealpost = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off </div>
@@ -29,7 +29,7 @@ const dealpost = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             10% Off </div>
@@ -40,7 +40,7 @@ const dealpost = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off </div>
@@ -62,22 +62,22 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 // Tooltip
 const wishlisttip = (
     <Tooltip>
-        Add To Wishlist
+        Agregar a favoritos
     </Tooltip>
 );
 const facebooktip = (
     <Tooltip>
-        Share on Facebook
+        Compartir en Facebook
     </Tooltip>
 );
 const twittertip = (
     <Tooltip>
-        Share on Twitter
+        Compartir en Twitter
     </Tooltip>
 );
 const linkedintip = (
     <Tooltip>
-        Share on Linkedin
+        Compartir en Linkedin
     </Tooltip>
 );
 class Productcontent extends Component {
@@ -182,21 +182,12 @@ class Productcontent extends Component {
                                         </li>
                                         <li>
                                             <OverlayTrigger placement="top" overlay={linkedintip}>
-                                                <Link to="#"> <i className="fab fa-linkedin-in" /> </Link>
+                                                <Link to="#"> <i className="fab fa-whatsapp" /> </Link>
                                             </OverlayTrigger>
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="andro_rating-wrapper">
-                                    <div className="andro_rating">
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star active" />
-                                        <i className="fa fa-star" />
-                                    </div>
-                                    <span>4 Stars</span>
-                                </div>
+                                
                                 <h3> Apricots </h3>
                                 <div className="andro_product-price">
                                     <span>8$</span>
@@ -207,7 +198,7 @@ class Productcontent extends Component {
                                     <div className="andro_product-variation-wrapper">
                                         <div className="form-group">
                                             <select className="form-control" name="amount">
-                                                <option value>Select Amount</option>
+                                                <option value>Seleccionar Monto</option>
                                                 <option value={1}>1 Kilo</option>
                                                 <option value={2}>2 Kilos</option>
                                                 <option value={3}>3 Kilos</option>
@@ -223,7 +214,7 @@ class Productcontent extends Component {
                                         </div>
                                     </div>
                                     <div className="qty-outter">
-                                        <Link to="/product-single" className="andro_btn-custom">Buy Now</Link>
+                                        <Link to="/product-single" className="andro_btn-custom">Comprar</Link>
                                         <div className="qty">
                                             <span className="qty-subtract" onClick={this.DecreaseItem} data-type="minus" data-field><i className="fa fa-minus" /></span>
                                             <input type="text" name="clicks" value={this.state.clicks} onChange={this.handleChange.bind(this)} />
@@ -233,13 +224,13 @@ class Productcontent extends Component {
                                 </form>
                                 <ul className="andro_product-meta">
                                     <li>
-                                        <span>Categories: </span>
+                                        <span>Categorías </span>
                                         <div className="andro_product-meta-item">
                                             <Link to="#">Frutas</Link>
                                         </div>
                                     </li>
                                     <li>
-                                        <span>Tags: </span>
+                                        <span>Etiquetas: </span>
                                         <div className="andro_product-meta-item">
                                             <Link to="#">Healthy</Link>,
                 <Link to="#">Vegetarian</Link>,
@@ -270,16 +261,7 @@ class Productcontent extends Component {
                                                 </div>
                                                 <div className="andro_product-body">
                                                     <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
-                                                    <div className="andro_rating-wrapper">
-                                                        <div className="andro_rating">
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star active" />
-                                                            <i className="fa fa-star" />
-                                                        </div>
-                                                        <span>{item.stars}</span>
-                                                    </div>
+                                                   
                                                 </div>
                                                 <div className="andro_product-footer">
                                                     <div className="andro_product-price">

@@ -10,7 +10,7 @@ import Dailydeal from '../sections/Homeone/Dailydeal';
 import Blogpost from '../sections/Homeone/Blogpost';
 import Otherproduct from '../sections/Homeone/Otherproduct';
 import Instaone from '../layouts/Instaone';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Home extends Component {
     render() {
@@ -25,9 +25,8 @@ class Home extends Component {
                 <Cta/>
                 <Dailydeal/>
                 <Blogpost/>
-                <Otherproduct/>
-                <Instaone/>
-                <Footer/>
+                <Otherproduct/>              
+                <Footertwo/>
             </div>
         );
     }

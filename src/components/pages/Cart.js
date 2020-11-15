@@ -4,7 +4,7 @@ import Breadcrumb from '../sections/Cart/Breadcrumb';
 import Carttext from '../sections/Cart/Carttext';
 import Cartform from '../sections/Cart/Cartform';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Cart extends Component {
     render() {
@@ -14,8 +14,8 @@ class Cart extends Component {
                 <Breadcrumb/>
                 <Carttext/>
                 <Cartform/>
-                <Instatwo/>
-                <Footer/>
+                
+                <Footertwo/>
             </div>
         );
     }

@@ -10,8 +10,8 @@ class Breadcrumb extends Component {
                         <h1>Checkout</h1>
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
-                                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                                <li className="breadcrumb-item"><Link to="#">Shop</Link></li>
+                                <li className="breadcrumb-item"><Link to="/">Inicio</Link></li>
+                                <li className="breadcrumb-item"><Link to="#">Tienda</Link></li>
                                 <li className="breadcrumb-item active" aria-current="page">Checkout</li>
                             </ol>
                         </nav>

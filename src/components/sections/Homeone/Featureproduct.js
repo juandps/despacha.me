@@ -19,7 +19,7 @@ const featureproduct = [
     photo: image1,
     producturl: "/product-single",
     productname: "Kiwi & Strawberry",
-    urltext: "Buy Now",
+    urltext: "Comprar",
     stars: "4 Stars",
     para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
     price1: "19$",
@@ -29,7 +29,7 @@ const featureproduct = [
     photo: image2,
     producturl: "/product-single",
     productname: "Cucumbers",
-    urltext: "Buy Now",
+    urltext: "Comprar",
     stars: "3 Stars",
     para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
     price1: "19$",
@@ -38,7 +38,7 @@ const featureproduct = [
     photo: image3,
     producturl: "/product-single",
     productname: "Watermelons",
-    urltext: "Buy Now",
+    urltext: "Comprar",
     stars: "5 Stars",
     para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
     price1: "8$",
@@ -48,7 +48,7 @@ const featureproduct = [
     photo: image4,
     producturl: "/product-single",
     productname: "Grapes",
-    urltext: "Buy Now",
+    urltext: "Comprar",
     stars: "3 Stars",
     para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
     price1: "12$",
@@ -57,7 +57,7 @@ const featureproduct = [
     photo: image5,
     producturl: "/product-single",
     productname: "Lettuce",
-    urltext: "Buy Now",
+    urltext: "Comprar",
     stars: "5 Stars",
     para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
     price1: "19$",
@@ -66,7 +66,7 @@ const featureproduct = [
     photo: image6,
     producturl: "/product-single",
     productname: "Ginger",
-    urltext: "Buy Now",
+    urltext: "Comprar",
     stars: "5 Stars",
     para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
     price1: "8$",
@@ -105,16 +105,7 @@ class Featureproduct extends Component {
                     <Link to={item.producturl}><img src={item.photo} alt="product" /></Link>
                   </div>
                   <div className="andro_product-body">
-                    <div className="andro_rating-wrapper">
-                      <div className="andro_rating">
-                        <i className="fa fa-star active" />
-                        <i className="fa fa-star active" />
-                        <i className="fa fa-star active" />
-                        <i className="fa fa-star active" />
-                        <i className="fa fa-star active" />
-                      </div>
-                      <span>{item.stars}</span>
-                    </div>
+                   
                     <h5 className="andro_product-title"> <Link to={item.producturl}> {item.productname} </Link> </h5>
                     <p>{item.para}</p>
                     <div className="andro_product-footer">
@@ -130,7 +121,7 @@ class Featureproduct extends Component {
                         <Dropdown.Menu>
                           <Dropdown.Item href="#" onClick={this.onOpenModal}><i className="fa fa-eye" /> Quick View</Dropdown.Item>
                           <Dropdown.Item href="#"><i className="fa fa-sync" /> Compare</Dropdown.Item>
-                          <Dropdown.Item href="#"><i className="fa fa-heart" /> Add To Wishlist</Dropdown.Item>
+                          <Dropdown.Item href="#"><i className="fa fa-heart" /> Agregar a favoritos</Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>

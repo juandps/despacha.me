@@ -12,17 +12,17 @@ import authorimg1 from '../../../assets/img/people/4.jpg';
 
 const facebooktip = (
     <Tooltip>
-        Share on Facebook
+        Compartir en Facebook
     </Tooltip>
 );
 const twittertip = (
     <Tooltip>
-        Share on Twitter
+        Compartir en Twitter
     </Tooltip>
 );
 const linkedintip = (
     <Tooltip>
-        Share on Linkedin
+        Compartir en Linkedin
     </Tooltip>
 );
 class Detailcontent extends Component {
@@ -126,7 +126,7 @@ class Detailcontent extends Component {
                                     </li>
                                     <li>
                                         <OverlayTrigger placement="top" overlay={linkedintip}>
-                                            <Link to="#"> <i className="fab fa-linkedin-in" /> </Link>
+                                            <Link to="#"> <i className="fab fa-whatsapp" /> </Link>
                                         </OverlayTrigger>
                                     </li>
                                 </ul>

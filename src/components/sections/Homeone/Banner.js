@@ -16,41 +16,41 @@ const bannerslides = [
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    btntext: "Buy Now",
+    btntext: "Comprar",
     title: "Freshly Picked Cucumbers",
     titlespan: "Can Now Be Purchased",
     para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula.",
-    linktext: "Shop Now",
+    linktext: "Comprar ahora",
     link: "/shop-v1",
   },
   {
     photo: bannerimg2,
-    bagde: "Featured",
+    bagde: "Destacado",
     url: "/product-single",
     producttitle: "Grapes",
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    btntext: "Buy Now",
+    btntext: "Comprar",
     title: "Grapes Season is Here",
     titlespan: "Get It Today For 50% Off",
     para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula.",
-    linktext: "Shop Now",
+    linktext: "Comprar Ahora",
     link: "/shop-v1",
   },
   {
     photo: bannerimg3,
-    bagde: "Feature",
+    bagde: "Destacado",
     url: "/product-single",
     producttitle: "Oranges",
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    btntext: "Buy Now",
+    btntext: "Comprar",
     title: "Juice It While It's Fresh",
     titlespan: "Get Oranges From Our Shop",
     para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula.",
-    linktext: "Shop Now",
+    linktext: "Comprar Ahora",
     link: "/shop-v1",
   }
 ]
@@ -94,16 +94,7 @@ class Banner extends Component {
                       </div>
                       <div className="andro_product-body">
                         <h5 className="andro_product-title"> <Link to={item.url}> {item.producttitle} </Link> </h5>
-                        <div className="andro_rating-wrapper">
-                          <div className="andro_rating">
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star active" />
-                            <i className="fa fa-star" />
-                          </div>
-                          <span>{item.stars}</span>
-                        </div>
+                        
                       </div>
                       <div className="andro_product-footer">
                         <div className="andro_product-price">

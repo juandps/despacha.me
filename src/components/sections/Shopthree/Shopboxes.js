@@ -24,7 +24,7 @@ const shopgrids = [
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -37,7 +37,7 @@ const shopgrids = [
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -69,7 +69,7 @@ const shopgrids = [
         url: "/product-single",
         badge: <div className="andro_product-badge andro_badge-featured">
             <i className="fa fa-star" />
-            <span>Featured</span>
+            <span>Destacado</span>
         </div>
     },
     {
@@ -101,7 +101,7 @@ const comparetip = (
 );
 const wishlisttip = (
     <Tooltip>
-        Add To Wishlist
+        Agregar a favoritos
     </Tooltip>
 );
 const closeIcon = (
@@ -155,16 +155,7 @@ class Shopboxes extends Component {
                                             <span>{item.price2}</span>
                                         </div>
                                         <p>{item.para}</p>
-                                        <div className="andro_rating-wrapper">
-                                            <div className="andro_rating">
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star active" />
-                                                <i className="fa fa-star" />
-                                            </div>
-                                            <span>{item.stars}</span>
-                                        </div>
+                                        
                                     </div>
                                     <div className="andro_product-footer">
                                         <div className="andro_product-controls">

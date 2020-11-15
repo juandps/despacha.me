@@ -3,7 +3,7 @@ import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Checkout/Breadcrumb';
 import Checkouttext from '../sections/Checkout/Checkouttext';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Checkout extends Component {
     render() {
@@ -12,8 +12,8 @@ class Checkout extends Component {
                 <Headertwo/>
                 <Breadcrumb/>
                 <Checkouttext/>
-                <Instatwo/>
-                <Footer/>
+               
+                <Footertwo/>
             </div>
         );
     }

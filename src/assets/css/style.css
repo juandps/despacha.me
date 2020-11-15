@@ -1343,7 +1343,18 @@ table img{
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: #FFFFFF;
+  font-family: "Poppins-SemiBold", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #FF441F;
+  
+  outline-width: 0;
 }
+
+.fas.fa-chevron-up{
+  margin-left: 21px !important;
+}
+
 .andro_search-adv-cats label{
   display: flex;
   align-items: center;
@@ -1384,7 +1395,9 @@ table img{
   font-weight: 600;
 }
 .andro_search-adv-input .form-control{
-  border-radius: 0 25px 25px 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 10px 0 rgba(98, 98, 127, 0.16);
+  outline-width: 0;
 }
 .sidebar-widget .andro_search-adv-input{
   width: 100%;

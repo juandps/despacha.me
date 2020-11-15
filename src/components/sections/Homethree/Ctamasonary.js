@@ -17,7 +17,7 @@ class Ctamasonary extends Component {
                                 <div className="andro_cta-content">
                                     <h4 className="text-white">Get Your <span className="fw-400">Lemons</span> </h4>
                                     <p className="text-white">Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.</p>
-                                    <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Shop Now</Link>
+                                    <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Comprar Ahora</Link>
                                 </div>
                             </div>
                         </div>
@@ -26,14 +26,14 @@ class Ctamasonary extends Component {
                                 <img src={cta2} alt="cta" />
                                 <div className="andro_cta-content">
                                     <h4 className="text-white">Freshly Picked <span className="fw-400">Vegetables</span> </h4>
-                                    <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Shop Now</Link>
+                                    <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Comprar Ahora</Link>
                                 </div>
                             </div>
                             <div className="andro_cta">
                                 <img src={cta3} alt="cta" />
                                 <div className="andro_cta-content">
                                     <h4 className="text-white">Freshly Picked <span className="fw-400">Fruits</span> </h4>
-                                    <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Shop Now</Link>
+                                    <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Comprar Ahora</Link>
                                 </div>
                             </div>
                         </div>

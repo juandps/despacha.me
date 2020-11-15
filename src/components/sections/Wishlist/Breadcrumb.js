@@ -7,12 +7,12 @@ class Breadcrumb extends Component {
             <div className="andro_subheader pattern-bg primary-bg">
                 <div className="container">
                     <div className="andro_subheader-inner">
-                        <h1>Wishlist</h1>
+                        <h1>Lista de deseos</h1>
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
-                                <li className="breadcrumb-item"><Link to="/">Home</Link></li>
-                                <li className="breadcrumb-item"><Link to="#">Shop</Link></li>
-                                <li className="breadcrumb-item active" aria-current="page">Wishlist</li>
+                                <li className="breadcrumb-item"><Link to="/">Inicio</Link></li>
+                                <li className="breadcrumb-item"><Link to="#">Tienda</Link></li>
+                                <li className="breadcrumb-item active" aria-current="page">Lista de deseos</li>
                             </ol>
                         </nav>
                     </div>

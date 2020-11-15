@@ -16,7 +16,7 @@ const sidedeals = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off </div>
     },
@@ -28,7 +28,7 @@ const sidedeals = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         badge: <div className="andro_product-badge andro_badge-sale">
             10% Off </div>
     },
@@ -40,7 +40,7 @@ const sidedeals = [
         stars: "4 Stars",
         price1: "8$",
         price2: "14$",
-        btntext: "Buy Now",
+        btntext: "Comprar",
         badge: <div className="andro_product-badge andro_badge-sale">
             20% Off </div>
     },
@@ -121,16 +121,7 @@ class Categorysidebar extends Component {
                                 <div className="andro_product-body">
                                     <h5 className="andro_product-title"> <Link to={item.url}> {item.title} </Link> </h5>
                                     <p>{item.para}</p>
-                                    <div className="andro_rating-wrapper">
-                                        <div className="andro_rating">
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star active" />
-                                            <i className="fa fa-star" />
-                                        </div>
-                                        <span>{item.stars}</span>
-                                    </div>
+                                    
                                 </div>
                                 <div className="andro_product-footer">
                                     <div className="andro_product-price">
