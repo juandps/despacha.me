@@ -5,7 +5,7 @@ import Detailcontent from '../sections/Postsingle/Detailcontent';
 import Commentform from '../sections/Postsingle/Commentform';
 import Relatedpost from '../layouts/Relatedpost';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Postsingle extends Component {
     render() {
@@ -15,9 +15,8 @@ class Postsingle extends Component {
                 <Breadcrumb/>
                 <Detailcontent/>
                 <Commentform/>
-                <Relatedpost/>
-                <Instatwo/>
-                <Footer/>
+                <Relatedpost/>               
+                <Footertwo/>
             </div>
         );
     }

@@ -6,7 +6,7 @@ import Cta from '../sections/Hometwo/Cta';
 import Abouttexttwo from '../sections/About/Abouttexttwo';
 import Testimonials from '../sections/About/Testimonials';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class About extends Component {
     render() {
@@ -18,8 +18,8 @@ class About extends Component {
                 <Cta/>
                 <Abouttexttwo/>
                 <Testimonials/>
-                <Instatwo/>
-                <Footer/>
+                
+                <Footertwo/>
             </div>
         );
     }

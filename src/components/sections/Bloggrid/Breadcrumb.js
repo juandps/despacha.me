@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+
+
 class Breadcrumb extends Component {
     render() {
         return (
             <div className="andro_subheader pattern-bg primary-bg">
                 <div className="container">
                     <div className="andro_subheader-inner">
-                        <h1>Blog Grid</h1>
+                        <h1>Blog</h1>
                         <nav aria-label="breadcrumb">
                             <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/">Home</Link></li>

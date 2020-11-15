@@ -17,7 +17,7 @@ const bannerslides = [
         couponcode: "QUERUBIN",
         title: "Vegetales Orgánicos",
         para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula.",
-        urltext: "Shop Now",
+        urltext: "Comprar Ahora",
         url: "/shop-v1",
     },
     {
@@ -27,7 +27,7 @@ const bannerslides = [
         couponcode: "QUERUBIN",
         title: "Frutas Frescas",
         para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula.",
-        urltext: "Shop Now",
+        urltext: "Comprar Ahora",
         url: "/shop-v1",
     },
 ]

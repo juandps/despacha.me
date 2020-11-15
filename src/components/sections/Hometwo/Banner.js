@@ -12,7 +12,7 @@ const bannerslider = [
         title: "40% Sale",
         titlespan: "On Select Products",
         para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit",
-        urltext: "Shop Now",
+        urltext: "Comprar Ahora",
         url: "/shop-v1",
     },
     {
@@ -21,7 +21,7 @@ const bannerslider = [
         title: "40% Sale",
         titlespan: "On Select Products",
         para: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Sed porttitor lectus nibh. Vestibulum ac diam sit",
-        urltext: "Shop Now",
+        urltext: "Comprar Ahora",
         url: "/shop-v1",
     },
 ]

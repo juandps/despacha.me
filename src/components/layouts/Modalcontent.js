@@ -59,7 +59,7 @@ class Modalcontent extends Component {
                                         <div className="andro_product-variation-wrapper">
                                             <div className="form-group">
                                                 <select className="form-control" name="amount">
-                                                    <option value>Select Amount</option>
+                                                    <option value>Seleccionar Monto</option>
                                                     <option value={1}>1 Kilo</option>
                                                     <option value={2}>2 Kilos</option>
                                                     <option value={3}>3 Kilos</option>
@@ -75,7 +75,7 @@ class Modalcontent extends Component {
                                             </div>
                                         </div>
                                         <div className="qty-outter">
-                                            <Link to="/product-single" className="andro_btn-custom">Buy Now</Link>
+                                            <Link to="/product-single" className="andro_btn-custom">Comprar</Link>
                                             <div className="qty">
                                                 <span className="qty-subtract" onClick={this.DecreaseItem} data-type="minus" data-field><i className="fa fa-minus" /></span>
                                                 <input type="text" name="clicks" value={this.state.clicks} onChange={this.handleChange.bind(this)} />

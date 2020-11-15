@@ -13,26 +13,26 @@ class Addinfo extends Component {
                                 <div className="col-lg-4">
                                     <Nav variant="tab" className="andro_sticky-section">
                                         <Nav.Item>
-                                            <Nav.Link eventKey="description">Description</Nav.Link>
+                                            <Nav.Link eventKey="description">Descripción</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="add-info">Additional Information</Nav.Link>
+                                            <Nav.Link eventKey="add-info">Información Adicional</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="reviews">Reviews (25)</Nav.Link>
+                                            <Nav.Link eventKey="reviews">Reseñas (25)</Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </div>
                                 <div className="col-lg-8">
                                     <Tab.Content>
                                         <Tab.Pane eventKey="description">
-                                            <h4>Description</h4>
+                                            <h4>Descripción</h4>
                                                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute,
                                                 non cupidatat skateboard dolor brunch. Frutas truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
                                                 bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="add-info">
-                                            <h4>Additional Information</h4>
+                                            <h4>Información Adicional</h4>
                                             <table>
                                                 <thead>
                                                     <tr>
@@ -53,7 +53,7 @@ class Addinfo extends Component {
                                             </table>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="reviews">
-                                        <h4>Leave a Review</h4>
+                                        <h4>Deja una reseña</h4>
                                             <div className="andro_rating-wrapper">
                                                 <div className="andro_rating">
                                                     <i className="fa fa-star" />

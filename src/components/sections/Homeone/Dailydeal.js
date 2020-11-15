@@ -17,7 +17,7 @@ const dailydealpost = [
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    linktext: "Buy Now",
+    linktext: "Comprar",
     badge: <div className="andro_product-badge andro_badge-featured">
       <i className="fa fa-star" />
       <span>Featured</span>
@@ -31,7 +31,7 @@ const dailydealpost = [
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    linktext: "Buy Now",
+    linktext: "Comprar",
     badge: <div className="andro_product-badge andro_badge-sale">
       10% Off
     </div>
@@ -44,7 +44,7 @@ const dailydealpost = [
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    linktext: "Buy Now",
+    linktext: "Comprar",
     badge: <div className="andro_product-badge andro_badge-sale">
       20% Off
   </div>
@@ -57,7 +57,7 @@ const dailydealpost = [
     stars: "4 Stars",
     price1: "8$",
     price2: "14$",
-    linktext: "Buy Now",
+    linktext: "Comprar",
   },
 ]
 // Random component

@@ -77,10 +77,10 @@ class Homeblogsidebar extends Component {
                   sem.</p>
                     </div>
                     <ul className="andro_sm">
-                        <li> <Link to="#"> <i className="fab fa-facebook-f" /> </Link> </li>
-                        <li> <Link to="#"> <i className="fab fa-twitter" /> </Link> </li>
-                        <li> <Link to="#"> <i className="fab fa-linkedin-in" /> </Link> </li>
-                        <li> <Link to="#"> <i className="fab fa-youtube" /> </Link> </li>
+                        <li> <a href="https://www.facebook.com/despacha.me"> <i className="fab fa-facebook-f"/> </a>  </li>
+                        <li> <Link to="https://twitter.com/despacha_me"> <i className="fab fa-twitter" /> </Link> </li>
+                        <li> <Link to="https://wa.link/advqv4"> <i className="fab fa-whatsapp" /> </Link> </li>
+                        <li> <Link to="https://www.instagram.com/despacha.me/"> <i className="fab fa-instagram" /> </Link> </li>
                     </ul>
                 </div>
                 {/* About Author End */}
@@ -137,7 +137,7 @@ class Homeblogsidebar extends Component {
                         <img src={ctaimg} alt="cta" />
                         <div className="andro_cta-content">
                             <h4 className="text-white">Grab Your <span className="fw-400">Lemons</span> </h4>
-                            <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Shop Now</Link>
+                            <Link to="/shop-v1" className="andro_btn-custom btn-sm light">Comprar Ahora</Link>
                         </div>
                     </div>
                 </div>

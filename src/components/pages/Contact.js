@@ -5,7 +5,7 @@ import Locations from '../sections/Contact/Locations';
 import Icons from '../sections/Contact/Icons';
 import Faqcontact from '../sections/Contact/Faqcontact';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Contact extends Component {
     render() {
@@ -16,8 +16,8 @@ class Contact extends Component {
                 <Locations/>
                 <Icons/>
                 <Faqcontact/>
-                <Instatwo/>
-                <Footer/>
+            
+                <Footertwo/>
             </div>
         );
     }

@@ -37,17 +37,17 @@ const wishlisttable = [
 ]
 const facebooktip = (
     <Tooltip>
-        Share on Facebook
+        Compartir en Facebook
     </Tooltip>
 );
 const twittertip = (
     <Tooltip>
-        Share on Twitter
+        Compartir en Twitter
     </Tooltip>
 );
 const linkedintip = (
     <Tooltip>
-        Share on Linkedin
+        Compartir en Linkedin
     </Tooltip>
 );
 class Wishlisttext extends Component {
@@ -60,11 +60,11 @@ class Wishlisttext extends Component {
                         <thead>
                             <tr>
                                 <th className="remove-item" />
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Availability</th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Disponibilidad</th>
                                 <th>Total</th>
-                                <th>Actions</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -90,7 +90,7 @@ class Wishlisttext extends Component {
                                         <span className={item.stockcls}>{item.stocktext}</span>
                                     </td>
                                     <td data-title="Total"> <strong>{item.total}</strong> </td>
-                                    <td data-title="Actions"> <Link to="#" className="andro_btn-custom btn-sm shadow-none">Add to Cart</Link> </td>
+                                    <td data-title="Actions"> <Link to="#" className="andro_btn-custom btn-sm shadow-none">Agregar al carrito</Link> </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -98,7 +98,7 @@ class Wishlisttext extends Component {
                     {/* Wishlist Table End */}
                     {/* Share Wishlist Start */}
                     <div className="text-center">
-                        <h5>Share Your Wishlist</h5>
+                        <h5>Comparte tu lista de compra</h5>
                         <div className="andro_post-share">
                             <ul className="andro_sm justify-content-center">
                                 <li>
@@ -113,7 +113,7 @@ class Wishlisttext extends Component {
                                 </li>
                                 <li>
                                     <OverlayTrigger placement="top" overlay={linkedintip}>
-                                        <Link to="#"> <i className="fab fa-linkedin-in" /> </Link>
+                                        <Link to="#"> <i className="fab fa-whatsapp" /> </Link>
                                     </OverlayTrigger>
                                 </li>
                             </ul>

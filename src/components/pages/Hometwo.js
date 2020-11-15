@@ -8,7 +8,7 @@ import Cta from '../sections/Hometwo/Cta';
 import Toppicks from '../sections/Hometwo/Toppicks';
 import Blog from '../sections/Hometwo/Blog';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footer';
 
 class Hometwo extends Component {
     render() {
@@ -21,9 +21,8 @@ class Hometwo extends Component {
                 <Featureproducts/>
                 <Cta/>
                 <Toppicks/>
-                <Blog/>
-                <Instatwo/>
-                <Footer/>
+                <Blog/>             
+                <Footertwo/>
             </div>
         );
     }

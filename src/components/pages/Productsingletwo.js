@@ -5,7 +5,7 @@ import Productcontent from '../sections/Productsingletwo/Productcontent';
 import Addinfo from '../sections/Productsingle/Addinfo';
 import Relatedproducts from '../sections/Productsingle/Relatedproducts';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Productsingletwo extends Component {
     render() {
@@ -15,9 +15,8 @@ class Productsingletwo extends Component {
                 <Breadcrumb/>
                 <Productcontent/>
                 <Addinfo/>
-                <Relatedproducts/>
-                <Instatwo/>
-                <Footer/>
+                <Relatedproducts/>           
+                <Footertwo/>
             </div>
         );
     }

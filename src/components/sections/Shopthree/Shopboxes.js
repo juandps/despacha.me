@@ -101,7 +101,7 @@ const comparetip = (
 );
 const wishlisttip = (
     <Tooltip>
-        Add To Wishlist
+        Agregar a favoritos
     </Tooltip>
 );
 const closeIcon = (

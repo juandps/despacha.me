@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Bloglist/Breadcrumb';
 import Listpost from '../sections/Bloglist/Listpost';
-import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+
+import Footertwo from '../layouts/Footertwo';
 
 class Bloglist extends Component {
     render() {
@@ -12,8 +12,8 @@ class Bloglist extends Component {
                 <Headertwo/>
                 <Breadcrumb/>
                 <Listpost/>
-                <Instatwo/>
-                <Footer/>
+                
+                <Footertwo/>
             </div>
         );
     }

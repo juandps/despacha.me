@@ -3,7 +3,7 @@ import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Legal/Breadcrumb';
 import Legaltext from '../sections/Legal/Legaltext';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Legal extends Component {
     render() {
@@ -11,9 +11,8 @@ class Legal extends Component {
             <div>
                 <Headertwo/>
                 <Breadcrumb/>
-                <Legaltext/>
-                <Instatwo/>
-                <Footer/>
+                <Legaltext/>              
+                <Footertwo/>
             </div>
         );
     }

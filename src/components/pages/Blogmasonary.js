@@ -3,7 +3,7 @@ import Headertwo from '../layouts/Headertwo';
 import Breadcrumb from '../sections/Blogmasonary/Breadcrumb';
 import Masonarypost from '../sections/Blogmasonary/Masonarypost';
 import Instatwo from '../layouts/Instatwo';
-import Footer from '../layouts/Footer';
+import Footertwo from '../layouts/Footertwo';
 
 class Blogmasonary extends Component {
     render() {
@@ -12,8 +12,8 @@ class Blogmasonary extends Component {
                 <Headertwo/>
                 <Breadcrumb/>
                 <Masonarypost/>
-                <Instatwo/>
-                <Footer/>
+                
+                <Footertwo/>
             </div>
         );
     }
