@@ -168,12 +168,7 @@ class Headerthree extends Component {
                                             </Link>
                                         </li>
                                     </ul>
-                                    {/* Toggler */}
-                                    <div className="aside-toggler aside-trigger-left" onClick={this.mobilemenubtn}>
-                                        <span />
-                                        <span />
-                                        <span />
-                                    </div>
+                                    
                                 </div>
                             </nav>
                         </div>

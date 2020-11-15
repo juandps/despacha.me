@@ -145,15 +145,8 @@ class Header extends Component {
                                     <li> <Link to="#"> <i className="fab fa-youtube" /> </Link> </li>
                                 </ul>
                                 <ul className="andro_header-top-links">
-                                    <li className="menu-item"><Link to="/login"> My Account </Link></li>
-                                    <li className="menu-item menu-item-has-children">
-                                        <Link to="#"> <span className="andro_current-currency-text">Currency</span> (USD) </Link>
-                                        <ul className="sub-menu sub-menu-left">
-                                            <li> <Link to="#">United States Dollar (USD)</Link> </li>
-                                            <li> <Link to="#">Kuwait Dinar (KWD)</Link> </li>
-                                            <li> <Link to="#">Pound Sterling (GBP)</Link> </li>
-                                        </ul>
-                                    </li>
+                                    <li className="menu-item"><Link to="/login"> Ingresar </Link></li>
+                                    
                                 </ul>
                             </div>
                         </div>qa
@@ -229,12 +222,7 @@ class Header extends Component {
                                             </Link>
                                         </li>
                                     </ul>
-                                    {/* Toggler */}
-                                    <div className="aside-toggler aside-trigger-left" onClick={this.mobilemenubtn} >
-                                        <span />
-                                        <span />
-                                        <span />
-                                    </div>
+                                    
                                 </div>
                             </nav>
                         </div>

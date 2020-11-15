@@ -48,10 +48,12 @@ blockquote{
 .slick-next:focus,
 .section-title::after{
   background-color: #2E2D52;
+  
 }
 .andro_icon-block .andro_svg-stroke-shape-anim{
   stroke: #2E2D52;
 }
+
 
 /* PRIMARY HOVER COLOR */
 a:hover,
