@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick';
 
-import banner1 from '../../../assets/img/banner/1.1.jpg';
-import banner2 from '../../../assets/img/banner/1.3.jpg';
+import banner1 from '../../../assets/img/banner/banner-web.png';
+import banner2 from '../../../assets/img/banner/banner-web2.png';
 import product1 from '../../../assets/img/products/8.1.png';
 import product2 from '../../../assets/img/products/14.png';
 import cta1 from '../../../assets/img/cta/1.1.jpg';
