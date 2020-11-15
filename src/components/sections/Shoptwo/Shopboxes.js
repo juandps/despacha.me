@@ -81,7 +81,7 @@ const shopfullbox = [
         url: "/product-single",
     },
     {
-        photo: img7,
+        photo: img6,
         title: "Kiwi & Strawberry",
         price1: "19$",
         price2: "29$",
@@ -98,7 +98,7 @@ const shopfullbox = [
         url: "/product-single",
     },
     {
-        photo: img9,
+        photo: img6,
         title: "Watermelons",
         price1: "29$",
         btn1text: "Add To Text",
@@ -122,7 +122,7 @@ const shopfullbox = [
         url: "/product-single",
     },
     {
-        photo: img12,
+        photo: img6,
         title: "Apricots",
         price1: "13$",
         btn1text: "Add To Text",

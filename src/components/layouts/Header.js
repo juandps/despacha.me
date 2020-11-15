@@ -211,7 +211,7 @@ class Header extends Component {
                                             </div>
                                         </div>
                                         <div className="andro_search-adv-input">
-                                            <input type="text" className="form-control" placeholder="Busca frutas, verduras, medicina... ¡Lo que sea!" name="search" />
+                                            <input type="text" className="form-control" placeholder="Busca cualquier producto" name="search" />
                                             <button type="submit" name="button"><i className="fa fa-search" /></button>
                                         </div>
                                     </form>

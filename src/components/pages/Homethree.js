@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Headerthree from '../layouts/Headerthree';
+import Headertwo from '../layouts/Headertwo';
 import Banner from '../sections/Homethree/Banner';
 import Categories from '../sections/Homethree/Categories';
 import Shopcta from '../sections/Homeone/Shopcta';
@@ -20,7 +20,7 @@ class Homethree extends Component {
     render() {
         return (
             <div>
-                <Headerthree/>
+                <Headertwo/>
                 <Banner/>
                 <Categories/>
                 {/*<Shopcta/>

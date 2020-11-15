@@ -10,8 +10,8 @@ class Login extends Component {
             <div>
                 <Headertwo/>
                 <Logintext/>
-                <Instatwo/>
-                <Footer/>
+                {/*<Instatwo/>*/}
+                {/*<Footer/>*/}
             </div>
         );
     }
