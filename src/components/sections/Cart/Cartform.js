@@ -1,57 +1,38 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Slider from 'react-slick';
+import { Redirect } from 'react-router-dom';
+import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
+import './cart.css';
+import sha256 from 'crypto-js/sha256';
+import hmacSHA512 from 'crypto-js/hmac-sha512';
+import Base64 from 'crypto-js/enc-base64';
+import * as crypto from 'crypto-js';
+import * as request from 'superagent';
 
 import relatedimg1 from '../../../assets/img/products/5.png';
 import relatedimg2 from '../../../assets/img/products/14.png';
 import relatedimg3 from '../../../assets/img/products/12.png';
 import relatedimg4 from '../../../assets/img/products/6.png';
 
-const upsellslist = [
-    {
-        photo: relatedimg1,
-        name: "Watermelons",
-        para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
-        stars: "5 Stars",
-        price1: "11$",
-        price2: "24$",
-        btn1text: "Agregar al Carrito",
-        btn2text: "Ver producto",
-        url: "/product-single",
-    },
-    {
-        photo: relatedimg2,
-        name: "Grapes",
-        para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
-        stars: "5 Stars",
-        price1: "11$",
-        btn1text: "Agregar al Carrito",
-        btn2text: "Ver producto",
-        url: "/product-single",
-    },
-    {
-        photo: relatedimg3,
-        name: "Brocoli",
-        para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
-        stars: "5 Stars",
-        price1: "11$",
-        btn1text: "Agregar al Carrito",
-        btn2text: "Ver producto",
-        url: "/product-single",
-    },
-    {
-        photo: relatedimg4,
-        name: "Oranges",
-        para: "Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
-        stars: "5 Stars",
-        price1: "11$",
-        btn1text: "Agregar al Carrito",
-        btn2text: "Ver producto",
-        url: "/product-single",
-    },
-]
-
 class Cartform extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false,
+            cvc: '',
+            expiry: '',
+            focus: '',
+            name: '',
+            number: '',
+            paso: 0,
+            tipo: '',
+            direccion: '',
+            referencia: '',
+            redirect2: false
+        }
+    }
     render() {
         const settings = {
             slidesToShow: 1,
@@ -59,12 +40,19 @@ class Cartform extends Component {
             arrows: false,
             dots: false,
             autoplay: true,
+            usuario: ''
         };
+        if (this.state.redirect) {
+            return <Redirect push to="/login"/>
+        }
+        if(this.state.redirect2) {
+            return <Redirect push to="/"/>
+        }
         return (
             <div className="section pt-0">
                 <div className="container">
                     <div className="row andro_cart-form">
-                        <div className="col-lg-6 andro_upsells">
+                        <div className="col-lg-6 andro_upsells" hidden>
                             <div className="section-title flex-title">
                                 <h4 className="title">Upsells</h4>
                                 <div className="andro_arrows">
@@ -72,7 +60,7 @@ class Cartform extends Component {
                                     <i className="fa fa-arrow-right slick-arrow slider-next" />
                                 </div>
                             </div>
-                            {/* Upsells Start */}
+                            {/* Upsells Start
                             <Slider className="andro_upsells-slider" {...settings}>
                                 {upsellslist.map((item, i) => (
                                     <div key={i} className="andro_product andro_product-list andro_product-has-controls andro_product-has-buttons">
@@ -97,35 +85,283 @@ class Cartform extends Component {
                                     </div>
                                 ))}
                             </Slider>
-                            {/* Upsells End */}
+                             Upsells End */}
                         </div>
-                        <div className="col-lg-6">
+                        <div className="col-lg-12">
                             <div className="section-title">
-                                <h4 className="title">Cart Total</h4>
+                                <h4 className="title">Total del carrito</h4>
                             </div>
                             <table>
                                 <tbody>
                                     <tr>
                                         <th>Subtotal</th>
-                                        <td>90.99$</td>
+                                        <td>{this.props.precio.toFixed(2)}$</td>
                                     </tr>
                                     <tr>
-                                        <th>Tax</th>
-                                        <td> 9.99$ <span className="small">(11%)</span> </td>
+                                        <th>Envío</th>
+                                        <td> 2.00$ {/*<span className="small">(11%)</span>*/} </td>
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td> <b>99.99$</b> </td>
+                                        <td> <b>{(this.props.precio + 2).toFixed(2)}$</b> </td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <Link to="#" className="andro_btn-custom primary btn-block">Proceeed to Checkout</Link>
+                            <div id="tipoPago" style={{marginBottom: '30px'}} hidden>
+                                <div className="section-title">
+                                    <h4 className="title">Tipo de pago</h4>
+                                </div>
+                                <div className="container">
+                                        <div className="row andro_cart-form" style={{textAlign: 'center', color: '#2E2D52'}}>
+                                            <div className="col-lg-6 col-12 andro_upsells">
+                                                <h5 className="title tipoPago" onClick={this.tipoTar.bind(this)}><i class="far fa-credit-card" style={{marginRight: '10px'}}></i>Tarjeta de crédito</h5>
+                                            </div>
+                                            <div className="col-lg-6 col-12 andro_upsells">
+                                                <h5 className="title tipoPago" onClick={this.tipoTrans.bind(this)}><i class="fas fa-money-bill-wave" style={{marginRight: '10px'}}></i>Transferencia bancaria</h5>
+                                            </div>
+                                        </div>
+                                    </div> 
+                            </div>
+                            <div id="tarjeta" style={{marginTop: '20px', marginBottom: '40px'}} hidden>
+                                <div className="section-title">
+                                    <h4 className="title">Tarjeta de crédito</h4>
+                                </div>
+                                <div className="container" style={{marginTop: '20px'}}>
+                                    <div className="row andro_cart-form">
+                                        <div className="col-lg-6 col-12 andro_upsells">
+                                            <div id="PaymentForm">
+                                                <Cards
+                                                cvc={this.state.cvc}
+                                                expiry={this.state.expiry}
+                                                focused={this.state.focus}
+                                                name={this.state.name}
+                                                number={this.state.number}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-6 col-12 andro_upsells">
+                                            <form>
+                                                <input
+                                                type="tel"
+                                                name="number"
+                                                placeholder="Número de la tarjeta"
+                                                onChange={this.handleInputChange}
+                                                onFocus={this.handleInputFocus}
+                                                className="inputTarjeta"
+                                                />
+                                                <input
+                                                type="text"
+                                                name="name"
+                                                placeholder="Nombre del propetario de la tarjeta"
+                                                onChange={this.handleInputChange}
+                                                onFocus={this.handleInputFocus}
+                                                className="inputTarjeta"
+                                                />
+                                                <input
+                                                type="text"
+                                                name="expiry"
+                                                placeholder="Fecha de expiración"
+                                                onKeyUp={this.handleInputChange}
+                                                onFocus={this.handleInputFocus}
+                                                className="inputTarjeta2"
+                                                maxLength="5"
+                                                />
+                                                <input
+                                                type="number"
+                                                name="cvc"
+                                                placeholder="CVC"
+                                                onChange={this.handleInputChange}
+                                                onFocus={this.handleInputFocus}
+                                                className="inputTarjeta2"
+                                                />
+                                                <input className="inputTarjeta" placeholder="Dirección de entrega" id="dir" onChange={this.dir.bind(this)}/>
+                                                <input className="inputTarjeta" placeholder="Referencia" id="ref" onChange={this.ref.bind(this)}/>
+                                                <small id="helpFaltanDatos" style={{color: 'red', marginTop: '20px', marginLeft: '20px'}} hidden>Ingrese todos los datos.</small>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="transferencia" hidden>
+                                <div className="section-title">
+                                    <h4 className="title">Transferencia bancaria</h4>
+                                </div>
+                                <div className="container" style={{marginTop: '20px'}}>
+                                    <div className="row andro_cart-form">
+                                        <div className="col-lg-6 col-12 andro_upsells">
+                                            <h6 style={{color: '#2E2D52', marginBottom: '50px', marginLeft: '30px'}}>
+                                                1. Llene los campos de dirección y Referencia.<br></br>
+                                                2. Seleccione “Pagar”.<br></br>
+                                                3. Los datos de transferencia le llegarán a su WhatsApp.<br></br>
+                                                4. Respoda el mensaje de WhatsApp con el comprobante de deposito.<br></br>
+                                                5. ¡Su pedido será <strong>Despachado!</strong>.<br></br>
+                                            </h6>
+                                        </div>
+                                        <div className="col-lg-6 col-12 andro_upsells">
+                                            <input className="inputTarjeta" placeholder="Dirección de entrega" id="dir2" onChange={this.dir.bind(this)}/>
+                                            <input className="inputTarjeta" placeholder="Referencia" id="ref2" onChange={this.ref.bind(this)}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <Link to="#" onClick={this.pagarInicio.bind(this)} className="andro_btn-custom primary btn-block">Pagar</Link>
                         </div>
                     </div>
                 </div>
             </div>
 
         );
+    }
+
+    handleInputFocus = (e) => {
+        this.setState({ focus: e.target.name });
+    }
+
+    handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'expiry') {
+            const codigo = e.which || e.keyCode;
+            if (codigo === 8) {
+                e.target.value = '';
+            }
+            if (value.length === 2) {
+                e.target.value = value + '/';
+            }
+            this.setState({ [name]: value });
+        } else {
+            this.setState({ [name]: value });
+        }
+    }
+
+    tipoTar() {
+        document.getElementById('tarjeta').removeAttribute('hidden');
+        document.getElementById('transferencia').setAttribute('hidden', '');
+        this.state.paso = 2;
+        this.state.tipo = 'tarjeta';
+    }
+
+    tipoTrans() {
+        document.getElementById('tarjeta').setAttribute('hidden', '');
+        document.getElementById('transferencia').removeAttribute('hidden');
+        this.state.paso = 2;
+        this.state.tipo = 'transferencia';
+    }
+
+    dir(event) {
+        this.setState({direccion: event.target.value});
+    }
+
+    ref(event) {
+        this.setState({referencia: event.target.value});
+    }
+
+    pagarInicio() {
+        if (window.localStorage.getItem('token')) {
+            document.getElementById('tipoPago').removeAttribute('hidden');
+            if (this.state.paso === 2) {
+                if (this.state.tipo === 'tarjeta') {
+                    if (this.state.cvc && (this.state.expiry.length === 5) && this.state.name && this.state.number) {
+                        document.getElementById('helpFaltanDatos').setAttribute('hidden', '');
+                        // Datos tarjeta y codificar
+                        const mes = this.state.expiry.charAt(0) + this.state.expiry.charAt(1);
+                        const anio = this.state.expiry.charAt(3) + this.state.expiry.charAt(4);
+                        const datos = {
+                            cardNumber: this.state.number,
+                            expirationMonth: mes,
+                            expirationYear: anio,
+                            holderName: this.state.name.toUpperCase(),
+                            securityCode: this.state.cvc
+                        }
+                        const key = crypto.enc.Utf8.parse('adf36d46c58344129ffae86f1ed197c3');
+                        const iv = crypto.enc.Utf8.parse(''); 
+                        const encrypted = crypto.AES.encrypt(JSON.stringify(datos), key,{ iv: iv });
+
+                        const codificado = encrypted.ciphertext.toString(crypto.enc.Base64);
+                        
+                        // contruccion del objeto
+                        const object = {
+                            pedido: {
+                                data: JSON.parse(window.localStorage.getItem('conectado')),
+                                pedido: JSON.parse(window.localStorage.getItem('lista')),
+                                direccion: this.state.direccion,
+                                descrip: this.state.referencia,
+                                total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
+                            },
+                            tarjeta: {
+                                codificado: codificado,
+                                cedula: JSON.parse(window.localStorage.getItem('conectado')).cedula,
+                                total: ((parseFloat(window.localStorage.getItem('precioFinal')) + 2) * 100),
+                                email: JSON.parse(window.localStorage.getItem('conectado')).email
+                            }
+                        }
+                        request
+                            .post('http://localhost:8000/api/pago')
+                            .send(object) 
+                            .then(res =>{
+                                console.log(res.body);
+                                if (res.body.message) {
+                                    alert(res.body.message);
+                                    window.localStorage.removeItem('lista');
+                                    this.setState({redirect2: true});
+                                } else {
+                                    alert(res.body.error);
+                                }
+                            })
+                            .catch(err =>{
+                                console.log(err);
+                                alert(err);
+                            })
+                    } else {
+                        document.getElementById('helpFaltanDatos').removeAttribute('hidden');
+                    }
+                } else if (this.state.tipo === 'transferencia') {
+                    const object = {
+                        pedido: {
+                            data: JSON.parse(window.localStorage.getItem('conectado')),
+                            pedido: JSON.parse(window.localStorage.getItem('lista')),
+                            direccion: this.state.direccion,
+                            descrip: this.state.referencia,
+                            total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
+                        }
+                    }
+                    request
+                        .post('http://localhost:8000/api/pago')
+                        .send(object) 
+                        .then(res =>{
+                            console.log(res.body);
+                            if (res.body.message) {
+                                alert(res.body.message);
+                                window.localStorage.removeItem('lista');
+                                this.setState({redirect2: true});
+                            } else {
+                                alert(res.body.error);
+                            }
+                        })
+                        .catch(err =>{
+                            console.log(err);
+                            alert(err);
+                        });
+                }
+            } else if(this.state.paso === 1) {
+                alert('Seleccione un tipo de pago')
+            }
+        } else {
+            this.setState({redirect: true});
+        }
+    }
+
+    componentDidMount() {
+        if (window.localStorage.getItem('conectado')) {
+            const usuario = JSON.parse(window.localStorage.getItem('conectado'));
+            if (usuario.metodos) {
+                document.getElementById('dir').setAttribute('value', usuario.metodos[0].direc);
+                document.getElementById('ref').setAttribute('value', usuario.metodos[0].desc);
+                document.getElementById('dir2').setAttribute('value', usuario.metodos[0].direc);
+                document.getElementById('ref2').setAttribute('value', usuario.metodos[0].desc);
+                this.setState({direccion: usuario.metodos[0].direc});
+                this.setState({referencia: usuario.metodos[0].desc});
+            }
+        }
     }
 }
 

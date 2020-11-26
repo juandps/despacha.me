@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import * as request from 'superagent';
 
 import sideimg1 from '../../../assets/img/products/1.png';
 import sideimg2 from '../../../assets/img/products/14.png';
@@ -7,6 +8,14 @@ import loginimg  from '../../../assets/img/auth.jpg';
 
 
 class Logintext extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email: '',
+            password: ''
+        }
+    }
     render() {
         return (
             <div className="section">
@@ -25,15 +34,16 @@ class Logintext extends Component {
                         </div>
                         <div className="andro_auth-form">
                             <h2>Ingresar</h2>
-                            <form method="post">
+                            <form>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Correo" name="Usuario" />
+                                    <input type="email" className="form-control" placeholder="Correo" name="Usuario" onChange={this.email.bind(this)}/>
                                 </div>
                                 <div className="form-group">
-                                    <input type="Contraseña" className="form-control" placeholder="Contraseña" name="Contraseña" />
+                                    <input type="password" className="form-control" placeholder="Contraseña" name="Contraseña" onChange={this.password.bind(this)}/>
+                                    <small style={{color: 'red', marginTop: '20px'}} id="lleneTodo" hidden>Ingrese todos los campos.</small>
                                 </div>
                                 <Link to="#">¿Te olvidaste la contraseña?</Link>
-                                <button type="submit" className="andro_btn-custom primary">Ingresar</button>
+                                <button type="button" className="andro_btn-custom primary" onClick={this.login.bind(this)}>Ingresar</button>
                                 <div className="andro_auth-seperator">
                                     <span>o</span>
                                 </div>
@@ -49,6 +59,43 @@ class Logintext extends Component {
             </div>
 
         );
+    }
+
+    email(event) {
+        console.log(event.target.value);
+        this.setState({email: event.target.value});
+    }
+
+    password(event) {
+        console.log(event.target.value);
+        this.setState({password: event.target.value});
+    }
+
+    login() {
+        const objeto = {
+            email: this.state.email,
+            password: this.state.password
+        }
+        if (this.state.email && this.state.password) {
+            document.getElementById('lleneTodo').setAttribute('hidden', '');
+            request
+                .post('http://localhost:8000/api/login')
+                .send(objeto) 
+                .then(res =>{
+                    console.log(res.body);
+                    if (res.body.token) {
+                        document.getElementById('lleneTodo').setAttribute('hidden', '');
+                        window.localStorage.setItem('token', res.body.token);
+                        window.history.pushState(null, '', '/');
+                        window.location.reload();
+                    } else {
+                        document.getElementById('lleneTodo').removeAttribute('hidden');
+                        document.getElementById('lleneTodo').innerHTML = res.body;
+                    }
+                });
+        } else {
+            document.getElementById('lleneTodo').removeAttribute('hidden');
+        }
     }
 }
 

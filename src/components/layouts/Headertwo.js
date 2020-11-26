@@ -3,45 +3,67 @@ import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import Mobilemenu from './Mobilemenu';
 import $ from 'jquery';
-import {findDOMNode } from 'react-dom'
-
+import {findDOMNode } from 'react-dom';
+import * as request from 'superagent';
+import './css/header.css';
+import Banner from '../sections/Homethree/Banner';
+import Shopboxes from '../sections/Shoptwo/Shopboxes';
 import logo from '../../assets/img/logo.png';
+import { Modal } from 'react-responsive-modal';
+
+const closeIcon = (
+    <div className="close-btn close-dark close" data-dismiss="modal">
+        <span />
+        <span />
+    </div>
+)
+
+const categories = [
+    {
+        icon: "flaticon-diet",
+        title: "Frutas",
+        link: "#",
+    },
+    {
+        icon: "flaticon-supplements",
+        title: "Farmacia",
+        link: "#",
+    },
+    {
+        icon: "flaticon-groceries",
+        title: "Vegetales",
+        link: "#",
+    },
+    {
+        icon: "flaticon-cleaning-spray",
+        title: "Lacteos",
+        link: "#",
+    },
+    {
+        icon: "flaticon-baby",
+        title: "Proteinas",
+        link: "#",
+    },
+    {
+        icon: "flaticon-olive-oil",
+        title: "Abarrotes",
+        link: "#",
+    }
+]
 
 class Headertwo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          redText: false
+          redText: false,
+          reiniciar: '',
+          buscar: '',
+          open: false
         };
       }
-    // Sticky header
-    componentDidMount() {
-        window.addEventListener('scroll', () => {
-            this.setState({
-                isTop: window.scrollY > 110
-            });
-        }, false);
-    }
-    // Sidebar btn
-    sidebarbtn = () => {
-        const sdb = findDOMNode(this.refs.sidebarbtn);
-        $(sdb).addClass('open');
-    }
-    removesidebarbtn = () => {
-        const sdb = findDOMNode(this.refs.sidebarbtn);
-        $(sdb).removeClass('open');
-    }
-    // Mobile btn
-    mobilemenubtn = () => {
-        const mbb = findDOMNode(this.refs.mobilemenubtn);
-        $(mbb).addClass('open');
-    }
-    removemobilemenu = () => {
-        const mbb = findDOMNode(this.refs.mobilemenubtn);
-        $(mbb).removeClass('open');
-    }
     render() {
         const stickyheader = this.state.isTop ? 'sticky' : '';
+        const { open } = this.state;
         return (
             <div>
                 <aside className="andro_aside andro_aside-right" ref="sidebarbtn">
@@ -140,15 +162,15 @@ class Headertwo extends Component {
                                     <li> <Link to="https://www.instagram.com/despacha.me/"> <i className="fab fa-instagram" /> </Link> </li>
                                 </ul>
                                 <ul className="andro_header-top-links">
-                                    <li className="menu-item"><Link to="/login"> Ingresar </Link></li>
-                                    
+                                    <li className="menu-item" id="afuera"><Link to="/login"> Ingresar </Link></li>
+                                    <li className="menu-item" id="dentro" hidden onClick={this.onOpenModal}><Link id="ingresarLogin"> Ingresar </Link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     {/* Topheader End */}
                     {/* Middle Header Start */}
-                    <div className="andro_header-middle">
+                    <div className="andro_header-middle" id="cellHead">
                         <div className="container">
                             <nav className="navbar">
                                 {/* Logo */}
@@ -156,7 +178,7 @@ class Headertwo extends Component {
                                 {/* Search Form */}
                                 <div className="andro_search-adv">
                                     <form method="post">
-                                        <div className="andro_search-adv-cats">
+                                        {/*<div className="andro_search-adv-cats">
                                             <span>Categorías<i class="fas fa-chevron-up"></i></span>
                                             <div className="sub-menu">
                                                 <div className="andro_dropdown-scroll">
@@ -197,10 +219,10 @@ class Headertwo extends Component {
                                                     </label>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>*/}
                                         <div className="andro_search-adv-input">
-                                            <input type="text" className="form-control" placeholder="Busca cualquier producto" name="search" />
-                                            <button type="submit" name="button"><i className="fa fa-search" /></button>
+                                            <input type="search" className="form-control" placeholder="Busca cualquier producto" name="search" onKeyUp={this.buscar.bind(this)}/>
+                                            <button type="button" name="button"><i className="fa fa-search" /></button>
                                         </div>
                                     </form>
                                 </div>
@@ -211,8 +233,8 @@ class Headertwo extends Component {
                                             <Link to="/cart" title="Your Cart">
                                                 <i className="flaticon-shopping-basket" />
                                                 <div className="andro_header-cart-content">
-                                                    <span>9 Items</span>
-                                                    <span>2439.99$</span>
+                                                    <span id="itemsCarrito"></span>
+                                                    <span id="precioCarrito"></span>
                                                 </div>
                                             </Link>
                                         </li>
@@ -230,11 +252,123 @@ class Headertwo extends Component {
                     </div>
                     {/* Middle Header End */}
 
-                    
+                    <Modal open={open} onClose={this.onCloseModal} top classNames={{
+                        modal: 'andro_quick-view-modal',
+                        }}><div className="modal-content">
+                            <div className="modal-body">           
+                                <h4 style={{color: '#2E2D52', padding: '10px', marginTop: '10px'}}>¿Quieres cerrar sesión?</h4>
+                                <button type="button" className="andro_btn-custom primary btn-block" onClick={this.cerrarSesion.bind(this)}>
+                                    Confirmar
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </Modal>
                 </header>
+                <div id="inicioBody">
+                    <Banner />
+                    <div>
+                        <div className="section section-padding category_section">
+                            <div className="container">
+                                <div className="row">
+                                    {categories.map((item, i) => (
+                                        <div key={i} className="col-lg-2 col-md-3 col-sm-4">
+                                            <div className="andro_icon-block text-center has-link">
+                                                <Link to={item.link}>
+                                                    <i className={item.icon} id={item.title} onClick={this.catCambiar.bind(this)}/>
+                                                    <h5>{item.title}</h5>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                        {this.state.reiniciar}
+                    </div>
+                </div>
             </div>
 
         );
+    } 
+
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
+
+    // Sidebar btn
+    sidebarbtn = () => {
+        const sdb = findDOMNode(this.refs.sidebarbtn);
+        $(sdb).addClass('open');
+    }
+
+    removesidebarbtn = () => {
+        const sdb = findDOMNode(this.refs.sidebarbtn);
+        $(sdb).removeClass('open');
+    }
+
+    // Mobile btn
+    mobilemenubtn = () => {
+        const mbb = findDOMNode(this.refs.mobilemenubtn);
+        $(mbb).addClass('open');
+    }
+
+    removemobilemenu = () => {
+        const mbb = findDOMNode(this.refs.mobilemenubtn);
+        $(mbb).removeClass('open');
+    }
+
+    buscar(event) {
+        const buscar = event.target.value;
+        this.setState({reiniciar: ''});
+        setTimeout(() => {this.setState({reiniciar: <Shopboxes cat="nada" buscar={buscar}/>})}, 100);
+    }
+
+    catCambiar(event) {
+        const cat = event.target.id;
+        this.setState({reiniciar: ''});
+        setTimeout(() => {this.setState({reiniciar: <Shopboxes cat={cat} buscar=""/>})}, 100);
+    }
+
+    cerrarSesion() {
+        window.localStorage.removeItem('token');
+        window.location.reload();
+    }
+
+    componentDidMount() {
+        if (window.location.pathname === '/') {
+            document.getElementById('inicioBody').removeAttribute('hidden');
+            this.setState({reiniciar: <Shopboxes cat="nada" buscar=""/>});
+        } else {
+            document.getElementById('inicioBody').setAttribute('hidden', '');
+        }
+        window.addEventListener('scroll', () => {
+            this.setState({
+                isTop: window.scrollY > 110
+            });
+        }, false);
+        if (window.localStorage.getItem('token')) {
+            request
+                .get('http://localhost:8000/api/client/' + window.localStorage.getItem('token'))
+                .set('Content-Type','aplication/json') 
+                .then(res =>{
+                    console.log(res.body);
+                    window.localStorage.setItem('conectado', JSON.stringify(res.body));
+                    document.getElementById('ingresarLogin').innerHTML = res.body.nombre;
+                })
+                .catch(err => {
+                    alert('Este usuario no esta creado, porfavor cree una cuenta');
+                })
+            document.getElementById('afuera').setAttribute('hidden', '');
+            document.getElementById('dentro').removeAttribute('hidden');
+        } else {
+            document.getElementById('dentro').setAttribute('hidden', '');
+            document.getElementById('afuera').removeAttribute('hidden');
+        }
     }
 }
 

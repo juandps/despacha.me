@@ -1,0 +1,9 @@
+@media (min-width:301px) and (max-width: 800px){
+    .agregarCar {
+        padding: 5px !important;
+    }
+}
+
+.agregarCar:hover {
+    background-color: rgb(46, 45, 82) !important;
+}

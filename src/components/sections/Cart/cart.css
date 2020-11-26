@@ -1,0 +1,38 @@
+.tipoPago:hover {
+    color: #3DC9B3;
+    user-select: none;
+}
+
+.inputTarjeta {
+    width: 100%;
+    margin: 5px;
+    border: 1px solid #F0F2F3;
+    border-radius: 25px;
+    box-shadow: 0 6px 10px 0 rgba(98, 98, 127, 0.16);
+    padding: 8px 15px;
+    color: #2E2D52;
+    background-color: #fff;
+    height: 50px;
+    font-size: 14px;
+}
+
+.inputTarjeta::placeholder {
+    color: #848486;
+}
+
+.inputTarjeta2 {
+    width: 45%;
+    margin: 5px;
+    box-shadow: 0 6px 10px 0 rgba(98, 98, 127, 0.16);
+    border: 1px solid #F0F2F3;
+    border-radius: 25px;
+    padding: 8px 15px;
+    color: #6e6e6e;
+    background-color: #fff;
+    height: 50px;
+    font-size: 14px;
+}
+
+.inputTarjeta2::placeholder {
+    color: #848486;
+}

@@ -4,6 +4,7 @@ import 'rc-tooltip/assets/bootstrap.css';
 import Tooltip from 'rc-tooltip';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import * as request from 'superagent';
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -38,6 +39,13 @@ const pricemarks = {
     500: '500',
 };
 class Shopsidebar extends Component {
+    constructor() {
+        super();
+        this.state = {
+            array: []
+        }
+    }
+
     render() {
         return (
             <div className="sidebar">
@@ -57,109 +65,41 @@ class Shopsidebar extends Component {
                     <ul className="sidebar-widget-list">
                         <li>
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                                <input type="checkbox" className="custom-control-input" id="customCheck1" name="Frutas" onClick={this.check.bind(this)}/>
                                 <label className="custom-control-label" htmlFor="customCheck1">Frutas</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck2" />
+                                <input type="checkbox" className="custom-control-input" id="customCheck2" name="Abarrotes" onClick={this.check.bind(this)}/>
                                 <label className="custom-control-label" htmlFor="customCheck2">Abarrotes</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck3" />
+                                <input type="checkbox" className="custom-control-input" id="customCheck3" name="Lacteos" onClick={this.check.bind(this)}/>
                                 <label className="custom-control-label" htmlFor="customCheck3">Lácteos y Huevos</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck4" />
-                                <label className="custom-control-label" htmlFor="customCheck4">Baby &amp; Kids Care</label>
+                                <input type="checkbox" className="custom-control-input" id="customCheck4" name="Proteinas" onClick={this.check.bind(this)}/>
+                                <label className="custom-control-label" htmlFor="customCheck4">Baby &amp; Proteinas</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck5" />
+                                <input type="checkbox" className="custom-control-input" id="customCheck5" name="Vegetales" onClick={this.check.bind(this)}/>
                                 <label className="custom-control-label" htmlFor="customCheck5">Verduras</label>
                             </div>
                         </li>
                         <li>
                             <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck6" />
+                                <input type="checkbox" className="custom-control-input" id="customCheck6" name="Farmacia" onClick={this.check.bind(this)}/>
                                 <label className="custom-control-label" htmlFor="customCheck6">Farmacia</label>
                             </div>
                         </li>
                     </ul>
-                </div>
-                {/* Filter: Categories End */}
-                {/* Filter: Condition Start */}
-                <div className="sidebar-widget">
-                    <h5 className="widget-title"> Condición </h5>
-                    <ul className="sidebar-widget-list">
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck7" />
-                                <label className="custom-control-label" htmlFor="customCheck7">Daily Deal</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck8" />
-                                <label className="custom-control-label" htmlFor="customCheck8">On Sale</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                {/* Filter: Condition End */}
-                {/* Filter: State Start */}
-                <div className="sidebar-widget">
-                    <h5 className="widget-title"> Marca </h5>
-                    <ul className="sidebar-widget-list">
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck9" />
-                                <label className="custom-control-label" htmlFor="customCheck9">Maggi</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck10" />
-                                <label className="custom-control-label" htmlFor="customCheck10">Alpes</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck11" />
-                                <label className="custom-control-label" htmlFor="customCheck11">Inapesa</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck12" />
-                                <label className="custom-control-label" htmlFor="customCheck12">Cafrilosa</label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck13" />
-                                <label className="custom-control-label" htmlFor="customCheck13">El Ordeño</label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                {/* Filter: State End */}
-                {/* Filter: Freshness Start */}
-                <div className="sidebar-widget">
-                    <h5 className="widget-title"> Frescura </h5>
-                    <Range min={0} max={10} marks={marks} defaultValue={[5, 6]} tipFormatter={value => `${value} days`} />
-                </div>
-                {/* Filter: Freshness End */}
-                {/* Filter: Price Start */}
-                <div className="sidebar-widget">
-                    <h5 className="widget-title"> Precio </h5>
-                    <Range min={0} max={500} marks={pricemarks} defaultValue={[10, 100]} tipFormatter={value => `${value} $`} />
                 </div>
                 {/* Filter: Price End */}
                 {/* Tags Start */}
@@ -199,6 +139,22 @@ class Shopsidebar extends Component {
             </div>
 
         );
+    }
+
+    check(event) {
+        const n = this.state.array.length;
+        let x = 0;
+        for (let z = 0; z < n; z++) {
+            if (this.state.array[z] === event.target.name) {
+                this.state.array.splice( z, 1 );
+                x = x +1;
+            }
+        }
+        if (x === 0) {
+            this.state.array.push(event.target.name);
+        }
+        window.localStorage.setItem('filtro', JSON.stringify(this.state.array));
+        console.log(JSON.parse(window.localStorage.getItem('filtro')));
     }
 }
 

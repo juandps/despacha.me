@@ -1,11 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import PhoneInput from 'react-phone-input-2';
+import * as request from 'superagent';
 
+import 'react-phone-input-2/lib/style.css';
 import sideimg1 from '../../../assets/img/products/1.png';
 import sideimg2 from '../../../assets/img/products/14.png';
 import loginimg  from '../../../assets/img/auth.jpg';
 
 class Registertext extends Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            numero: '',
+            email: '',
+            nombre: '',
+            password: '',
+            cedula: '',
+            transId: '',
+            codigo: ''
+        }
+    }
     render() {
         return (
             <div className="section">
@@ -23,33 +39,137 @@ class Registertext extends Component {
                             </div>
                         </div>
                         <div className="andro_auth-form">
-                            <h2>Crear Cuenta</h2>
-                            <form method="post">
+                            <div id="crearCuenta">
+                                <h2>Crear Cuenta</h2>
+                                <form>
+                                    <div className="form-group">
+                                        <input type="text" className="form-control" placeholder="Nombre y apellido" name="Usuario" onChange={this.nombre.bind(this)}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="text" className="form-control" placeholder="Cédula" name="cedula" onChange={this.cedula.bind(this)}/>
+                                    </div>
+                                    <div className="form-group">
+                                        <PhoneInput
+                                            country={'ec'}
+                                            value=''
+                                            onChange={this.numero.bind(this)}
+                                            inputStyle = {{width: '100%', height: '50px', borderRadius: '25px', border: 'none'}}
+                                            buttonStyle = {{borderRadius: '25px', backgroundColor: 'white', border: 'none'}}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="email" className="form-control form-control-light" placeholder="Correo" onChange={this.email.bind(this)} name="email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="password" className="form-control" placeholder="Contraseña" name="Contraseña" onChange={this.password.bind(this)}/>
+                                        <small style={{color: 'red', marginTop: '20px'}} id="lleneTodo" hidden>Ingrese todos los campos.</small>
+                                    </div>
+                                    <button type="button" className="andro_btn-custom primary" onClick={this.enviarCodigo.bind(this)}>Crear Cuenta</button>
+                                    <div className="andro_auth-seperator">
+                                        <span>OR</span>
+                                    </div>
+                                    <div className="andro_social-login">
+                                        <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook </button>
+                                        <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
+                                    </div>
+                                    <p>¿Ya tienes cuenta? <Link to="/login">Ingresa aquí</Link></p>
+                                </form>
+                            </div>
+                            <div id="codigoCuenta" hidden>
+                                <h5>Se ha enviado un código a su whatsapp. Ingréselo en el siguiente campo: </h5>
                                 <div className="form-group">
-                                    <input type="text" className="form-control" placeholder="Usuario" name="Usuario" />
+                                    <input type="text" className="form-control" placeholder="" name="codigo" onChange={this.codigo.bind(this)}/>
                                 </div>
-                                <div className="form-group">
-                                    <input type="email" className="form-control form-control-light" placeholder="Correo" name="email" />
-                                </div>
-                                <div className="form-group">
-                                    <input type="Contraseña" className="form-control" placeholder="Contraseña" name="Contraseña" />
-                                </div>
-                                <button type="submit" className="andro_btn-custom primary">Crear Cuenta</button>
-                                <div className="andro_auth-seperator">
-                                    <span>OR</span>
-                                </div>
-                                <div className="andro_social-login">
-                                    <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook </button>
-                                    <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
-                                </div>
-                                <p>¿Ya tienes cuenta? <Link to="/login">Ingresa aquí</Link></p>
-                            </form>
+                                <button type="button" className="andro_btn-custom primary" onClick={this.crearNuevo.bind(this)}>Enviar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
         );
+    }
+
+    numero(event) {
+        console.log(event);
+        this.setState({numero: event});
+    }
+
+    nombre(event) {
+        console.log(event.target.value);
+        this.setState({nombre: event.target.value});
+    }
+
+    cedula(event) {
+        console.log(event.target.value);
+        this.setState({cedula: event.target.value});
+    }
+
+    email(event) {
+        console.log(event.target.value);
+        this.setState({email: event.target.value});
+    }
+
+    password(event) {
+        console.log(event.target.value);
+        this.setState({password: event.target.value});
+    }
+
+    codigo(event) {
+        console.log(event.target.value);
+        this.setState({codigo: event.target.value});
+    }
+
+    enviarCodigo() {
+        if(this.state.numero && this.state.cedula && this.state.email && this.state.nombre && this.state.password) {
+            document.getElementById('lleneTodo').setAttribute('hidden', '');
+            document.getElementById('codigoCuenta').removeAttribute('hidden');
+            document.getElementById('crearCuenta').setAttribute('hidden', '');
+            request
+                .get('http://localhost:8000/api/transId')
+                .set('Content-Type','aplication/json') 
+                .then(res =>{
+                    console.log(res.body);
+                    this.setState({transId: res.body.id});
+                    request
+                        .post('http://localhost:8000/api/codigo')
+                        .send({numero: this.state.numero}) 
+                        .then(res =>{
+                            console.log('Mensaje enviado')
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                });
+        }else {
+            document.getElementById('lleneTodo').removeAttribute('hidden');
+        }
+    }
+
+    crearNuevo() {
+        const objeto = {
+            nombre: this.state.nombre,
+            email: this.state.email,
+            password: this.state.password,
+            numero: this.state.numero,
+            verificado: true
+        }
+        if (this.state.codigo === this.state.transId) {
+            request
+            .post('http://localhost:8000/api/crearCuenta')
+            .send(objeto) 
+            .then(res =>{
+                console.log(res.body);
+                window.localStorage.setItem('token', res.body.token);
+                window.history.pushState(null, '', '/');
+                window.location.reload();
+            })
+            .catch(err => {
+                alert('Ocurrió un problema al crear la cuenta');
+            });
+        } else {
+            alert('Los códigos no coinciden');
+        }
     }
 }
 
