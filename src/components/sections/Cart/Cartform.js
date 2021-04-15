@@ -10,6 +10,8 @@ import hmacSHA512 from 'crypto-js/hmac-sha512';
 import Base64 from 'crypto-js/enc-base64';
 import * as crypto from 'crypto-js';
 import * as request from 'superagent';
+import{ init } from 'emailjs-com';
+import { send } from 'emailjs-com';
 
 import relatedimg1 from '../../../assets/img/products/5.png';
 import relatedimg2 from '../../../assets/img/products/14.png';
@@ -204,7 +206,7 @@ class Cartform extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <Link to="#" onClick={this.pagarInicio.bind(this)} className="andro_btn-custom primary btn-block">Pagar</Link>
+                            <Link to="#" id="botonPagar" onClick={this.pagarInicio.bind(this)} className="andro_btn-custom primary btn-block">Pagar</Link>
                         </div>
                     </div>
                 </div>
@@ -260,6 +262,7 @@ class Cartform extends Component {
             document.getElementById('tipoPago').removeAttribute('hidden');
             if (this.state.paso === 2) {
                 if (this.state.tipo === 'tarjeta') {
+                    document.getElementById('botonPagar').innerHTML="Espere un momento..."
                     if (this.state.cvc && (this.state.expiry.length === 5) && this.state.name && this.state.number) {
                         document.getElementById('helpFaltanDatos').setAttribute('hidden', '');
                         // Datos tarjeta y codificar
@@ -295,15 +298,22 @@ class Cartform extends Component {
                             }
                         }
                         request
-                            .post('http://localhost:8000/api/pago')
+                            .post('https://despacha-me.herokuapp.com/api/pago')
                             .send(object) 
                             .then(res =>{
                                 console.log(res.body);
                                 if (res.body.message) {
-                                    alert(res.body.message);
-                                    window.localStorage.removeItem('lista');
-                                    this.setState({redirect2: true});
+                                    const parametros = (JSON.parse(res.body.parametros));
+                                    send('gmail', 'template_pxRoAu15', parametros)
+                                    .then(resTOS => {
+                                        console.log('Email successfully sent!');
+                                        alert(res.body.message);
+                                        window.localStorage.removeItem('lista');
+                                        this.setState({redirect2: true});
+                                })
+                                .catch(err =>{console.log(err);})
                                 } else {
+                                    document.getElementById('botonPagar').innerHTML="Pagar";
                                     alert(res.body.error);
                                 }
                             })
@@ -315,6 +325,7 @@ class Cartform extends Component {
                         document.getElementById('helpFaltanDatos').removeAttribute('hidden');
                     }
                 } else if (this.state.tipo === 'transferencia') {
+                    document.getElementById('botonPagar').innerHTML="Espere un momento..."
                     const object = {
                         pedido: {
                             data: JSON.parse(window.localStorage.getItem('conectado')),
@@ -324,16 +335,24 @@ class Cartform extends Component {
                             total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
                         }
                     }
+                    console.log(object);
                     request
-                        .post('http://localhost:8000/api/pago')
+                        .post('https://despacha-me.herokuapp.com/api/transferencia')
                         .send(object) 
                         .then(res =>{
                             console.log(res.body);
                             if (res.body.message) {
-                                alert(res.body.message);
-                                window.localStorage.removeItem('lista');
-                                this.setState({redirect2: true});
+                                const parametros = (JSON.parse(res.body.parametros));
+                                send('gmail', 'tranferencia', parametros)
+                                .then(resTOSP => {
+                                    console.log('Email successfully sent!');
+                                    alert(res.body.message);
+                                    window.localStorage.removeItem('lista');
+                                    this.setState({redirect2: true});
+                                })
+                                .catch(err =>{console.log(err);})
                             } else {
+                                document.getElementById('botonPagar').innerHTML="Pagar";
                                 alert(res.body.error);
                             }
                         })
@@ -350,7 +369,8 @@ class Cartform extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount() {    
+        init("user_qDFrBtNzAqkCUHVvMU9zn");
         if (window.localStorage.getItem('conectado')) {
             const usuario = JSON.parse(window.localStorage.getItem('conectado'));
             if (usuario.metodos) {

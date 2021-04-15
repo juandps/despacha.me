@@ -44,13 +44,13 @@ class Logintext extends Component {
                                 </div>
                                 <Link to="#">¿Te olvidaste la contraseña?</Link>
                                 <button type="button" className="andro_btn-custom primary" onClick={this.login.bind(this)}>Ingresar</button>
-                                <div className="andro_auth-seperator">
+                                {/*<div className="andro_auth-seperator">
                                     <span>o</span>
                                 </div>
                                 <div className="andro_social-login">
                                     <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook</button>
                                     <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
-                                </div>
+                                </div>*/}
                                 <p>¿No tienes cuenta aún? <Link to="/register">Crear cuenta</Link> </p>
                             </form>
                         </div>
@@ -79,7 +79,7 @@ class Logintext extends Component {
         if (this.state.email && this.state.password) {
             document.getElementById('lleneTodo').setAttribute('hidden', '');
             request
-                .post('http://localhost:8000/api/login')
+                .post('https://despacha-me.herokuapp.com/api/login')
                 .send(objeto) 
                 .then(res =>{
                     console.log(res.body);

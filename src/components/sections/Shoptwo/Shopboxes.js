@@ -92,7 +92,8 @@ class Shopboxes extends Component {
             open: false,
             cat: this.props.cat,
             array: [],
-            filtro: []
+            filtro: [],
+            elementos: []
         }
     }
     render() {
@@ -263,7 +264,7 @@ class Shopboxes extends Component {
         const id = event.target.name;
         const buttonId = event.target.id;
         request
-            .get(`http://localhost:8000/api/productos/${categoria}/${id}`)
+            .get(`https://despacha-me.herokuapp.com/api/productos/${categoria}/${id}`)
             .set('Content-Type','aplication/json') 
             .then(res =>{
                 const prod = res.body;
@@ -308,7 +309,7 @@ class Shopboxes extends Component {
         if (m > 0) {
             for (let x = 0; x < m; x++) {
                 request
-                .get('http://localhost:8000/api/productos/' + this.state.array[x])
+                .get('https://despacha-me.herokuapp.com/api/productos/' + this.state.array[x])
                 .set('Content-Type','aplication/json') 
                 .then(res =>{
                     const nd = res.body.length;
@@ -323,7 +324,7 @@ class Shopboxes extends Component {
                                 id: res.body[i].id,
                                 local: res.body[i].local,
                                 unidad: res.body[i].Unidad,
-                                url: "/product-single",
+                                url: "/",
                                 descripcion: res.body[i].descripcion,
                                 categoria: res.body[i].Categoria
                             }
@@ -335,7 +336,7 @@ class Shopboxes extends Component {
             }
         } else {
             request
-                .get('http://localhost:8000/api/productos')
+                .get('https://despacha-me.herokuapp.com/api/productos')
                 .set('Content-Type','aplication/json') 
                 .then(res =>{
                     const n = res.body.length;
@@ -350,7 +351,7 @@ class Shopboxes extends Component {
                                 id: res.body[i].id,
                                 local: res.body[i].local,
                                 unidad: res.body[i].Unidad,
-                                url: "/product-single",
+                                url: "/",
                                 descripcion: res.body[i].descripcion,
                                 categoria: res.body[i].Categoria
                             }
@@ -368,12 +369,10 @@ class Shopboxes extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.cat);
-        console.log(this.props.buscar);
-        const datos = [];
         if (this.props.cat === 'nada' && this.props.buscar === '') {
+            const datos = [];
             request
-                .get('http://localhost:8000/api/productos')
+                .get('https://despacha-me.herokuapp.com/api/productos/Frutas')
                 .set('Content-Type','aplication/json') 
                 .then(res =>{
                     const n = res.body.length;
@@ -388,7 +387,7 @@ class Shopboxes extends Component {
                                 id: res.body[i].id,
                                 local: res.body[i].local,
                                 unidad: res.body[i].Unidad,
-                                url: "/product-single",
+                                url: "/",
                                 descripcion: res.body[i].descripcion,
                                 categoria: res.body[i].Categoria
                             }
@@ -400,7 +399,7 @@ class Shopboxes extends Component {
         } else if(this.props.cat !== 'nada' && this.props.buscar === '') {
             const datos = [];
             request
-                .get('http://localhost:8000/api/productos/' + this.props.cat)
+                .get('https://despacha-me.herokuapp.com/api/productos/' + this.props.cat)
                 .set('Content-Type','aplication/json') 
                 .then(res =>{
                     const n = res.body.length;
@@ -415,7 +414,7 @@ class Shopboxes extends Component {
                                 id: res.body[i].id,
                                 local: res.body[i].local,
                                 unidad: res.body[i].Unidad,
-                                url: "/product-single",
+                                url: "/",
                                 descripcion: res.body[i].descripcion,
                                 categoria: res.body[i].Categoria
                             }
@@ -425,35 +424,7 @@ class Shopboxes extends Component {
                     this.setState({function: this.dibujarTabla(datos)})
                 });
         } else if(this.props.cat === 'nada' && this.props.buscar !== '') {
-            const datos = [];
-            request
-                .get('http://localhost:8000/api/productos')
-                .set('Content-Type','aplication/json') 
-                .then(res =>{ 
-                    const n = res.body.length;
-                    for (let i = 0; i < n; i++) {
-                        const varBuscar = res.body[i].nombre.toString().toUpperCase();
-                        if (varBuscar.includes(this.props.buscar.toString().toUpperCase())) {
-                            if (res.body[i].disponible === 'true') {
-                                const objetc = {
-                                    photo: res.body[i].img,
-                                    title: res.body[i].nombre,
-                                    price1: res.body[i].precio,
-                                    btn1text: "Agregar al carrito",
-                                    btn2text: "Ver producto",
-                                    id: res.body[i].id,
-                                    local: res.body[i].local,
-                                    unidad: res.body[i].Unidad,
-                                    url: "/product-single",
-                                    descripcion: res.body[i].descripcion,
-                                    categoria: res.body[i].Categoria
-                                }
-                                datos.push(objetc);
-                            }
-                        }
-                    }
-                    this.setState({function: this.dibujarTabla(datos)})
-                });
+            this.setState({function: this.dibujarTabla(this.props.elem)})
         }
         if (window.localStorage.getItem('lista')) {
             this.state.lista = JSON.parse(window.localStorage.getItem('lista'));

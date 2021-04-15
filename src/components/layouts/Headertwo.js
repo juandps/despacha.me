@@ -56,9 +56,14 @@ class Headertwo extends Component {
         super(props);
         this.state = {
           redText: false,
-          reiniciar: '',
+          reiniciar: <div style={{display: 'block', margin: '0 auto', marginBottom: '80px'}}>
+                        <div class="spinner-border" role="status" style={{display: 'block', margin: '0 auto', marginTop: '40px', color: 'rgb(61, 201, 179)'}}>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>,
           buscar: '',
-          open: false
+          open: false,
+          elementos: []
         };
       }
     render() {
@@ -66,7 +71,7 @@ class Headertwo extends Component {
         const { open } = this.state;
         return (
             <div>
-                <aside className="andro_aside andro_aside-right" ref="sidebarbtn">
+                <aside className="andro_aside andro_aside-right" id="menuLado" ref="sidebarbtn">
                     <div className="sidebar d-block">
                         {/* Categorías Start */}
                         <div className="sidebar-widget widget-categories-icons">
@@ -74,49 +79,49 @@ class Headertwo extends Component {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link to="/product-single">
-                                            <i className="flaticon-diet" />
+                                        <Link>
+                                            <i className="flaticon-diet" lang="Frutas" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Frutas</h5>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link to="/product-single">
-                                            <i className="flaticon-groceries" />
+                                        <Link>
+                                            <i className="flaticon-groceries" lang="Lacteos" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Lácteos y Huevos</h5>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link to="/product-single">
-                                            <i className="flaticon-supplements" />
+                                        <Link>
+                                            <i className="flaticon-supplements" lang="Farmacia" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Farmacia</h5>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link to="/product-single">
-                                            <i className="flaticon-cleaning-spray" />
+                                        <Link>
+                                            <i className="flaticon-cleaning-spray" lang="Vegetales" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Verduras</h5>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link to="/product-single">
-                                            <i className="flaticon-baby" />
-                                            <h5>Kids Care</h5>
+                                        <Link>
+                                            <i className="flaticon-baby" lang="Proteinas" onClick={this.catCambiar.bind(this)}/>
+                                            <h5>Proteinas</h5>
                                         </Link>
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link to="/product-single">
-                                            <i className="flaticon-olive-oil" />
-                                            <h5>Oils</h5>
+                                        <Link>
+                                            <i className="flaticon-olive-oil" lang="Abarrotes" onClick={this.catCambiar.bind(this)}/>
+                                            <h5>Abarrotes</h5>
                                         </Link>
                                     </div>
                                 </div>
@@ -221,8 +226,8 @@ class Headertwo extends Component {
                                             </div>
                                         </div>*/}
                                         <div className="andro_search-adv-input">
-                                            <input type="search" className="form-control" placeholder="Busca cualquier producto" name="search" onKeyUp={this.buscar.bind(this)}/>
-                                            <button type="button" name="button"><i className="fa fa-search" /></button>
+                                            <input type="search" className="form-control" placeholder="Busca cualquier producto" name="search" onChange={this.buscar.bind(this)}/>
+                                            <button type="button" name="button" onClick={this.buscarEnter.bind(this)}><i className="fa fa-search" /></button>
                                         </div>
                                     </form>
                                 </div>
@@ -266,16 +271,18 @@ class Headertwo extends Component {
                     </Modal>
                 </header>
                 <div id="inicioBody">
-                    <Banner />
+                    <div id="regresamos">
+                        <Banner />
+                    </div>
                     <div>
-                        <div className="section section-padding category_section">
+                        <div className="section section-padding category_section" id="categoriasArriba">
                             <div className="container">
                                 <div className="row">
                                     {categories.map((item, i) => (
                                         <div key={i} className="col-lg-2 col-md-3 col-sm-4">
                                             <div className="andro_icon-block text-center has-link">
                                                 <Link to={item.link}>
-                                                    <i className={item.icon} id={item.title} onClick={this.catCambiar.bind(this)}/>
+                                                    <i className={item.icon} lang={item.title} onClick={this.catCambiar.bind(this)}/>
                                                     <h5>{item.title}</h5>
                                                 </Link>
                                             </div>
@@ -324,12 +331,28 @@ class Headertwo extends Component {
 
     buscar(event) {
         const buscar = event.target.value;
-        this.setState({reiniciar: ''});
-        setTimeout(() => {this.setState({reiniciar: <Shopboxes cat="nada" buscar={buscar}/>})}, 100);
+        const n = this.state.elementos.length;
+        const datos = [];
+        for (let i = 0; i < n; i++) {
+            if (this.state.elementos[i].title.toString().toUpperCase().includes(buscar.toString().toUpperCase())) {
+                datos.push(this.state.elementos[i]);
+            }
+        }
+        this.setState({buscarElem: datos});
+    }
+
+    buscarEnter() {
+        this.setState({reiniciar: <div style={{display: 'block', margin: '0 auto', marginBottom: '80px'}}>
+                                    <div class="spinner-border" role="status" style={{display: 'block', margin: '0 auto', marginTop: '40px', color: 'rgb(61, 201, 179)'}}>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                    });
+        setTimeout(() => {this.setState({reiniciar: <Shopboxes cat="nada" buscar={'algooe'} elem={this.state.buscarElem}/>})}, 100);
     }
 
     catCambiar(event) {
-        const cat = event.target.id;
+        const cat = event.target.lang;
         this.setState({reiniciar: ''});
         setTimeout(() => {this.setState({reiniciar: <Shopboxes cat={cat} buscar=""/>})}, 100);
     }
@@ -341,8 +364,32 @@ class Headertwo extends Component {
 
     componentDidMount() {
         if (window.location.pathname === '/') {
-            document.getElementById('inicioBody').removeAttribute('hidden');
             this.setState({reiniciar: <Shopboxes cat="nada" buscar=""/>});
+            document.getElementById('inicioBody').removeAttribute('hidden');
+            request
+            .get('https://despacha-me.herokuapp.com/api/productos')
+            .set('Content-Type','aplication/json') 
+            .then(res =>{
+                const n = res.body.length;
+                for (let i = 0; i < n; i++) {
+                    if (res.body[i].disponible === 'true') {
+                        const objetc = {
+                            photo: res.body[i].img,
+                            title: res.body[i].nombre,
+                            price1: res.body[i].precio,
+                            btn1text: "Agregar al carrito",
+                            btn2text: "Ver producto",
+                            id: res.body[i].id,
+                            local: res.body[i].local,
+                            unidad: res.body[i].Unidad,
+                            url: "/product-single",
+                            descripcion: res.body[i].descripcion,
+                            categoria: res.body[i].Categoria
+                        }
+                        this.state.elementos.push(objetc);
+                    }
+                }
+            });
         } else {
             document.getElementById('inicioBody').setAttribute('hidden', '');
         }
@@ -353,7 +400,7 @@ class Headertwo extends Component {
         }, false);
         if (window.localStorage.getItem('token')) {
             request
-                .get('http://localhost:8000/api/client/' + window.localStorage.getItem('token'))
+                .get('https://despacha-me.herokuapp.com/api/client/' + window.localStorage.getItem('token'))
                 .set('Content-Type','aplication/json') 
                 .then(res =>{
                     console.log(res.body);

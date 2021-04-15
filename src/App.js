@@ -32,26 +32,13 @@ function App() {
       <Newsletter/>
       <Switch>
         <Route exact path="/" component={Homethree} />
-        <Route path="/home-v2" component={Hometwo}/>
-        <Route path="/home-v3" component={Homethree}/>
-        <Route path="/about" component={About}/>
-        <Route path="/blog-grid" component={Bloggrid}/>
-        <Route path="/blog-list" component={Bloglist}/>
-        <Route path="/blog-masonry" component={Blogmasonary}/>
-        <Route path="/blog-single" component={Postsingle}/>
         <Route path="/cart" component={Cart}/>
         <Route path="/checkout" component={Checkout}/>
         <Route path="/legal" component={Legal}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
-        <Route path="/wishlist" component={Wishlist}/>
         <Route path="/error" component={Error}/>
-        <Route path="/shop-v1" component={Shopone}/>
-        <Route path="/shop-v2" component={Shoptwo}/>
-        <Route path="/shop-v3" component={Shopthree}/>
-        <Route path="/shop-v4" component={Shopfour}/>
         <Route path="/product-single" component={Productsingle}/>
-        <Route path="/product-single-v2" component={Productsingletwo}/>
         <Route path="/contact" component={Contact}/>
       </Switch>
     </Router>

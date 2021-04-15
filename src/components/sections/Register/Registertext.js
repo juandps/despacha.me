@@ -65,13 +65,13 @@ class Registertext extends Component {
                                         <small style={{color: 'red', marginTop: '20px'}} id="lleneTodo" hidden>Ingrese todos los campos.</small>
                                     </div>
                                     <button type="button" className="andro_btn-custom primary" onClick={this.enviarCodigo.bind(this)}>Crear Cuenta</button>
-                                    <div className="andro_auth-seperator">
+                                    {/*<div className="andro_auth-seperator">
                                         <span>OR</span>
                                     </div>
                                     <div className="andro_social-login">
                                         <button type="button" className="andro_social-login-btn facebook"><i className="fab fa-facebook-f" /> Continuar con facebook </button>
                                         <button type="button" className="andro_social-login-btn google"><i className="fab fa-google" /> Continuar con Google</button>
-                                    </div>
+                                    </div>*/}
                                     <p>¿Ya tienes cuenta? <Link to="/login">Ingresa aquí</Link></p>
                                 </form>
                             </div>
@@ -91,32 +91,26 @@ class Registertext extends Component {
     }
 
     numero(event) {
-        console.log(event);
         this.setState({numero: event});
     }
 
     nombre(event) {
-        console.log(event.target.value);
         this.setState({nombre: event.target.value});
     }
 
     cedula(event) {
-        console.log(event.target.value);
         this.setState({cedula: event.target.value});
     }
 
     email(event) {
-        console.log(event.target.value);
         this.setState({email: event.target.value});
     }
 
     password(event) {
-        console.log(event.target.value);
         this.setState({password: event.target.value});
     }
 
     codigo(event) {
-        console.log(event.target.value);
         this.setState({codigo: event.target.value});
     }
 
@@ -126,13 +120,13 @@ class Registertext extends Component {
             document.getElementById('codigoCuenta').removeAttribute('hidden');
             document.getElementById('crearCuenta').setAttribute('hidden', '');
             request
-                .get('http://localhost:8000/api/transId')
+                .get('https://despacha-me.herokuapp.com/api/transId')
                 .set('Content-Type','aplication/json') 
                 .then(res =>{
                     console.log(res.body);
                     this.setState({transId: res.body.id});
                     request
-                        .post('http://localhost:8000/api/codigo')
+                        .post('https://despacha-me.herokuapp.com/api/codigo')
                         .send({numero: this.state.numero}) 
                         .then(res =>{
                             console.log('Mensaje enviado')
@@ -154,15 +148,15 @@ class Registertext extends Component {
             numero: this.state.numero,
             verificado: true
         }
-        if (this.state.codigo === this.state.transId) {
+        if (this.state.codigo.toString() === this.state.transId.toString()) {
             request
-            .post('http://localhost:8000/api/crearCuenta')
+            .post('https://despacha-me.herokuapp.com/api/crearCuenta')
             .send(objeto) 
             .then(res =>{
                 console.log(res.body);
                 window.localStorage.setItem('token', res.body.token);
                 window.history.pushState(null, '', '/');
-                window.location.reload();
+                setTimeout(function() {window.location.reload()}, 2000);
             })
             .catch(err => {
                 alert('Ocurrió un problema al crear la cuenta');

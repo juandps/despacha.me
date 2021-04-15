@@ -54,9 +54,9 @@ class Carttext extends Component {
                         <thead>
                             <tr>
                                 <th className="remove-item" />
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
                                 <th>Total</th>
                             </tr>
                         </thead>

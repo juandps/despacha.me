@@ -1,3 +1,13 @@
 @media (min-width:301px) and (max-width: 800px){
+    #categoriasArriba {
+        display: none;
+    }
     
+    #menuLado {
+        width: 80%;
+    }
+
+    #regresamos {
+        display: none;
+    }
 }
