@@ -36,6 +36,7 @@ function App() {
         <Route path="/checkout" component={Checkout}/>
         <Route path="/legal" component={Legal}/>
         <Route path="/login" component={Login}/>
+        {/*Hola commits */}
         <Route path="/register" component={Register}/>
         <Route path="/error" component={Error}/>
         <Route path="/product-single" component={Productsingle}/>
