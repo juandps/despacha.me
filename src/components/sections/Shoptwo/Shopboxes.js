@@ -175,19 +175,19 @@ class Shopboxes extends Component {
                                 <div className="sidebar-widget">
                                     <h5 className="widget-title"> Populares </h5>
                                     <div className="tagcloud">
-                                        <Link to="/product-single">Natural</Link>
-                                        <Link to="/product-single">Frutas</Link>
-                                        <Link to="/product-single">Verduras</Link>
-                                        <Link to="/product-single">Organic</Link>
-                                        <Link to="/product-single">Cosecha</Link>
-                                        <Link to="/product-single">Verde</Link>
-                                        <Link to="/product-single">Fribra</Link>
-                                        <Link to="/product-single">Farmacia</Link>
-                                        <Link to="/product-single">Vitamina</Link>
-                                        <Link to="/product-single">Alcohol</Link>
-                                        <Link to="/product-single">Cocina</Link>
-                                        <Link to="/product-single">Hogar</Link>
-                                        <Link to="/product-single">Mercado</Link>
+                                        <Link to="/">Natural</Link>
+                                        <Link to="/">Frutas</Link>
+                                        <Link to="/">Verduras</Link>
+                                        <Link to="/">Organic</Link>
+                                        <Link to="/">Cosecha</Link>
+                                        <Link to="/">Verde</Link>
+                                        <Link to="/">Fribra</Link>
+                                        <Link to="/">Farmacia</Link>
+                                        <Link to="/">Vitamina</Link>
+                                        <Link to="/">Alcohol</Link>
+                                        <Link to="/">Cocina</Link>
+                                        <Link to="/">Hogar</Link>
+                                        <Link to="/">Mercado</Link>
                                     </div>
                                 </div>
                                 {/* Tags End */}
@@ -225,19 +225,19 @@ class Shopboxes extends Component {
     dibujarTabla(datos) {
         return(
             datos.map((item, i) => 
-                <div key={i} className="col-md-3 col-sm-4 col-6 masonry-item">
+                <div key={i} className="col-md-3 col-sm-4 col-6 masonry-item marcoProductos">
                     <div className="andro_product andro_product-minimal andro_product-has-controls andro_product-has-buttons">
                         {item.badge}
                         <div className="andro_product-thumb">
                             <Link to={item.url}>
                                 <object data={item.photo} type="image/png" style={{width: '100%', height: '156px'}}>
-                                    <img src="https://res.cloudinary.com/indev/image/upload/v1605129477/frutas/pexels-oleg-magni-890507_kssgnr.jpg" alt="product" style={{width: '214px', height: '156px'}}/>
+                                    <img src="https://res.cloudinary.com/indev/image/upload/v1587355292/frutas/logodespachame-01_ri6i0t.png" alt="product" style={{width: '214px', height: '156px'}}/>
                                 </object>
                             </Link>
                         </div>
                         <div className="andro_product-body">
-                            <h6 className="andro_product-title" style={{width: '100%'}}>
-                                <Link style={{fontSize: '95%'}} to={item.url}> {item.title} </Link> 
+                            <h6 className="andro_product-title marcoTexto" style={{width: '100%'}}>
+                                <Link className="letrasProductos" className="letrasProductos" to={item.url}> {item.title} </Link> 
                             </h6>
                             
                         </div>
@@ -250,7 +250,7 @@ class Shopboxes extends Component {
                             </div>
                             <div className="andro_product-buttons">
                                 <Link to="#" onClick={this.agregar.bind(this)} lang={item.categoria} className="andro_btn-custom primary agregarCar" name={item.local} id={item.id}>{item.btn1text}</Link>
-                                <Link to="#" onClick={this.onOpenModal} lang={item.categoria} className="andro_btn-custom light" name={item.local}>{item.btn2text}</Link>
+                                {/*<Link to="#" onClick={this.onOpenModal} lang={item.categoria} className="andro_btn-custom light" name={item.local}>{item.btn2text}</Link>*/}
                             </div>
                         </div>
                     </div>
@@ -270,10 +270,10 @@ class Shopboxes extends Component {
                 const prod = res.body;
                 prod.cantidad = 1;
                 this.state.lista.push(prod);
-                console.log(this.state.lista);
                 window.localStorage.setItem('lista', JSON.stringify(this.state.lista));
                 document.getElementById(buttonId).style.backgroundColor = '#ff6666';
                 document.getElementById('itemsCarrito').innerHTML = `${this.state.lista.length} items`;
+                document.getElementById('fondoCarrito').style.border = '2px solid #3DC9B3';
                 let suma = 0;
                 for (let i = 0; i < this.state.lista.length; i++) {
                     suma = suma + parseFloat(this.state.lista[i].precio);
@@ -317,7 +317,7 @@ class Shopboxes extends Component {
                         if (res.body[i].disponible === 'true') {
                             const objetc = {
                                 photo: res.body[i].img,
-                                title: res.body[i].nombre,
+                                title: res.body[i].nombre.charAt(0).toUpperCase() + res.body[i].nombre.slice(1).toLowerCase(),
                                 price1: res.body[i].precio,
                                 btn1text: "Agregar al carrito",
                                 btn2text: "Ver producto",
@@ -380,7 +380,7 @@ class Shopboxes extends Component {
                         if (res.body[i].disponible === 'true') {
                             const objetc = {
                                 photo: res.body[i].img,
-                                title: res.body[i].nombre,
+                                title: res.body[i].nombre.charAt(0).toUpperCase() + res.body[i].nombre.slice(1).toLowerCase(),
                                 price1: res.body[i].precio,
                                 btn1text: "Agregar al carrito",
                                 btn2text: "Ver producto",
@@ -407,7 +407,7 @@ class Shopboxes extends Component {
                         if (res.body[i].disponible === 'true') {
                             const objetc = {
                                 photo: res.body[i].img,
-                                title: res.body[i].nombre,
+                                title: res.body[i].nombre.charAt(0).toUpperCase() + res.body[i].nombre.slice(1).toLowerCase(),
                                 price1: res.body[i].precio,
                                 btn1text: "Agregar al carrito",
                                 btn2text: "Ver producto",
@@ -434,6 +434,9 @@ class Shopboxes extends Component {
                 suma = suma + (parseFloat(this.state.lista[i].precio) * parseFloat(this.state.lista[i].cantidad));
             }
             document.getElementById('precioCarrito').innerHTML = `$${suma.toFixed(2)}`;
+            if (this.state.lista.length > 0) {
+                document.getElementById('fondoCarrito').style.border = '2px solid #3DC9B3';
+            }
         }
     }
 }

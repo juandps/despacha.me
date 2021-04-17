@@ -182,7 +182,7 @@ class Headertwo extends Component {
                                 <Link className="navbar-brand" to="/"> <img src={logo} alt="logo" /> </Link>
                                 {/* Search Form */}
                                 <div className="andro_search-adv">
-                                    <form method="post">
+                                    <div onSubmit={this.buscarEnter.bind(this)}>
                                         {/*<div className="andro_search-adv-cats">
                                             <span>Categorías<i class="fas fa-chevron-up"></i></span>
                                             <div className="sub-menu">
@@ -229,13 +229,12 @@ class Headertwo extends Component {
                                             <input type="search" className="form-control" placeholder="Busca cualquier producto" name="search" onChange={this.buscar.bind(this)}/>
                                             <button type="button" name="button" onClick={this.buscarEnter.bind(this)}><i className="fa fa-search" /></button>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
                                 <div className="andro_header-controls">
                                     <ul className="andro_header-controls-inner">
-                                        <li className="andro_header-favorites"> <Link to="/wishlist" title="Your Wishlist"> <i className="flaticon-like" /> </Link> </li>
                                         <li className="andro_header-cart">
-                                            <Link to="/cart" title="Your Cart">
+                                            <Link to="/cart" title="Your Cart" id="fondoCarrito">
                                                 <i className="flaticon-shopping-basket" />
                                                 <div className="andro_header-cart-content">
                                                     <span id="itemsCarrito"></span>
@@ -331,14 +330,7 @@ class Headertwo extends Component {
 
     buscar(event) {
         const buscar = event.target.value;
-        const n = this.state.elementos.length;
-        const datos = [];
-        for (let i = 0; i < n; i++) {
-            if (this.state.elementos[i].title.toString().toUpperCase().includes(buscar.toString().toUpperCase())) {
-                datos.push(this.state.elementos[i]);
-            }
-        }
-        this.setState({buscarElem: datos});
+        this.setState({buscarElem: buscar});
     }
 
     buscarEnter() {
@@ -348,7 +340,31 @@ class Headertwo extends Component {
                                     </div>
                                 </div>
                     });
-        setTimeout(() => {this.setState({reiniciar: <Shopboxes cat="nada" buscar={'algooe'} elem={this.state.buscarElem}/>})}, 100);
+        request
+        .get('https://despacha-me.herokuapp.com/api/buscar/' + this.state.buscarElem)
+        .set('Content-Type','aplication/json') 
+        .then(res =>{
+            const n = res.body.length;
+            for (let i = 0; i < n; i++) {
+                if (res.body[i].disponible === 'true') {
+                    const objetc = {
+                        photo: res.body[i].img,
+                        title: res.body[i].nombre.charAt(0).toUpperCase() + res.body[i].nombre.slice(1).toLowerCase(),
+                        price1: res.body[i].precio,
+                        btn1text: "Agregar al carrito",
+                        btn2text: "Ver producto",
+                        id: res.body[i].id,
+                        local: res.body[i].local,
+                        unidad: res.body[i].Unidad,
+                        url: "/product-single",
+                        descripcion: res.body[i].descripcion,
+                        categoria: res.body[i].Categoria
+                    }
+                    this.state.elementos.push(objetc);
+                }
+            }
+            setTimeout(() => {this.setState({reiniciar: <Shopboxes cat="nada" buscar={'algooe'} elem={this.state.elementos}/>})}, 100);
+        });
     }
 
     catCambiar(event) {
@@ -366,30 +382,6 @@ class Headertwo extends Component {
         if (window.location.pathname === '/') {
             this.setState({reiniciar: <Shopboxes cat="nada" buscar=""/>});
             document.getElementById('inicioBody').removeAttribute('hidden');
-            request
-            .get('https://despacha-me.herokuapp.com/api/productos')
-            .set('Content-Type','aplication/json') 
-            .then(res =>{
-                const n = res.body.length;
-                for (let i = 0; i < n; i++) {
-                    if (res.body[i].disponible === 'true') {
-                        const objetc = {
-                            photo: res.body[i].img,
-                            title: res.body[i].nombre,
-                            price1: res.body[i].precio,
-                            btn1text: "Agregar al carrito",
-                            btn2text: "Ver producto",
-                            id: res.body[i].id,
-                            local: res.body[i].local,
-                            unidad: res.body[i].Unidad,
-                            url: "/product-single",
-                            descripcion: res.body[i].descripcion,
-                            categoria: res.body[i].Categoria
-                        }
-                        this.state.elementos.push(objetc);
-                    }
-                }
-            });
         } else {
             document.getElementById('inicioBody').setAttribute('hidden', '');
         }

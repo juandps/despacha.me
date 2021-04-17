@@ -1,9 +1,23 @@
+.letrasProductos {
+    font-size: 95%;
+}
+
+.marcoProductos {
+    height: 400px !important;
+}
+
+.marcoTexto {
+    height: 60px;
+}
+
 @media (min-width:301px) and (max-width: 800px){
     .agregarCar {
         padding: 5px !important;
     }
-}
-
-.agregarCar:hover {
-    background-color: rgb(46, 45, 82) !important;
+    .letrasProductos {
+        font-size: 75% !important;
+    }
+    .marcoTexto {
+        height: 80px;
+    }
 }

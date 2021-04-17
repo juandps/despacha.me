@@ -178,6 +178,9 @@ class Carttext extends Component {
                 suma = suma + (parseFloat(this.state.lista[i].precio) * parseFloat(this.state.lista[i].cantidad));
             }
             document.getElementById('precioCarrito').innerHTML = `$${suma.toFixed(2)}`;
+            if (this.state.lista.length > 0) {
+                document.getElementById('fondoCarrito').style.border = '2px solid #3DC9B3';
+            }
             this.setState({precioFinal: suma});
             window.localStorage.setItem('precioFinal', suma);
             const data = [];
