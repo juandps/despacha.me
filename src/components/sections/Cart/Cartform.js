@@ -259,29 +259,77 @@ class Cartform extends Component {
 
     pagarInicio() {
         if (window.localStorage.getItem('token')) {
-            document.getElementById('tipoPago').removeAttribute('hidden');
-            if (this.state.paso === 2) {
-                if (this.state.tipo === 'tarjeta') {
-                    document.getElementById('botonPagar').innerHTML="Espere un momento..."
-                    if (this.state.cvc && (this.state.expiry.length === 5) && this.state.name && this.state.number) {
-                        document.getElementById('helpFaltanDatos').setAttribute('hidden', '');
-                        // Datos tarjeta y codificar
-                        const mes = this.state.expiry.charAt(0) + this.state.expiry.charAt(1);
-                        const anio = this.state.expiry.charAt(3) + this.state.expiry.charAt(4);
-                        const datos = {
-                            cardNumber: this.state.number,
-                            expirationMonth: mes,
-                            expirationYear: anio,
-                            holderName: this.state.name.toUpperCase(),
-                            securityCode: this.state.cvc
-                        }
-                        const key = crypto.enc.Utf8.parse('adf36d46c58344129ffae86f1ed197c3');
-                        const iv = crypto.enc.Utf8.parse(''); 
-                        const encrypted = crypto.AES.encrypt(JSON.stringify(datos), key,{ iv: iv });
+            console.log(window.localStorage.getItem('precioFinal'));
+            if (window.localStorage.getItem('precioFinal') < 20) {
+                alert('El valor del pedido debe ser mayor a $20');
+            } else {
+                document.getElementById('tipoPago').removeAttribute('hidden');
+                if (this.state.paso === 2) {
+                    if (this.state.tipo === 'tarjeta') {
+                        document.getElementById('botonPagar').innerHTML="Espere un momento..."
+                        if (this.state.cvc && (this.state.expiry.length === 5) && this.state.name && this.state.number) {
+                            document.getElementById('helpFaltanDatos').setAttribute('hidden', '');
+                            // Datos tarjeta y codificar
+                            const mes = this.state.expiry.charAt(0) + this.state.expiry.charAt(1);
+                            const anio = this.state.expiry.charAt(3) + this.state.expiry.charAt(4);
+                            const datos = {
+                                cardNumber: this.state.number,
+                                expirationMonth: mes,
+                                expirationYear: anio,
+                                holderName: this.state.name.toUpperCase(),
+                                securityCode: this.state.cvc
+                            }
+                            const key = crypto.enc.Utf8.parse('adf36d46c58344129ffae86f1ed197c3');
+                            const iv = crypto.enc.Utf8.parse(''); 
+                            const encrypted = crypto.AES.encrypt(JSON.stringify(datos), key,{ iv: iv });
 
-                        const codificado = encrypted.ciphertext.toString(crypto.enc.Base64);
-                        
-                        // contruccion del objeto
+                            const codificado = encrypted.ciphertext.toString(crypto.enc.Base64);
+                            
+                            // contruccion del objeto
+                            const object = {
+                                pedido: {
+                                    data: JSON.parse(window.localStorage.getItem('conectado')),
+                                    pedido: JSON.parse(window.localStorage.getItem('lista')),
+                                    direccion: this.state.direccion,
+                                    descrip: this.state.referencia,
+                                    total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
+                                },
+                                tarjeta: {
+                                    codificado: codificado,
+                                    cedula: JSON.parse(window.localStorage.getItem('conectado')).cedula,
+                                    total: ((parseFloat(window.localStorage.getItem('precioFinal')) + 2) * 100),
+                                    email: JSON.parse(window.localStorage.getItem('conectado')).email
+                                }
+                            }
+                            request
+                                .post('https://despacha-me.herokuapp.com/api/pago')
+                                .send(object) 
+                                .then(res =>{
+                                    console.log(res.body);
+                                    if (res.body.message) {
+                                        const parametros = (JSON.parse(res.body.parametros));
+                                        send('gmail', 'template_pxRoAu15', parametros)
+                                        .then(resTOS => {
+                                            console.log('Email successfully sent!');
+                                            alert(res.body.message);
+                                            window.localStorage.removeItem('lista');
+                                            this.setState({redirect2: true});
+                                    })
+                                    .catch(err =>{console.log(err);})
+                                    } else {
+                                        document.getElementById('botonPagar').innerHTML="Pagar";
+                                        alert(res.body.error);
+                                    }
+                                })
+                                .catch(err =>{
+                                    console.log(err);
+                                    alert(err);
+                                })
+                        } else {
+                            document.getElementById('helpFaltanDatos').removeAttribute('hidden');
+                        }
+                    } else if (this.state.tipo === 'transferencia') {
+                        document.getElementById('botonPagar').innerHTML="Espere un momento..."
                         const object = {
                             pedido: {
                                 data: JSON.parse(window.localStorage.getItem('conectado')),
@@ -289,29 +337,24 @@ class Cartform extends Component {
                                 direccion: this.state.direccion,
                                 descrip: this.state.referencia,
                                 total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
-                            },
-                            tarjeta: {
-                                codificado: codificado,
-                                cedula: JSON.parse(window.localStorage.getItem('conectado')).cedula,
-                                total: ((parseFloat(window.localStorage.getItem('precioFinal')) + 2) * 100),
-                                email: JSON.parse(window.localStorage.getItem('conectado')).email
                             }
                         }
+                        console.log(object);
                         request
-                            .post('https://despacha-me.herokuapp.com/api/pago')
+                            .post('https://despacha-me.herokuapp.com/api/transferencia')
                             .send(object) 
                             .then(res =>{
                                 console.log(res.body);
                                 if (res.body.message) {
                                     const parametros = (JSON.parse(res.body.parametros));
-                                    send('gmail', 'template_pxRoAu15', parametros)
-                                    .then(resTOS => {
+                                    send('gmail', 'tranferencia', parametros)
+                                    .then(resTOSP => {
                                         console.log('Email successfully sent!');
                                         alert(res.body.message);
                                         window.localStorage.removeItem('lista');
                                         this.setState({redirect2: true});
-                                })
-                                .catch(err =>{console.log(err);})
+                                    })
+                                    .catch(err =>{console.log(err);})
                                 } else {
                                     document.getElementById('botonPagar').innerHTML="Pagar";
                                     alert(res.body.error);
@@ -320,49 +363,11 @@ class Cartform extends Component {
                             .catch(err =>{
                                 console.log(err);
                                 alert(err);
-                            })
-                    } else {
-                        document.getElementById('helpFaltanDatos').removeAttribute('hidden');
+                            });
                     }
-                } else if (this.state.tipo === 'transferencia') {
-                    document.getElementById('botonPagar').innerHTML="Espere un momento..."
-                    const object = {
-                        pedido: {
-                            data: JSON.parse(window.localStorage.getItem('conectado')),
-                            pedido: JSON.parse(window.localStorage.getItem('lista')),
-                            direccion: this.state.direccion,
-                            descrip: this.state.referencia,
-                            total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
-                        }
-                    }
-                    console.log(object);
-                    request
-                        .post('https://despacha-me.herokuapp.com/api/transferencia')
-                        .send(object) 
-                        .then(res =>{
-                            console.log(res.body);
-                            if (res.body.message) {
-                                const parametros = (JSON.parse(res.body.parametros));
-                                send('gmail', 'tranferencia', parametros)
-                                .then(resTOSP => {
-                                    console.log('Email successfully sent!');
-                                    alert(res.body.message);
-                                    window.localStorage.removeItem('lista');
-                                    this.setState({redirect2: true});
-                                })
-                                .catch(err =>{console.log(err);})
-                            } else {
-                                document.getElementById('botonPagar').innerHTML="Pagar";
-                                alert(res.body.error);
-                            }
-                        })
-                        .catch(err =>{
-                            console.log(err);
-                            alert(err);
-                        });
+                } else if(this.state.paso === 1) {
+                    alert('Seleccione un tipo de pago')
                 }
-            } else if(this.state.paso === 1) {
-                alert('Seleccione un tipo de pago')
             }
         } else {
             this.setState({redirect: true});
