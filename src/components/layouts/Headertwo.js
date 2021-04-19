@@ -79,7 +79,7 @@ class Headertwo extends Component {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link>
+                                        <Link to='/'>
                                             <i className="flaticon-diet" lang="Frutas" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Frutas</h5>
                                         </Link>
@@ -95,7 +95,7 @@ class Headertwo extends Component {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link>
+                                        <Link to="/">
                                             <i className="flaticon-supplements" lang="Farmacia" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Farmacia</h5>
                                         </Link>
@@ -103,8 +103,8 @@ class Headertwo extends Component {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
-                                        <Link>
-                                            <i className="flaticon-cleaning-spray" lang="Vegetales" onClick={this.catCambiar.bind(this)}/>
+                                        <Link to="/">
+                                            <i className="flaticon-groceries" lang="Vegetales" onClick={this.catCambiar.bind(this)}/>
                                             <h5>Verduras</h5>
                                         </Link>
                                     </div>
