@@ -10,6 +10,10 @@
     height: 60px;
 }
 
+#buscadorCel {
+    display: none;
+}
+
 @media (min-width:301px) and (max-width: 800px){
     .agregarCar {
         padding: 5px !important;
@@ -19,5 +23,11 @@
     }
     .marcoTexto {
         height: 80px;
+    }
+    #seccionBuscador {
+        padding-top: 10px !important;
+    }
+    #buscadorCel {
+        display: flex;
     }
 }

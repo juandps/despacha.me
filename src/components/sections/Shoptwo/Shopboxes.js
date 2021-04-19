@@ -99,7 +99,11 @@ class Shopboxes extends Component {
     render() {
         const { open } = this.state;
         return (
-            <div className="section hide-newsletter">
+            <div className="section hide-newsletter" id="seccionBuscador">
+                <div class="input-group mb-3" style={{width: '60%', margin: '0 auto'}} id="buscadorCel">
+                    <input type="text" className="form-control" placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="button-addon2" onChange={this.buscar.bind(this)} />
+                    <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.empezarBusqueda.bind(this)}><i className="fa fa-search" /></button>
+                </div>
                 <input id="propsCat" value={this.props.cat} hidden/>
                 <div className="andro_section-fw">
                     <div className="row">
@@ -138,19 +142,19 @@ class Shopboxes extends Component {
                                                 <label className="custom-control-label" htmlFor="customCheck1">Frutas</label>
                                             </div>
                                         </li>
-                                        <li>
+                                        <li hidden>
                                             <div className="custom-control custom-checkbox">
                                                 <input type="checkbox" className="custom-control-input" id="customCheck2" name="Abarrotes" onClick={this.check.bind(this)}/>
                                                 <label className="custom-control-label" htmlFor="customCheck2">Abarrotes</label>
                                             </div>
                                         </li>
-                                        <li>
+                                        <li hidden>
                                             <div className="custom-control custom-checkbox">
                                                 <input type="checkbox" className="custom-control-input" id="customCheck3" name="Lacteos" onClick={this.check.bind(this)}/>
                                                 <label className="custom-control-label" htmlFor="customCheck3">Lácteos y Huevos</label>
                                             </div>
                                         </li>
-                                        <li>
+                                        <li hidden>
                                             <div className="custom-control custom-checkbox">
                                                 <input type="checkbox" className="custom-control-input" id="customCheck4" name="Proteinas" onClick={this.check.bind(this)}/>
                                                 <label className="custom-control-label" htmlFor="customCheck4">Proteinas</label>
@@ -239,7 +243,6 @@ class Shopboxes extends Component {
                             <h6 className="andro_product-title marcoTexto" style={{width: '100%'}}>
                                 <Link className="letrasProductos" className="letrasProductos" to={item.url}> {item.title} </Link> 
                             </h6>
-                            
                         </div>
                         <div className="andro_product-footer">
                             <div className="andro_product-price">
@@ -259,6 +262,45 @@ class Shopboxes extends Component {
         )
     }
 
+    buscar(event) {
+        this.setState({datosBuscar: event.target.value});
+        console.log(this.state.datosBuscar);
+    }
+
+    empezarBusqueda() {
+        this.setState({function: <div style={{display: 'block', margin: '0 auto'}}>
+                                    <div class="spinner-border" role="status" style={{display: 'block', margin: '0 auto', marginTop: '40px', color: 'rgb(61, 201, 179)'}}>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>});
+        const arrayBuscar = [];
+        request
+        .get('https://despacha-me.herokuapp.com/api/buscar/' + this.state.datosBuscar)
+        .set('Content-Type','aplication/json') 
+        .then(res =>{
+            const n = res.body.length;
+            for (let i = 0; i < n; i++) {
+                if (res.body[i].disponible === 'true') {
+                    const objetc = {
+                        photo: res.body[i].img,
+                        title: res.body[i].nombre.charAt(0).toUpperCase() + res.body[i].nombre.slice(1).toLowerCase(),
+                        price1: res.body[i].precio,
+                        btn1text: "Agregar al carrito",
+                        btn2text: "Ver producto",
+                        id: res.body[i].id,
+                        local: res.body[i].local,
+                        unidad: res.body[i].Unidad,
+                        url: "/product-single",
+                        descripcion: res.body[i].descripcion,
+                        categoria: res.body[i].Categoria
+                    }
+                    arrayBuscar.push(objetc);
+                }
+            }
+            this.setState({function: this.dibujarTabla(arrayBuscar)});
+        });
+    }
+ 
     agregar(event) {
         const categoria = event.target.lang.charAt(0).toUpperCase() + event.target.lang.slice(1).toLowerCase();
         const id = event.target.name;
@@ -421,7 +463,7 @@ class Shopboxes extends Component {
                             datos.push(objetc);
                         }
                     }
-                    this.setState({function: this.dibujarTabla(datos)})
+                    this.setState({function: this.dibujarTabla(datos)});
                 });
         } else if(this.props.cat === 'nada' && this.props.buscar !== '') {
             this.setState({function: this.dibujarTabla(this.props.elem)})

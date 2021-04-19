@@ -43,7 +43,7 @@ class Logintext extends Component {
                                     <small style={{color: 'red', marginTop: '20px'}} id="lleneTodo" hidden>Ingrese todos los campos.</small>
                                 </div>
                                 <Link to="#">¿Te olvidaste la contraseña?</Link>
-                                <button type="button" className="andro_btn-custom primary" onClick={this.login.bind(this)}>Ingresar</button>
+                                <button type="button" className="andro_btn-custom primary" id="ingresarC" onClick={this.login.bind(this)}>Ingresar</button>
                                 {/*<div className="andro_auth-seperator">
                                     <span>o</span>
                                 </div>
@@ -72,6 +72,7 @@ class Logintext extends Component {
     }
 
     login() {
+        document.getElementById('ingresarC').innerHTML = "Espere un momento..."
         const objeto = {
             email: this.state.email,
             password: this.state.password

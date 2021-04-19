@@ -80,7 +80,7 @@ class Registertext extends Component {
                                 <div className="form-group">
                                     <input type="text" className="form-control" placeholder="" name="codigo" onChange={this.codigo.bind(this)}/>
                                 </div>
-                                <button type="button" className="andro_btn-custom primary" onClick={this.crearNuevo.bind(this)}>Enviar</button>
+                                <button type="button" className="andro_btn-custom primary" id="enviarCod" onClick={this.crearNuevo.bind(this)}>Enviar</button>
                             </div>
                         </div>
                     </div>
@@ -141,6 +141,7 @@ class Registertext extends Component {
     }
 
     crearNuevo() {
+        document.getElementById('enviarCod').innerHTML = 'Espere un momento...'
         const objeto = {
             nombre: this.state.nombre,
             email: this.state.email,
@@ -156,7 +157,7 @@ class Registertext extends Component {
                 console.log(res.body);
                 window.localStorage.setItem('token', res.body.token);
                 window.history.pushState(null, '', '/');
-                setTimeout(function() {window.location.reload()}, 2000);
+                setTimeout(function() {window.location.reload()}, 3000);
             })
             .catch(err => {
                 alert('Ocurrió un problema al crear la cuenta');

@@ -34,7 +34,7 @@ const categories = [
         title: "Vegetales",
         link: "#",
     },
-    {
+    /*{
         icon: "flaticon-cleaning-spray",
         title: "Lacteos",
         link: "#",
@@ -48,7 +48,7 @@ const categories = [
         icon: "flaticon-olive-oil",
         title: "Abarrotes",
         link: "#",
-    }
+    }*/
 ]
 
 class Headertwo extends Component {
@@ -85,7 +85,7 @@ class Headertwo extends Component {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
+                                <div className="col-lg-6" hidden>
                                     <div className="andro_icon-block text-center has-link">
                                         <Link>
                                             <i className="flaticon-groceries" lang="Lacteos" onClick={this.catCambiar.bind(this)}/>
@@ -109,7 +109,7 @@ class Headertwo extends Component {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
+                                <div className="col-lg-6" hidden>
                                     <div className="andro_icon-block text-center has-link">
                                         <Link>
                                             <i className="flaticon-baby" lang="Proteinas" onClick={this.catCambiar.bind(this)}/>
@@ -117,7 +117,7 @@ class Headertwo extends Component {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-lg-6">
+                                <div className="col-lg-6" hidden>
                                     <div className="andro_icon-block text-center has-link">
                                         <Link>
                                             <i className="flaticon-olive-oil" lang="Abarrotes" onClick={this.catCambiar.bind(this)}/>
@@ -132,17 +132,17 @@ class Headertwo extends Component {
                         <div className="sidebar-widget">
                             <h5 className="widget-title">Populares</h5>
                             <div className="tagcloud">
-                                <Link to="/product-single">Health</Link>
-                                <Link to="/product-single">Frutas</Link>
-                                <Link to="/product-single">Ingredients</Link>
-                                <Link to="/product-single">Organic</Link>
-                                <Link to="/product-single">Farms</Link>
-                                <Link to="/product-single">Green</Link>
-                                <Link to="/product-single">Fiber</Link>
-                                <Link to="/product-single">Farmacia</Link>
-                                <Link to="/product-single">Gain</Link>
-                                <Link to="/product-single">Live Stock</Link>
-                                <Link to="/product-single">Harvest</Link>
+                                <Link>Health</Link>
+                                <Link>Frutas</Link>
+                                <Link>Ingredients</Link>
+                                <Link>Organic</Link>
+                                <Link>Farms</Link>
+                                <Link>Green</Link>
+                                <Link>Fiber</Link>
+                                <Link>Farmacia</Link>
+                                <Link>Gain</Link>
+                                <Link>Live Stock</Link>
+                                <Link>Harvest</Link>
                             </div>
                         </div>
                         {/* Populares End */}
@@ -278,7 +278,7 @@ class Headertwo extends Component {
                             <div className="container">
                                 <div className="row">
                                     {categories.map((item, i) => (
-                                        <div key={i} className="col-lg-2 col-md-3 col-sm-4">
+                                        <div key={i} className="col-lg-4 col-md-3 col-sm-4">
                                             <div className="andro_icon-block text-center has-link">
                                                 <Link to={item.link}>
                                                     <i className={item.icon} lang={item.title} onClick={this.catCambiar.bind(this)}/>
@@ -334,6 +334,7 @@ class Headertwo extends Component {
     }
 
     buscarEnter() {
+        this.state.elementos = [];
         this.setState({reiniciar: <div style={{display: 'block', margin: '0 auto', marginBottom: '80px'}}>
                                     <div class="spinner-border" role="status" style={{display: 'block', margin: '0 auto', marginTop: '40px', color: 'rgb(61, 201, 179)'}}>
                                         <span class="sr-only">Loading...</span>
