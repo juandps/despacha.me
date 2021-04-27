@@ -103,7 +103,7 @@ class Carttext extends Component {
                     this.setState({descuentof: res.body.cupon.valor});
                     alert(res.body.cupon.descrip);
                 } else {
-                    alert(res.body);
+                    alert('Cupon no encontrado');
                 }
             });
     }
