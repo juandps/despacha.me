@@ -13,7 +13,8 @@ class Logintext extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            mailRe: '',
         }
     }
     render() {
@@ -32,7 +33,7 @@ class Logintext extends Component {
                                 <p>Es la única vez que tendrás que iniciar sesión.</p>
                             </div>
                         </div>
-                        <div className="andro_auth-form">
+                        <div className="andro_auth-form" id="loginBueno">
                             <h2>Ingresar</h2>
                             <form>
                                 <div className="form-group">
@@ -42,7 +43,7 @@ class Logintext extends Component {
                                     <input type="password" className="form-control" placeholder="Contraseña" name="Contraseña" onChange={this.password.bind(this)}/>
                                     <small style={{color: 'red', marginTop: '20px'}} id="lleneTodo" hidden>Ingrese todos los campos.</small>
                                 </div>
-                                <Link to="#">¿Te olvidaste la contraseña?</Link>
+                                <Link to="#" onClick={this.olvide.bind(this)}>¿Te olvidaste la contraseña?</Link>
                                 <button type="button" className="andro_btn-custom primary" id="ingresarC" onClick={this.login.bind(this)}>Ingresar</button>
                                 {/*<div className="andro_auth-seperator">
                                     <span>o</span>
@@ -54,6 +55,13 @@ class Logintext extends Component {
                                 <p>¿No tienes cuenta aún? <Link to="/register">Crear cuenta</Link> </p>
                             </form>
                         </div>
+                        <div id="recuperarC" style={{padding: '40px'}} hidden>
+                            <h5>Ingrese el correo electrónico del que quiere recuperar su contraseña: </h5>
+                            <div className="form-group">
+                                <input type="mail" className="form-control" placeholder="Correo Electrónico" name="email" onChange={this.mailRe.bind(this)}/>
+                            </div>
+                            <button type="button" className="andro_btn-custom primary" id="recuperarPass" style={{margin: '0 auto', display: 'block'}} onClick={this.recuperarMail.bind(this)}>Enviar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,14 +69,39 @@ class Logintext extends Component {
         );
     }
 
+    mailRe(event) {
+        this.setState({mailRe: event.target.value});
+    }
+
+    recuperarMail() {
+        document.getElementById('recuperarPass').innerHTML = 'Espere un momento...';
+        request
+            .get('https://despacha-me.herokuapp.com/api/recuperar/' + this.state.mailRe)
+            .set('Content-Type','aplication/json') 
+            .then(res =>{
+                console.log(res.body);
+                document.getElementById('recuperarPass').innerHTML = 'Enviar';
+                if (res.body.message) {
+                    alert(res.body.message);
+                    document.getElementById('recuperarC').setAttribute('hidden', '');
+                    document.getElementById('loginBueno').removeAttribute('hidden');
+                } else {
+                    alert(res.body);
+                }
+            });
+    }
+
     email(event) {
-        console.log(event.target.value);
         this.setState({email: event.target.value});
     }
 
     password(event) {
-        console.log(event.target.value);
         this.setState({password: event.target.value});
+    }
+
+    olvide() {
+        document.getElementById('recuperarC').removeAttribute('hidden');
+        document.getElementById('loginBueno').setAttribute('hidden', '');
     }
 
     login() {

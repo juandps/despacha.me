@@ -100,12 +100,16 @@ class Cartform extends Component {
                                         <td>{this.props.precio.toFixed(2)}$</td>
                                     </tr>
                                     <tr>
+                                        <th>Descuento</th>
+                                        <td>{(this.props.descuento.toFixed(2) * this.props.precio).toFixed(2)}$</td>
+                                    </tr>
+                                    <tr>
                                         <th>Envío</th>
                                         <td> 2.00$ {/*<span className="small">(11%)</span>*/} </td>
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td> <b>{(this.props.precio + 2).toFixed(2)}$</b> </td>
+                                        <td> <b>{((this.props.precio + 2).toFixed(2)-(this.props.descuento.toFixed(2) * this.props.precio)).toFixed(2)}$</b> </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -292,12 +296,12 @@ class Cartform extends Component {
                                     pedido: JSON.parse(window.localStorage.getItem('lista')),
                                     direccion: this.state.direccion,
                                     descrip: this.state.referencia,
-                                    total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
+                                    total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2 -(this.props.descuento.toFixed(2) * this.props.precio)).toFixed(2)
                                 },
                                 tarjeta: {
                                     codificado: codificado,
                                     cedula: JSON.parse(window.localStorage.getItem('conectado')).cedula,
-                                    total: ((parseFloat(window.localStorage.getItem('precioFinal')) + 2) * 100),
+                                    total: ((parseFloat(window.localStorage.getItem('precioFinal')) + 2 -(this.props.descuento.toFixed(2) * this.props.precio)).toFixed(2) * 100),
                                     email: JSON.parse(window.localStorage.getItem('conectado')).email
                                 }
                             }
@@ -336,7 +340,7 @@ class Cartform extends Component {
                                 pedido: JSON.parse(window.localStorage.getItem('lista')),
                                 direccion: this.state.direccion,
                                 descrip: this.state.referencia,
-                                total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2).toFixed(2)
+                                total: (parseFloat(window.localStorage.getItem('precioFinal')) + 2 -(this.props.descuento.toFixed(2) * this.props.precio)).toFixed(2)
                             }
                         }
                         console.log(object);
@@ -374,7 +378,7 @@ class Cartform extends Component {
         }
     }
 
-    componentDidMount() {    
+    componentDidMount() {
         init("user_qDFrBtNzAqkCUHVvMU9zn");
         if (window.localStorage.getItem('conectado')) {
             const usuario = JSON.parse(window.localStorage.getItem('conectado'));

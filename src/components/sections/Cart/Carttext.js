@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Cartform from '../../sections/Cart/Cartform';
+import * as request from 'superagent';
 
 import cartimg1 from '../../../assets/img/products/1.png';
 import cartimg2 from '../../../assets/img/products/5.png';
@@ -42,7 +43,9 @@ class Carttext extends Component {
                             </td>
                         </tr>,
             lista: [],
-            precioFinal: 0
+            precioFinal: 0,
+            cupon: '',
+            descuentof: 0.00
         }
     }
     render() {
@@ -70,20 +73,39 @@ class Carttext extends Component {
                         <div className="col-lg-5">
                             <div className="form-group mb-0">
                                 <div className="input-group mb-0">
-                                    <input type="text" className="form-control" placeholder="Ingrese su cupón" aria-label="Coupon Code" />
+                                    <input type="text" className="form-control" placeholder="Ingrese su cupón" aria-label="Coupon Code" onChange={this.cupones.bind(this)}/>
                                     <div className="input-group-append">
-                                        <button className="andro_btn-custom shadow-none" type="button">Aplicar</button>
+                                        <button className="andro_btn-custom shadow-none" onClick={this.aplicarCupon.bind(this)} type="button">Aplicar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {/* Coupon Code End */}
-                    <Cartform precio={this.state.precioFinal}/>
+                    <Cartform precio={this.state.precioFinal} descuento={this.state.descuentof}/>
                 </div>
             </div>
 
         );
+    }
+
+    cupones(event) {
+        this.setState({cupon: event.target.value});
+    }
+
+    aplicarCupon() {
+        request
+            .get('https://despacha-me.herokuapp.com/api/cupones/' + this.state.cupon)
+            .set('Content-Type','aplication/json') 
+            .then(res =>{
+                console.log(res.body);
+                if (res.body.cupon) {
+                    this.setState({descuentof: res.body.cupon.valor});
+                    alert(res.body.cupon.descrip);
+                } else {
+                    alert(res.body);
+                }
+            });
     }
 
     dibujarProd(datos) {
