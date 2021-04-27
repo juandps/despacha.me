@@ -154,10 +154,10 @@ class Shopboxes extends Component {
                                                 <label className="custom-control-label" htmlFor="customCheck3">Lácteos y Huevos</label>
                                             </div>
                                         </li>
-                                        <li hidden>
+                                        <li>
                                             <div className="custom-control custom-checkbox">
-                                                <input type="checkbox" className="custom-control-input" id="customCheck4" name="Proteinas" onClick={this.check.bind(this)}/>
-                                                <label className="custom-control-label" htmlFor="customCheck4">Proteinas</label>
+                                                <input type="checkbox" className="custom-control-input" id="customCheck4" name="Parrilla" onClick={this.check.bind(this)}/>
+                                                <label className="custom-control-label" htmlFor="customCheck4">Parrilla</label>
                                             </div>
                                         </li>
                                         <li>

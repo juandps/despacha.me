@@ -43,12 +43,12 @@ const categories = [
         icon: "flaticon-baby",
         title: "Proteinas",
         link: "#",
-    },
+    },*/
     {
         icon: "flaticon-olive-oil",
-        title: "Abarrotes",
+        title: "Parrilla",
         link: "#",
-    }*/
+    }
 ]
 
 class Headertwo extends Component {
@@ -117,11 +117,11 @@ class Headertwo extends Component {
                                         </Link>
                                     </div>
                                 </div>
-                                <div className="col-lg-6" hidden>
+                                <div className="col-lg-6">
                                     <div className="andro_icon-block text-center has-link">
                                         <Link>
-                                            <i className="flaticon-olive-oil" lang="Abarrotes" onClick={this.catCambiar.bind(this)}/>
-                                            <h5>Abarrotes</h5>
+                                            <i className="flaticon-olive-oil" lang="Parrilla" onClick={this.catCambiar.bind(this)}/>
+                                            <h5>Parrilla</h5>
                                         </Link>
                                     </div>
                                 </div>
@@ -278,7 +278,7 @@ class Headertwo extends Component {
                             <div className="container">
                                 <div className="row">
                                     {categories.map((item, i) => (
-                                        <div key={i} className="col-lg-4 col-md-3 col-sm-4">
+                                        <div key={i} className="col-lg-3 col-md-3 col-sm-4">
                                             <div className="andro_icon-block text-center has-link">
                                                 <Link to={item.link}>
                                                     <i className={item.icon} lang={item.title} onClick={this.catCambiar.bind(this)}/>
