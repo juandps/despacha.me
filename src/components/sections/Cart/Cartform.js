@@ -12,11 +12,102 @@ import * as crypto from 'crypto-js';
 import * as request from 'superagent';
 import{ init } from 'emailjs-com';
 import { send } from 'emailjs-com';
+import {Elements, CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
 import relatedimg1 from '../../../assets/img/products/5.png';
 import relatedimg2 from '../../../assets/img/products/14.png';
 import relatedimg3 from '../../../assets/img/products/12.png';
 import relatedimg4 from '../../../assets/img/products/6.png';
+
+const stripePromise = loadStripe('pk_test_51IqOsCIzMGrEbR6rZ5TCiago2mgvtW3rIddAdc3D7QD5bQlMypLTotZ4oADsW4bf50odbKitl2sorbm1jh7SrgsI004nSwjmIP');
+
+const PagoForm = (props) => {
+    const stripe = useStripe();
+    const elements = useElements();
+
+    let direccion;
+    let referencia;
+
+    const dir = (event) => {
+       direccion = event.target.value;
+    }
+
+    const ref = (event) => {
+        referencia = event.target.value;
+    }
+
+    const state = {
+        redirect2: false
+    }
+
+    const obtenerId = async () => {
+        const total = parseFloat(document.getElementById('totalTotal').textContent.slice(0, -1)) * 100;
+        console.log(total);
+        document.getElementById('botonPaga2').innerHTML = 'Espere un momento...';
+        const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: 'card',
+            card: elements.getElement(CardElement)
+        });
+
+        const pedido = {
+            data: JSON.parse(window.localStorage.getItem('conectado')),
+            pedido: JSON.parse(window.localStorage.getItem('lista')),
+            direccion: direccion,
+            descrip: referencia,
+            total: document.getElementById('totalTotal').textContent.slice(0, -1)
+        }
+
+        if (!error) {
+            await request
+                    .post('https://despacha-me.herokuapp.com/api/pago2')
+                    .send({id: paymentMethod.id, amount: total, pedido}) 
+                    .then(res =>{
+                        if (res.body.message) {
+                            const parametros = (JSON.parse(res.body.parametros));
+                            send('gmail', 'template_pxRoAu15', parametros)
+                            .then(resTOS => {
+                                console.log('Email successfully sent!');
+                                alert(res.body.message);
+                                window.localStorage.removeItem('lista');
+                                props.cambiar('listo'); 
+                            })
+                            .catch(err =>{console.log(err);})
+                        } else {
+                            document.getElementById('botonPaga2').innerHTML="Pagar";
+                            alert(res.body.error);
+                        }
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                        alert(err);
+                    });
+        } else {
+            alert(error.message);
+            //document.getElementById('helpFaltanDatos1').innerHTML = error.message;
+            document.getElementById('botonPaga2').innerHTML = 'Pagar';
+        }
+    }
+    if(state.redirect2) {
+        return <Redirect push to="/"/>
+    } else {
+        return  <div className="container" style={{marginTop: '20px'}}>
+                    <div className="row andro_cart-form">
+                        <div className="col-lg-6 col-12 andro_upsells">
+                                <form style={{marginTop: '30px', padding: '20px', border: 'solid 1px gainsboro'}}> 
+                                    <CardElement />
+                                </form>
+                        </div>
+                        <div className="col-lg-6 col-12 andro_upsells">
+                            <input className="inputTarjeta" placeholder="Dirección de entrega" id="dir" onChange={dir.bind(this)}/>
+                            <input className="inputTarjeta" placeholder="Referencia" id="ref" onChange={ref.bind(this)}/>
+                            <small id="helpFaltanDatos1" style={{color: 'red', marginTop: '20px', marginLeft: '20px'}} hidden>Ingrese todos los datos.</small>
+                        </div>
+                    </div>
+                    <Link to="#" onClick={obtenerId.bind(this)} id="botonPaga2" className="andro_btn-custom primary btn-block" style={{marginTop: '30px'}}>Pagar</Link>
+                </div>
+    }
+}
 
 class Cartform extends Component {
     constructor(props) {
@@ -109,7 +200,7 @@ class Cartform extends Component {
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td> <b>{((this.props.precio + 2).toFixed(2)-(this.props.descuento.toFixed(2) * this.props.precio)).toFixed(2)}$</b> </td>
+                                        <td> <b id="totalTotal">{((this.props.precio + 2).toFixed(2)-(this.props.descuento.toFixed(2) * this.props.precio)).toFixed(2)}$</b> </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -132,7 +223,10 @@ class Cartform extends Component {
                                 <div className="section-title">
                                     <h4 className="title">Tarjeta de crédito</h4>
                                 </div>
-                                <div className="container" style={{marginTop: '20px'}}>
+                                <Elements stripe={stripePromise}>
+                                    <PagoForm cambiar={this.cambio.bind(this)}/>
+                                </Elements>
+                                {/*<div className="container" style={{marginTop: '20px'}}>
                                     <div className="row andro_cart-form">
                                         <div className="col-lg-6 col-12 andro_upsells">
                                             <div id="PaymentForm">
@@ -186,7 +280,7 @@ class Cartform extends Component {
                                             </form>
                                         </div>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                             <div id="transferencia" hidden>
                                 <div className="section-title">
@@ -239,9 +333,16 @@ class Cartform extends Component {
         }
     }
 
+    cambio(cambio) {
+        if (cambio === 'listo') {
+            this.setState({redirect2: true});
+        }
+    }
+
     tipoTar() {
         document.getElementById('tarjeta').removeAttribute('hidden');
         document.getElementById('transferencia').setAttribute('hidden', '');
+        document.getElementById('botonPagar').setAttribute('hidden', '');
         this.state.paso = 2;
         this.state.tipo = 'tarjeta';
     }
@@ -249,6 +350,7 @@ class Cartform extends Component {
     tipoTrans() {
         document.getElementById('tarjeta').setAttribute('hidden', '');
         document.getElementById('transferencia').removeAttribute('hidden');
+        document.getElementById('botonPagar').removeAttribute('hidden');
         this.state.paso = 2;
         this.state.tipo = 'transferencia';
     }
@@ -263,17 +365,15 @@ class Cartform extends Component {
 
     pagarInicio() {
         if (window.localStorage.getItem('token')) {
-            console.log(window.localStorage.getItem('precioFinal'));
             if (window.localStorage.getItem('precioFinal') < 20) {
                 alert('El valor del pedido debe ser mayor a $20');
             } else {
                 document.getElementById('tipoPago').removeAttribute('hidden');
                 if (this.state.paso === 2) {
                     if (this.state.tipo === 'tarjeta') {
-                        document.getElementById('botonPagar').innerHTML="Espere un momento..."
-                        if (this.state.cvc && (this.state.expiry.length === 5) && this.state.name && this.state.number) {
-                            document.getElementById('helpFaltanDatos').setAttribute('hidden', '');
-                            // Datos tarjeta y codificar
+                        if (this.state.direccion && this.state.referencia) {
+                            /*document.getElementById('helpFaltanDatos').setAttribute('hidden', '');
+                            Datos tarjeta y codificar
                             const mes = this.state.expiry.charAt(0) + this.state.expiry.charAt(1);
                             const anio = this.state.expiry.charAt(3) + this.state.expiry.charAt(4);
                             const datos = {
@@ -318,8 +418,8 @@ class Cartform extends Component {
                                             alert(res.body.message);
                                             window.localStorage.removeItem('lista');
                                             this.setState({redirect2: true});
-                                    })
-                                    .catch(err =>{console.log(err);})
+                                        })
+                                        .catch(err =>{console.log(err);})
                                     } else {
                                         document.getElementById('botonPagar').innerHTML="Pagar";
                                         alert(res.body.error);
@@ -328,9 +428,10 @@ class Cartform extends Component {
                                 .catch(err =>{
                                     console.log(err);
                                     alert(err);
-                                })
+                                })*/
                         } else {
                             document.getElementById('helpFaltanDatos').removeAttribute('hidden');
+                            document.getElementById('botonPagar').innerHTML = "Pagar"
                         }
                     } else if (this.state.tipo === 'transferencia') {
                         document.getElementById('botonPagar').innerHTML="Espere un momento..."
@@ -383,8 +484,6 @@ class Cartform extends Component {
         if (window.localStorage.getItem('conectado')) {
             const usuario = JSON.parse(window.localStorage.getItem('conectado'));
             if (usuario.metodos) {
-                document.getElementById('dir').setAttribute('value', usuario.metodos[0].direc);
-                document.getElementById('ref').setAttribute('value', usuario.metodos[0].desc);
                 document.getElementById('dir2').setAttribute('value', usuario.metodos[0].direc);
                 document.getElementById('ref2').setAttribute('value', usuario.metodos[0].desc);
                 this.setState({direccion: usuario.metodos[0].direc});
