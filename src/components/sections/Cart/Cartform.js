@@ -20,7 +20,7 @@ import relatedimg2 from '../../../assets/img/products/14.png';
 import relatedimg3 from '../../../assets/img/products/12.png';
 import relatedimg4 from '../../../assets/img/products/6.png';
 
-const stripePromise = loadStripe('pk_test_51IqOsCIzMGrEbR6rZ5TCiago2mgvtW3rIddAdc3D7QD5bQlMypLTotZ4oADsW4bf50odbKitl2sorbm1jh7SrgsI004nSwjmIP');
+const stripePromise = loadStripe('pk_live_51HCx7zLMv7vO1k9CkjPNw2ewZnrhuVepgyWJeWuDUvgULUlR0WFBBQuC8Sx1kn4qI9pmv63nvpqdcfDiYgf3fmRE003ulsxDuJ');
 
 const PagoForm = (props) => {
     const stripe = useStripe();
